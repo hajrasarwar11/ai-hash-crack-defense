@@ -48,24 +48,25 @@ st.set_page_config(
 # ─────────────────────────────────────────
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,400;9..144,1,300;9..144,1,400&display=swap');
 
 :root {
-    --bg:        #0d0d0d;
-    --bg2:       #141414;
-    --bg3:       #1a1a1a;
-    --border:    #1e1e1e;
-    --border2:   #262626;
-    --border3:   #2e2e2e;
+    --bg:        #0c0c0c;
+    --bg2:       #131313;
+    --bg3:       #191919;
+    --border:    #1f1f1f;
+    --border2:   #252525;
+    --border3:   #303030;
     --gold:      #c9a84c;
-    --gold-dim:  #8a7133;
+    --gold2:     #dfc07a;
+    --gold-dim:  #7a6030;
     --gold-glow: rgba(201,168,76,0.07);
-    --text:      #e8e8e8;
-    --text-mid:  #7a7a7a;
-    --text-dim:  #444444;
-    --red:       #c86060;
+    --text:      #eaeaea;
+    --text-mid:  #888888;
+    --text-dim:  #484848;
+    --red:       #cc5f5f;
     --green:     #4daa7a;
-    --purple:    #8878cc;
+    --purple:    #8470cc;
     --orange:    #c47a44;
     --font:      'DM Sans', sans-serif;
     --mono:      'DM Mono', monospace;
@@ -80,7 +81,7 @@ html, body, [class*="css"] {
     background-color: var(--bg) !important;
 }
 
-/* ── STREAMLIT CHROME ── */
+/* ══ STREAMLIT CHROME ══════════════════════════════ */
 header[data-testid="stHeader"],
 [data-testid="stToolbar"] {
     background: var(--bg) !important;
@@ -90,7 +91,7 @@ header[data-testid="stHeader"],
 [data-testid="stDecoration"] { display: none !important; }
 #MainMenu, footer { visibility: hidden !important; }
 
-/* ── BACKGROUNDS ── */
+/* ══ BACKGROUNDS ════════════════════════════════════ */
 .stApp,
 [data-testid="stAppViewContainer"],
 [data-testid="stAppViewBlockContainer"],
@@ -98,13 +99,13 @@ header[data-testid="stHeader"],
     background-color: var(--bg) !important;
 }
 [data-testid="stAppViewBlockContainer"] {
-    padding-top: 2.5rem !important;
-    padding-left: 3rem !important;
-    padding-right: 3rem !important;
-    max-width: 1160px !important;
+    padding-top: 3rem !important;
+    padding-left: 3.5rem !important;
+    padding-right: 3.5rem !important;
+    max-width: 1180px !important;
 }
 
-/* ── SIDEBAR ── */
+/* ══ SIDEBAR ════════════════════════════════════════ */
 section[data-testid="stSidebar"] {
     background: var(--bg2) !important;
     border-right: 1px solid var(--border) !important;
@@ -112,9 +113,17 @@ section[data-testid="stSidebar"] {
 section[data-testid="stSidebar"] > div { background: var(--bg2) !important; }
 section[data-testid="stSidebar"] * { color: var(--text-mid) !important; }
 
+/* hide radio dots */
+[data-testid="stSidebar"] [data-baseweb="radio"],
+[data-testid="stSidebar"] [role="radio"],
+[data-testid="stSidebar"] .stRadio [data-testid="stWidgetLabel"],
+[data-testid="stSidebar"] .stRadio span[data-baseweb="radio"],
+[data-testid="stSidebar"] .stRadio div[role="radiogroup"] > label > div:first-child,
+[data-testid="stSidebar"] input[type="radio"] { display: none !important; }
+
 [data-testid="stSidebar"] .stRadio > div {
     gap: 2px !important;
-    padding: 0 10px !important;
+    padding: 0 12px !important;
 }
 [data-testid="stSidebar"] .stRadio label {
     display: flex !important;
@@ -122,7 +131,7 @@ section[data-testid="stSidebar"] * { color: var(--text-mid) !important; }
     padding: 0.55rem 0.9rem !important;
     border-radius: 6px !important;
     cursor: pointer !important;
-    font-size: 0.84rem !important;
+    font-size: 0.85rem !important;
     font-weight: 400 !important;
     color: var(--text-dim) !important;
     letter-spacing: 0.01em !important;
@@ -137,25 +146,19 @@ section[data-testid="stSidebar"] * { color: var(--text-mid) !important; }
 [data-testid="stSidebar"] .stRadio label[data-checked="true"],
 [data-testid="stSidebar"] .stRadio [aria-checked="true"] ~ label,
 [data-testid="stSidebar"] .stRadio input:checked + div {
-    background: rgba(201,168,76,0.07) !important;
+    background: rgba(201,168,76,0.08) !important;
     color: var(--gold) !important;
     border-left-color: var(--gold) !important;
     font-weight: 500 !important;
 }
-[data-testid="stSidebar"] [data-baseweb="radio"],
-[data-testid="stSidebar"] [role="radio"],
-[data-testid="stSidebar"] .stRadio [data-testid="stWidgetLabel"],
-[data-testid="stSidebar"] .stRadio span[data-baseweb="radio"],
-[data-testid="stSidebar"] .stRadio div[role="radiogroup"] > label > div:first-child,
-[data-testid="stSidebar"] input[type="radio"] { display: none !important; }
 
-/* ── TYPOGRAPHY ── */
+/* ══ GLOBAL TEXT ════════════════════════════════════ */
 h1, h2, h3, h4 {
     font-family: var(--display) !important;
     color: var(--text) !important;
     font-weight: 300 !important;
-    letter-spacing: -0.02em !important;
-    line-height: 1.2 !important;
+    letter-spacing: -0.025em !important;
+    line-height: 1.15 !important;
 }
 html, body, p, span, div, label, li, .stMarkdown, .stText {
     color: var(--text) !important;
@@ -163,112 +166,146 @@ html, body, p, span, div, label, li, .stMarkdown, .stText {
 }
 .stMarkdown p {
     color: var(--text-mid) !important;
-    font-size: 0.9rem !important;
-    line-height: 1.75 !important;
+    font-size: 0.92rem !important;
+    line-height: 1.8 !important;
+    font-weight: 300 !important;
 }
 
-/* ── BUTTONS ── */
+/* ══ PAGE HEADER — reference image 2 style ══════════ */
+/* The page_header() helper already uses inline HTML,
+   so these h1 rules polish st.header / st.title if used */
+.stMarkdown h1 {
+    font-size: 3rem !important;
+    font-weight: 300 !important;
+    font-family: var(--display) !important;
+    color: var(--text) !important;
+    letter-spacing: -0.03em !important;
+    line-height: 1.1 !important;
+    margin-bottom: 0.1em !important;
+}
+
+/* ══ BUTTONS ════════════════════════════════════════ */
 .stButton > button {
     background: transparent !important;
     color: var(--gold) !important;
-    border: 1px solid var(--border2) !important;
-    border-radius: 7px !important;
+    border: 1px solid var(--border3) !important;
+    border-radius: 6px !important;
     font-family: var(--font) !important;
-    font-size: 0.76rem !important;
+    font-size: 0.74rem !important;
     font-weight: 500 !important;
-    letter-spacing: 0.07em !important;
+    letter-spacing: 0.09em !important;
     text-transform: uppercase !important;
-    padding: 0.58rem 1.3rem !important;
+    padding: 0.6rem 1.3rem !important;
     width: 100% !important;
     transition: all 0.16s ease !important;
 }
 .stButton > button:hover {
-    border-color: var(--gold-dim) !important;
+    border-color: var(--gold) !important;
     background: var(--gold-glow) !important;
-    color: var(--text) !important;
+    color: var(--gold2) !important;
 }
 .stButton > button:active { transform: scale(0.98) !important; }
 
-/* ── INPUTS ── */
+/* ══ INPUTS ═════════════════════════════════════════ */
 .stTextInput > div > div > input,
 .stTextArea > div > div > textarea {
     background: var(--bg2) !important;
     color: var(--text) !important;
     border: 1px solid var(--border2) !important;
-    border-radius: 7px !important;
+    border-radius: 6px !important;
     font-family: var(--font) !important;
-    font-size: 0.87rem !important;
-    padding: 0.62rem 0.95rem !important;
+    font-size: 0.88rem !important;
+    font-weight: 300 !important;
+    padding: 0.65rem 1rem !important;
     transition: border-color 0.15s !important;
     caret-color: var(--gold) !important;
 }
 .stTextInput > div > div > input::placeholder,
 .stTextArea > div > div > textarea::placeholder {
     color: var(--text-dim) !important;
+    font-weight: 300 !important;
 }
 .stTextInput > div > div > input:focus,
 .stTextArea > div > div > textarea:focus {
     border-color: var(--gold-dim) !important;
     background: var(--bg3) !important;
-    box-shadow: 0 0 0 3px var(--gold-glow) !important;
     outline: none !important;
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.06) !important;
+}
+.stTextInput label,
+.stTextArea label,
+.stSelectbox label,
+.stSlider label,
+.stRadio label {
+    font-size: 0.7rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    color: var(--text-dim) !important;
+    margin-bottom: 0.35rem !important;
 }
 
-/* ── SELECT ── */
+/* ══ SELECT ══════════════════════════════════════════ */
 .stSelectbox > div > div {
     background: var(--bg2) !important;
     color: var(--text) !important;
     border: 1px solid var(--border2) !important;
-    border-radius: 7px !important;
+    border-radius: 6px !important;
     font-family: var(--font) !important;
+    font-size: 0.88rem !important;
 }
 .stSelectbox svg { fill: var(--gold) !important; }
 
-/* ── METRICS ── */
+/* ══ METRICS — image 2 card style ══════════════════ */
 [data-testid="stMetric"] {
     background: var(--bg2) !important;
-    border: 1px solid var(--border) !important;
-    border-radius: 10px !important;
-    padding: 1.25rem 1.4rem !important;
+    border: 1px solid var(--border2) !important;
+    border-radius: 12px !important;
+    padding: 1.3rem 1.4rem 1.1rem !important;
     position: relative !important;
     overflow: hidden !important;
-    transition: border-color 0.18s, box-shadow 0.18s !important;
+    transition: border-color 0.18s !important;
 }
-[data-testid="stMetric"]::after {
+/* gold top line accent */
+[data-testid="stMetric"]::before {
     content: '' !important;
     position: absolute !important;
-    top: 0; left: 15%; right: 15% !important;
+    top: 0; left: 20%; right: 20% !important;
     height: 1px !important;
-    background: linear-gradient(90deg, transparent, var(--gold-dim), transparent) !important;
+    background: linear-gradient(90deg,
+        transparent, var(--gold-dim) 40%,
+        var(--gold) 50%, var(--gold-dim) 60%, transparent) !important;
 }
 [data-testid="stMetric"]:hover {
     border-color: var(--border3) !important;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
 }
 [data-testid="stMetric"] * { color: var(--text) !important; }
 [data-testid="stMetricLabel"] {
-    font-size: 0.62rem !important;
-    font-weight: 500 !important;
-    letter-spacing: 0.12em !important;
+    font-size: 0.58rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.18em !important;
     text-transform: uppercase !important;
     color: var(--text-dim) !important;
     font-family: var(--font) !important;
+    line-height: 1.5 !important;
 }
 [data-testid="stMetricValue"] {
-    font-size: 2rem !important;
+    font-size: 2.2rem !important;
     font-weight: 300 !important;
     font-family: var(--display) !important;
     color: var(--text) !important;
-    letter-spacing: -0.02em !important;
+    letter-spacing: -0.03em !important;
     line-height: 1.2 !important;
+    margin: 0.2rem 0 !important;
 }
 [data-testid="stMetricDelta"] {
-    font-size: 0.68rem !important;
+    font-size: 0.67rem !important;
     color: var(--text-dim) !important;
     font-family: var(--font) !important;
+    font-weight: 400 !important;
 }
 
-/* ── TABS ── */
+/* ══ TABS ════════════════════════════════════════════ */
 .stTabs [data-baseweb="tab-list"] {
     background: transparent !important;
     border-bottom: 1px solid var(--border) !important;
@@ -278,29 +315,25 @@ html, body, p, span, div, label, li, .stMarkdown, .stText {
 .stTabs [data-baseweb="tab"] {
     background: transparent !important;
     color: var(--text-dim) !important;
-    font-size: 0.69rem !important;
+    font-size: 0.67rem !important;
     font-weight: 500 !important;
-    letter-spacing: 0.1em !important;
+    letter-spacing: 0.12em !important;
     text-transform: uppercase !important;
-    padding: 0.75rem 1.25rem !important;
+    padding: 0.78rem 1.3rem !important;
     border-bottom: 2px solid transparent !important;
     border-radius: 0 !important;
-    transition: color 0.15s !important;
+    transition: color 0.14s !important;
     font-family: var(--font) !important;
 }
-.stTabs [data-baseweb="tab"]:hover {
-    color: var(--text-mid) !important;
-}
+.stTabs [data-baseweb="tab"]:hover { color: var(--text-mid) !important; }
 .stTabs [aria-selected="true"] {
     color: var(--gold) !important;
     border-bottom-color: var(--gold) !important;
     background: transparent !important;
 }
-.stTabs [data-baseweb="tab-panel"] {
-    padding-top: 1.5rem !important;
-}
+.stTabs [data-baseweb="tab-panel"] { padding-top: 1.6rem !important; }
 
-/* ── PROGRESS ── */
+/* ══ PROGRESS ════════════════════════════════════════ */
 .stProgress > div > div > div {
     background: linear-gradient(90deg, var(--gold-dim), var(--gold)) !important;
     border-radius: 99px !important;
@@ -311,33 +344,35 @@ html, body, p, span, div, label, li, .stMarkdown, .stText {
     height: 3px !important;
 }
 
-/* ── CODE ── */
+/* ══ CODE ════════════════════════════════════════════ */
 code, .stCode, pre {
     background: var(--bg2) !important;
     color: var(--gold) !important;
     font-family: var(--mono) !important;
     font-size: 0.81rem !important;
     border: 1px solid var(--border2) !important;
-    border-radius: 7px !important;
+    border-radius: 6px !important;
 }
 
-/* ── DATAFRAMES ── */
+/* ══ DATAFRAMES ══════════════════════════════════════ */
 [data-testid="stDataFrame"] {
     background: var(--bg2) !important;
     border: 1px solid var(--border) !important;
     border-radius: 10px !important;
     overflow: hidden !important;
+    font-size: 0.83rem !important;
 }
 
-/* ── ALERTS ── */
+/* ══ ALERTS ══════════════════════════════════════════ */
 [data-testid="stAlert"] {
     border-radius: 8px !important;
-    font-size: 0.85rem !important;
+    font-size: 0.84rem !important;
     font-family: var(--font) !important;
+    font-weight: 400 !important;
     border-width: 1px !important;
 }
 
-/* ── EXPANDERS ── */
+/* ══ EXPANDERS ═══════════════════════════════════════ */
 [data-testid="stExpander"] {
     background: var(--bg2) !important;
     border: 1px solid var(--border) !important;
@@ -347,60 +382,54 @@ code, .stCode, pre {
 [data-testid="stExpander"]:hover { border-color: var(--border2) !important; }
 [data-testid="stExpander"] * { color: var(--text) !important; }
 [data-testid="stExpander"] summary {
-    font-size: 0.87rem !important;
+    font-size: 0.88rem !important;
+    font-weight: 400 !important;
     padding: 0.85rem 1.1rem !important;
 }
 [data-testid="stExpander"] summary:hover { color: var(--gold) !important; }
 
-/* ── MISC ── */
-hr {
-    border: none !important;
-    border-top: 1px solid var(--border) !important;
-    margin: 1.8rem 0 !important;
-}
-.stCheckbox > label {
-    color: var(--text-mid) !important;
-    font-size: 0.86rem !important;
-}
+/* ══ SLIDER ══════════════════════════════════════════ */
 .stSlider > div > div > div { background: var(--gold) !important; }
 [data-testid="stSlider"] > div > div > div > div { background: var(--border2) !important; }
 
-/* ── INPUT LABELS ── */
-.stTextInput label,
-.stTextArea label,
-.stSelectbox label,
-.stSlider label {
-    font-size: 0.72rem !important;
-    font-weight: 500 !important;
-    letter-spacing: 0.08em !important;
-    color: var(--text-dim) !important;
-    text-transform: uppercase !important;
+/* ══ CHECKBOX ════════════════════════════════════════ */
+.stCheckbox > label {
+    color: var(--text-mid) !important;
+    font-size: 0.86rem !important;
+    font-weight: 400 !important;
 }
 
-/* ── SCROLLBAR ── */
-::-webkit-scrollbar { width: 4px; height: 4px; }
+/* ══ HR ══════════════════════════════════════════════ */
+hr {
+    border: none !important;
+    border-top: 1px solid var(--border) !important;
+    margin: 2rem 0 !important;
+}
+
+/* ══ SCROLLBAR ═══════════════════════════════════════ */
+::-webkit-scrollbar { width: 3px; height: 3px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 99px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--gold-dim); }
 
-/* ── ANIMATIONS ── */
+/* ══ ANIMATIONS ══════════════════════════════════════ */
 @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(10px); }
+    from { opacity: 0; transform: translateY(12px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 .main .block-container {
-    animation: fadeUp 0.35s cubic-bezier(0.22,1,0.36,1) both !important;
+    animation: fadeUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) both !important;
 }
 section[data-testid="stSidebar"] {
-    animation: fadeIn 0.4s ease both !important;
+    animation: fadeIn 0.35s ease both !important;
 }
 [data-testid="stMetric"] {
-    animation: fadeUp 0.35s cubic-bezier(0.22,1,0.36,1) both !important;
+    animation: fadeUp 0.35s cubic-bezier(0.22, 1, 0.36, 1) both !important;
 }
 
-/* ── TEXT SELECTION ── */
+/* ══ TEXT SELECTION ══════════════════════════════════ */
 ::selection {
     background: rgba(201,168,76,0.15);
     color: var(--text);
@@ -408,48 +437,83 @@ section[data-testid="stSidebar"] {
 </style>
 """, unsafe_allow_html=True)
 
+
 # ─────────────────────────────────────────
 # HELPER FUNCTIONS
 # ─────────────────────────────────────────
 
 def page_header(title, subtitle=""):
-    tag = subtitle if subtitle else ""
+    # Split title at '&' so second part renders in gold italic (like image 2)
+    parts = title.split("&", 1)
+    main  = parts[0].strip()
+    rest  = ("& " + parts[1].strip()) if len(parts) > 1 else ""
+
+    tag_html = ""
+    if subtitle:
+        tag_html = f"""
+        <div style="font-size:0.6rem;font-weight:600;color:#7a6030;
+                    letter-spacing:0.22em;text-transform:uppercase;
+                    margin-bottom:1.1rem;font-family:'DM Sans',sans-serif;">
+            {subtitle}
+        </div>"""
+
+    gold_line = ""
+    if rest:
+        gold_line = f"""
+        <div style="font-size:3rem;font-weight:300;line-height:1.1;
+                    letter-spacing:-0.03em;
+                    color:#c9a84c;font-style:italic;
+                    font-family:'Fraunces',serif;">
+            {rest}
+        </div>"""
+
     st.markdown(f"""
-    <div style="padding:2.8rem 0 2rem; margin-bottom:1.4rem; border-bottom:1px solid #181818;">
-        {f'<div style="font-size:0.6rem;font-weight:700;color:#7a6530;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:1rem;font-family:Syne,sans-serif;">{tag}</div>' if tag else ''}
-        <div style="color:#efefef;font-size:2.8rem;font-weight:400;line-height:1.1;letter-spacing:-0.02em;font-family:\'Instrument Serif\',serif;">{title}</div>
+    <div style="padding:3rem 0 2.2rem;border-bottom:1px solid #1f1f1f;margin-bottom:1.8rem;">
+        {tag_html}
+        <div style="font-size:3rem;font-weight:300;line-height:1.1;
+                    letter-spacing:-0.03em;color:#eaeaea;
+                    font-family:'Fraunces',serif;">
+            {main}
+        </div>
+        {gold_line}
     </div>
     """, unsafe_allow_html=True)
 
 
 def section(text):
     st.markdown(f"""
-    <div style="font-size:0.58rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;
-         color:#383838;padding-bottom:0.6rem;margin:2rem 0 1.1rem;
-         border-bottom:1px solid #181818;font-family:Syne,sans-serif;">
-         {text}</div>""", unsafe_allow_html=True)
+    <div style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;
+                text-transform:uppercase;color:#484848;
+                padding-bottom:0.55rem;margin:2rem 0 1.1rem;
+                border-bottom:1px solid #1f1f1f;
+                font-family:'DM Sans',sans-serif;">
+        {text}
+    </div>""", unsafe_allow_html=True)
 
 
 def make_chart(fig):
+    import io
     buf = io.BytesIO()
     fig.savefig(buf, format="png", dpi=130, bbox_inches="tight",
-                facecolor="#070707", edgecolor="none")
+                facecolor="#0c0c0c", edgecolor="none")
+    import matplotlib.pyplot as plt
     plt.close(fig)
     buf.seek(0)
     return buf
 
 
 def style_axes(ax, title=""):
-    ax.set_facecolor("#0e0e0e")
-    ax.tick_params(colors="#383838", labelsize=8)
+    ax.set_facecolor("#131313")
+    ax.tick_params(colors="#484848", labelsize=8)
     for spine in ax.spines.values():
-        spine.set_edgecolor("#181818")
+        spine.set_edgecolor("#1f1f1f")
     if title:
-        ax.set_title(title, color="#757575", fontsize=9, fontweight="normal", pad=10)
-    ax.xaxis.label.set_color("#383838")
-    ax.yaxis.label.set_color("#383838")
-    ax.figure.patch.set_facecolor("#070707")
-
+        ax.set_title(title, color="#666666", fontsize=9,
+                     fontweight="normal", pad=10)
+    ax.xaxis.label.set_color("#484848")
+    ax.yaxis.label.set_color("#484848")
+    ax.figure.patch.set_facecolor("#0c0c0c")
+    
 
 # ─────────────────────────────────────────
 # SIDEBAR
