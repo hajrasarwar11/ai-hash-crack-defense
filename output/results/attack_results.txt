@@ -48,7 +48,7 @@ Targets: 5
 Cracked: 5
 Success rate: 100.00%
 Attempts: 1,342,359
-Time (seconds): 5.6762
+Time (seconds): 4.9481
 
 Recovered passwords:
   1a1dc91c9073... -> pass
@@ -105,7 +105,7 @@ Targets: 5
 Cracked: 5
 Success rate: 100.00%
 Attempts: 1,342,359
-Time (seconds): 3.4142
+Time (seconds): 4.8793
 
 Recovered passwords:
   9d4e1e23bd5b... -> pass
@@ -117,4 +117,4 @@ Recovered passwords:
 
 OVERALL SUMMARY
 Average success rate: 100.00%
-Total cracking time: 9.0907 seconds
+Total cracking time: 9.8277 seconds
