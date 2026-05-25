@@ -46,13 +46,7 @@ st.set_page_config(
 # ─────────────────────────────────────────
 # CSS  ── Luxury Dark · Syne + Instrument Serif
 # ─────────────────────────────────────────
-"""
-CryptLab — New CSS Block
-Replace the existing st.markdown(\"\"\"<style>...</style>\"\"\", unsafe_allow_html=True)
-with this one. Paste after the imports section.
-"""
-
-NEW_STYLE = """
+st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500&display=swap');
 
@@ -370,7 +364,8 @@ section[data-testid="stSidebar"] { animation: fadeIn 0.5s ease both !important; 
 /* ── TEXT SELECTION ── */
 ::selection { background: rgba(200,168,75,0.18); color: var(--text); }
 </style>
-"""
+""", unsafe_allow_html=True)
+
 
 # ─────────────────────────────────────────
 # HELPER FUNCTIONS
@@ -416,29 +411,18 @@ def style_axes(ax, title=""):
 
 
 # ─────────────────────────────────────────
-# SIDEBAR HTML
+# SIDEBAR
 # ─────────────────────────────────────────
-
-SIDEBAR_HTML = """
-<div style='padding:2rem 0.5rem 1.4rem 1rem;'>
-    <div style='display:flex;align-items:center;gap:0.6rem;margin-bottom:0.5rem;'>
-        <span style='font-size:1rem;'>🔐</span>
-        <span style='font-size:0.95rem;font-weight:800;color:#c8a84b;letter-spacing:0.16em;font-family:Syne,sans-serif;'>CRYPTLAB</span>
-    </div>
-    <div style='font-size:0.56rem;color:#383838;letter-spacing:0.18em;text-transform:uppercase;font-family:Syne,sans-serif;padding-left:0.1rem;'>Vulnerability Assessment</div>
-</div>
-"""
-
-SIDEBAR_DIVIDER = "<div style='height:1px;background:#181818;margin:0 0 0.8rem;'></div>"
-
-SIDEBAR_FOOTER = """
-<div style='font-size:0.56rem;color:#2a2a2a;letter-spacing:0.12em;padding:0 0.3rem;font-family:JetBrains Mono,monospace;'>Python · hashlib · bcrypt · argon2</div>
-"""
-
-
-
-
-
+with st.sidebar:
+    st.markdown("""
+    <div style='padding:1.8rem 0.5rem 1.2rem 1rem;'>
+        <div style='display:flex;align-items:center;gap:0.55rem;margin-bottom:0.4rem;'>
+            <span style='font-size:1rem;'>🔐</span>
+            <span style='font-size:0.9rem;font-weight:800;color:#c8a84b;letter-spacing:0.16em;font-family:Syne,sans-serif;'>CRYPTLAB</span>
+        </div>
+        <div style='font-size:0.54rem;color:#2e2e2e;letter-spacing:0.18em;text-transform:uppercase;font-family:Syne,sans-serif;'>Vulnerability Assessment</div>
+    </div>""", unsafe_allow_html=True)
+    st.markdown("<div style='height:1px;background:#181818;margin:0 0 0.7rem;'></div>", unsafe_allow_html=True)
 
     page = st.radio("Navigation", [
         "🏠  Overview",
