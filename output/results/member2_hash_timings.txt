@@ -1,0 +1,3 @@
+Hash timing (average seconds per hash)
+MD5: 0.00000186
+SHA1: 0.00000163

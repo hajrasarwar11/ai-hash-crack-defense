@@ -1,0 +1,22 @@
+Top predicted weak passwords (probability)
+=
+1.0000: 123456
+1.0000: qwerty
+1.0000: 111111
+1.0000: abc123
+1.0000: dragon
+1.0000: 12345
+1.0000: admin
+1.0000: letmein
+1.0000: master
+1.0000: hello
+1.0000: welcome
+1.0000: monkey
+1.0000: pass
+1.0000: login
+1.0000: 1002
+1.0000: 1003
+1.0000: test
+1.0000: guest
+1.0000: root
+1.0000: toor

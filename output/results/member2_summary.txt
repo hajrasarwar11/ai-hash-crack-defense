@@ -1,0 +1,7 @@
+Member 2 Analysis Summary
+=
+Passwords analyzed: 30
+Feature CSV: C:\Users\admin\Downloads\Projects\Projects\hash-vuln-assessment\output\results\member2_features.csv
+Trained model: C:\Users\admin\Downloads\Projects\Projects\hash-vuln-assessment\output\results\member2_model.pkl
+Attack predictions: C:\Users\admin\Downloads\Projects\Projects\hash-vuln-assessment\output\results\member2_attack_prediction.txt
+Hash timings: C:\Users\admin\Downloads\Projects\Projects\hash-vuln-assessment\output\results\member2_hash_timings.txt
