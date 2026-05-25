@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "nWJpvMnIAZ0Pr3qT1qppv"
+uri = "file://DEVELOPER_GUIDE.md"
+type = "text"
+title = "Developer Guide — Edit Karne ke Instructions"
