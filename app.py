@@ -1729,7 +1729,7 @@ elif "About" in page:
          padding:1.2rem 1.5rem;text-align:center;'>
         <span style='color:#555555;font-size:0.72rem;letter-spacing:2px;'>
         CRYPTANALYSIS OF WEAK PASSWORD HASHING SYSTEMS AND AI-BASED DEFENCE MECHANISM
-        &nbsp;·&nbsp; UNIVERSITY PROJECT &nbsp;·&nbsp; 2024–2025
+        &nbsp;·&nbsp; UNIVERSITY PROJECT &nbsp;·&nbsp; 2026–2027
         </span>
     </div>
     """, unsafe_allow_html=True)
