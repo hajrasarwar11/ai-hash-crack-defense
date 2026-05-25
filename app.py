@@ -219,6 +219,7 @@ with st.sidebar:
         "🔬  Member 2 — Cryptanalysis",
         "🛡️  Member 3 — Defence System",
         "📊  Validation Metrics",
+        "📄  Generate PDF Report",
     ], label_visibility="collapsed")
 
     st.markdown("---")
@@ -340,9 +341,9 @@ elif "Hash Lab" in page:
 
         inp_col, algo_col = st.columns([3, 1])
         with inp_col:
-            pwd_input = st.text_input("", placeholder="Enter any password...", label_visibility="collapsed")
+            pwd_input = st.text_input("Password input", placeholder="Enter any password...", label_visibility="collapsed")
         with algo_col:
-            algo = st.selectbox("", ["md5", "sha1", "both"], label_visibility="collapsed")
+            algo = st.selectbox("Algorithm", ["md5", "sha1", "both"], label_visibility="collapsed")
 
         if pwd_input:
             st.markdown("<br>", unsafe_allow_html=True)
@@ -1056,6 +1057,99 @@ elif "Validation" in page:
             <b style='color:#a78bfa;'>strict password policies</b>, significantly improves security
             and drastically reduces the attack success rate.
             </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+
+# ══════════════════════════════════════════
+# PAGE: GENERATE PDF REPORT
+# ══════════════════════════════════════════
+elif "PDF Report" in page:
+    page_header("📄 GENERATE PDF REPORT", "Full Academic Report — All Results, Charts & Tables")
+
+    st.markdown("""
+    <div style='background:#0f1e35;border:1px solid #1e4a7a;border-radius:8px;padding:1.5rem;margin-bottom:1rem;'>
+        <div style='color:#4fc3f7;font-weight:700;font-size:1rem;margin-bottom:0.5rem;'>📋 What the report includes:</div>
+        <div style='display:grid;grid-template-columns:1fr 1fr;gap:0.4rem;'>
+            <div style='color:#c9d4e0;font-size:0.85rem;'>✓  Title page with project info</div>
+            <div style='color:#c9d4e0;font-size:0.85rem;'>✓  Introduction & objectives</div>
+            <div style='color:#c9d4e0;font-size:0.85rem;'>✓  Member 1 — Hash Lab (MD5/SHA-1)</div>
+            <div style='color:#c9d4e0;font-size:0.85rem;'>✓  Member 1 — Attack simulation results</div>
+            <div style='color:#c9d4e0;font-size:0.85rem;'>✓  Member 2 — Entropy analysis charts</div>
+            <div style='color:#c9d4e0;font-size:0.85rem;'>✓  Member 2 — ML classifier results</div>
+            <div style='color:#c9d4e0;font-size:0.85rem;'>✓  Member 3 — bcrypt/Argon2 demo</div>
+            <div style='color:#c9d4e0;font-size:0.85rem;'>✓  Member 3 — Password policy audit</div>
+            <div style='color:#c9d4e0;font-size:0.85rem;'>✓  Validation metrics & comparison</div>
+            <div style='color:#c9d4e0;font-size:0.85rem;'>✓  5 charts embedded in PDF</div>
+            <div style='color:#c9d4e0;font-size:0.85rem;'>✓  9 data tables with real results</div>
+            <div style='color:#c9d4e0;font-size:0.85rem;'>✓  Conclusion & recommendations</div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.warning("⚠  Report generation runs ALL analyses live (including bcrypt/Argon2 benchmarks). This takes **30–60 seconds**. Please wait until the download button appears.")
+
+    if st.button("🚀 Generate Full PDF Report"):
+        from report_generator import generate_report
+
+        progress_bar  = st.progress(0)
+        status_text   = st.empty()
+        total_steps   = 12
+
+        def update_progress(step, total, msg):
+            pct = int(step / total * 100)
+            progress_bar.progress(pct)
+            status_text.markdown(f"<div style='color:#4fc3f7;font-size:0.85rem;'>⏳ Step {step}/{total}: {msg}</div>", unsafe_allow_html=True)
+
+        try:
+            with st.spinner("Generating report..."):
+                pdf_bytes = generate_report(progress_cb=update_progress)
+
+            progress_bar.progress(100)
+            status_text.markdown("<div style='color:#34d399;font-size:0.9rem;font-weight:700;'>✓  Report generated successfully!</div>", unsafe_allow_html=True)
+
+            st.success("✅  PDF report is ready! Click below to download.")
+
+            fname = f"Cryptanalysis_Report_{time.strftime('%Y%m%d_%H%M')}.pdf"
+            st.download_button(
+                label="⬇️  Download PDF Report",
+                data=pdf_bytes,
+                file_name=fname,
+                mime="application/pdf",
+            )
+
+            r1, r2, r3 = st.columns(3)
+            r1.metric("Pages",   "~10")
+            r2.metric("Charts",  "5")
+            r3.metric("Tables",  "9")
+
+        except Exception as e:
+            st.error(f"Error generating report: {e}")
+            st.info("Make sure you have run the dataset generation in Hash Lab first.")
+
+    st.markdown("---")
+    section("Report Structure Preview")
+    preview_sections = [
+        ("Page 1", "Title Page", "Project name, member list, tools, date"),
+        ("Page 2", "Introduction", "Objectives, tools & technologies table"),
+        ("Page 3", "Member 1 — Hash Lab", "MD5/SHA-1 hashing, no-salt vulnerability, dataset table"),
+        ("Page 4", "Member 1 — Attacks", "Dictionary + brute-force results, Figure 1 (bar charts), Table 3"),
+        ("Page 5", "Member 2 — Entropy", "Shannon entropy analysis, Figure 2 (3 charts), statistics"),
+        ("Page 6", "Member 2 — Patterns & ML", "Pattern analysis, Figure 3, ML attack prediction table"),
+        ("Page 7", "Member 2 — Hash Timing", "MD5 vs SHA-1 speed, Figure 4"),
+        ("Page 8", "Member 3 — Defence", "bcrypt/Argon2 hashes, salting demo, password policy table"),
+        ("Page 9", "Member 3 — AI Detector", "AI detection results table"),
+        ("Page 10","Validation & Conclusion", "Figure 5 (comparison charts), Table 8, key findings, recommendation"),
+    ]
+    for pg, title, content in preview_sections:
+        st.markdown(f"""
+        <div style='display:flex;align-items:flex-start;gap:0.7rem;padding:0.5rem 0;border-bottom:1px solid #1e2a3a;'>
+            <div style='background:#0f1e35;border:1px solid #1e4a7a;border-radius:4px;padding:0.2rem 0.5rem;
+                 color:#4fc3f7;font-size:0.7rem;font-weight:700;white-space:nowrap;min-width:3.5rem;text-align:center;'>{pg}</div>
+            <div>
+                <div style='color:#e0eaff;font-size:0.85rem;font-weight:700;'>{title}</div>
+                <div style='color:#6e9cc4;font-size:0.75rem;'>{content}</div>
+            </div>
         </div>
         """, unsafe_allow_html=True)
 
