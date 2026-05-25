@@ -50,11 +50,47 @@ st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
+/* ── ANIMATIONS ───────────────────────────────── */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-12px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes goldPulse {
+    0%, 100% { box-shadow: 0 0 0 0 #c9a42800; }
+    50%       { box-shadow: 0 0 0 4px #c9a42818; }
+}
+
+.main .block-container {
+    animation: fadeInUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) both !important;
+}
+section[data-testid="stSidebar"] {
+    animation: fadeIn 0.5s ease both !important;
+}
+[data-testid="stMetric"] {
+    animation: fadeInUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) both !important;
+}
+.stTabs [aria-selected="true"] {
+    animation: goldPulse 2s ease infinite !important;
+}
+.stButton > button:active {
+    transform: scale(0.97) !important;
+    transition: transform 0.08s ease !important;
+}
+
 /* ── GLOBAL RESET ─────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; }
 html, body, [class*="css"] {
     font-family: 'Inter', sans-serif !important;
     -webkit-font-smoothing: antialiased !important;
+    text-rendering: optimizeLegibility !important;
 }
 
 /* ── KILL STREAMLIT HEADER / DECORATION ───────── */
@@ -284,20 +320,24 @@ hr { border-color: #2a2a2a !important; margin: 1rem 0 !important; }
 # HELPERS
 # ─────────────────────────────────────────
 def page_header(title, subtitle=""):
+    # Strip emoji + clean title for display — ref style: small tag + big clean heading
+    tag = subtitle if subtitle else ""
     st.markdown(f"""
-    <div style="background:#161616;padding:2rem 2.5rem 1.6rem;margin-bottom:1.5rem;
-         border-bottom:1px solid #2a2a2a;border-left:3px solid #c9a428;">
-        <div style="color:#f0f0f0;font-size:1.55rem;font-weight:800;letter-spacing:2px;line-height:1.2;">{title}</div>
-        {"<div style='color:#888888;font-size:0.7rem;letter-spacing:3px;margin-top:0.5rem;text-transform:uppercase;font-weight:500;'>" + subtitle + "</div>" if subtitle else ""}
+    <div style="padding:2.2rem 0 1.6rem;margin-bottom:1.2rem;
+         border-bottom:1px solid #232323;
+         animation:fadeInUp 0.35s cubic-bezier(0.22,1,0.36,1) both;">
+        {f'<div style="font-size:0.68rem;font-weight:600;color:#c9a428;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:0.7rem;">{tag}</div>' if tag else ""}
+        <div style="color:#f5f5f5;font-size:2.1rem;font-weight:300;line-height:1.2;letter-spacing:-0.3px;">{title}</div>
     </div>
     """, unsafe_allow_html=True)
 
 
 def section(text):
     st.markdown(f"""
-    <div style="font-size:0.64rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;
-         color:#c9a428;padding-bottom:0.4rem;margin:1.5rem 0 0.9rem;
-         border-bottom:1px solid #2a2a2a;">
+    <div style="font-size:0.66rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;
+         color:#888888;padding-bottom:0.45rem;margin:1.6rem 0 1rem;
+         border-bottom:1px solid #232323;
+         animation:slideInLeft 0.3s ease both;">
          {text}</div>""", unsafe_allow_html=True)
 
 
