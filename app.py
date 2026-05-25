@@ -46,7 +46,13 @@ st.set_page_config(
 # ─────────────────────────────────────────
 # CSS  ── Luxury Dark · Syne + Instrument Serif
 # ─────────────────────────────────────────
-st.markdown("""
+"""
+CryptLab — New CSS Block
+Replace the existing st.markdown(\"\"\"<style>...</style>\"\"\", unsafe_allow_html=True)
+with this one. Paste after the imports section.
+"""
+
+NEW_STYLE = """
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500&display=swap');
 
@@ -145,7 +151,7 @@ section[data-testid="stSidebar"] * { color: var(--text-mid) !important; }
     background: rgba(200,168,75,0.07) !important;
     color: var(--gold) !important;
     border-left-color: var(--gold) !important;
-    font-weight: 700 !important;
+    font-weight: 600 !important;
 }
 [data-testid="stSidebar"] [data-baseweb="radio"],
 [data-testid="stSidebar"] [role="radio"],
@@ -364,17 +370,17 @@ section[data-testid="stSidebar"] { animation: fadeIn 0.5s ease both !important; 
 /* ── TEXT SELECTION ── */
 ::selection { background: rgba(200,168,75,0.18); color: var(--text); }
 </style>
-""", unsafe_allow_html=True)
-
+"""
 
 # ─────────────────────────────────────────
-# HELPERS
+# HELPER FUNCTIONS
 # ─────────────────────────────────────────
+
 def page_header(title, subtitle=""):
     tag = subtitle if subtitle else ""
     st.markdown(f"""
-    <div style="padding:2.8rem 0 2rem;margin-bottom:1.4rem;border-bottom:1px solid #181818;">
-        {f'<div style="font-size:0.58rem;font-weight:700;color:#7a6530;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:1rem;font-family:Syne,sans-serif;">{tag}</div>' if tag else ''}
+    <div style="padding:2.8rem 0 2rem; margin-bottom:1.4rem; border-bottom:1px solid #181818;">
+        {f'<div style="font-size:0.6rem;font-weight:700;color:#7a6530;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:1rem;font-family:Syne,sans-serif;">{tag}</div>' if tag else ''}
         <div style="color:#efefef;font-size:2.8rem;font-weight:400;line-height:1.1;letter-spacing:-0.02em;font-family:\'Instrument Serif\',serif;">{title}</div>
     </div>
     """, unsafe_allow_html=True)
@@ -382,8 +388,8 @@ def page_header(title, subtitle=""):
 
 def section(text):
     st.markdown(f"""
-    <div style="font-size:0.57rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;
-         color:#383838;padding-bottom:0.55rem;margin:2rem 0 1.1rem;
+    <div style="font-size:0.58rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;
+         color:#383838;padding-bottom:0.6rem;margin:2rem 0 1.1rem;
          border-bottom:1px solid #181818;font-family:Syne,sans-serif;">
          {text}</div>""", unsafe_allow_html=True)
 
@@ -410,35 +416,26 @@ def style_axes(ax, title=""):
 
 
 # ─────────────────────────────────────────
-# SIDEBAR
+# SIDEBAR HTML
 # ─────────────────────────────────────────
-with st.sidebar:
-    st.markdown("""
-    <div style='padding:1.8rem 0.5rem 1.2rem 1rem;'>
-        <div style='display:flex;align-items:center;gap:0.55rem;margin-bottom:0.4rem;'>
-            <span style='font-size:1rem;'>🔐</span>
-            <span style='font-size:0.9rem;font-weight:800;color:#c8a84b;letter-spacing:0.16em;font-family:Syne,sans-serif;'>CRYPTLAB</span>
-        </div>
-        <div style='font-size:0.54rem;color:#2e2e2e;letter-spacing:0.18em;text-transform:uppercase;font-family:Syne,sans-serif;'>Vulnerability Assessment</div>
-    </div>""", unsafe_allow_html=True)
-    st.markdown("<div style='height:1px;background:#181818;margin:0 0 0.7rem;'></div>", unsafe_allow_html=True)
 
-    page = st.radio("Navigation", [
-        "🏠  Overview",
-        "⚙️  Hash Lab",
-        "⚔️  Attack Simulation",
-        "🔬  Cryptanalysis",
-        "🛡️  Defence System",
-        "📊  Validation Metrics",
-        "🔍  Security Intelligence",
-        "👥  About",
-    ], label_visibility="collapsed")
+SIDEBAR_HTML = """
+<div style='padding:2rem 0.5rem 1.4rem 1rem;'>
+    <div style='display:flex;align-items:center;gap:0.6rem;margin-bottom:0.5rem;'>
+        <span style='font-size:1rem;'>🔐</span>
+        <span style='font-size:0.95rem;font-weight:800;color:#c8a84b;letter-spacing:0.16em;font-family:Syne,sans-serif;'>CRYPTLAB</span>
+    </div>
+    <div style='font-size:0.56rem;color:#383838;letter-spacing:0.18em;text-transform:uppercase;font-family:Syne,sans-serif;padding-left:0.1rem;'>Vulnerability Assessment</div>
+</div>
+"""
 
-    st.markdown("<div style='height:1px;background:#181818;margin:1rem 0;'></div>", unsafe_allow_html=True)
-    st.markdown("<div style='font-size:0.54rem;color:#242424;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;padding:0 0.3rem;font-family:Syne,sans-serif;'>Project</div>", unsafe_allow_html=True)
-    st.markdown("<div style='font-size:0.7rem;color:#303030;line-height:1.8;padding:0 0.3rem;font-family:Syne,sans-serif;'>Cryptanalysis of Weak Password Hashing Systems and AI-Based Defence Mechanism</div>", unsafe_allow_html=True)
-    st.markdown("<div style='height:1px;background:#181818;margin:1rem 0;'></div>", unsafe_allow_html=True)
-    st.markdown("<div style='font-size:0.6rem;color:#222;padding:0 0.3rem;font-family:JetBrains Mono,monospace;'>Python · hashlib · bcrypt · argon2</div>", unsafe_allow_html=True)
+SIDEBAR_DIVIDER = "<div style='height:1px;background:#181818;margin:0 0 0.8rem;'></div>"
+
+SIDEBAR_FOOTER = """
+<div style='font-size:0.56rem;color:#2a2a2a;letter-spacing:0.12em;padding:0 0.3rem;font-family:JetBrains Mono,monospace;'>Python · hashlib · bcrypt · argon2</div>
+"""
+
+
 
 
 # ══════════════════════════════════════════
