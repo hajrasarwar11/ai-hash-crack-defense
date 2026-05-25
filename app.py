@@ -396,23 +396,21 @@ with st.sidebar:
 # ══════════════════════════════════════════
 if "Overview" in page:
     st.markdown("""
-    <div style='background:linear-gradient(135deg,#1a1a1a,#161616,#161616);
-         padding:3rem 2.5rem 2.5rem;margin-bottom:0;
-         border-bottom:2px solid #2e2e2e;'>
-        <div style='display:flex;align-items:center;gap:1rem;margin-bottom:0.8rem;'>
-            <div style='font-size:2.8rem;'>🔐</div>
-            <div>
-                <div style='color:#c9a428;font-size:2rem;font-weight:900;letter-spacing:4px;line-height:1.1;'>CRYPTANALYSIS LAB</div>
-                <div style='color:#888888;font-size:0.78rem;letter-spacing:3px;margin-top:0.3rem;text-transform:uppercase;'>
-                    Weak Password Hashing Systems · AI-Based Defence Mechanism
-                </div>
-            </div>
+    <div style='padding:2.5rem 0 2rem;border-bottom:1px solid #232323;
+         animation:fadeInUp 0.4s cubic-bezier(0.22,1,0.36,1) both;'>
+        <div style='font-size:0.68rem;font-weight:600;color:#c9a428;letter-spacing:2.5px;
+             text-transform:uppercase;margin-bottom:0.9rem;'>
+             Cryptanalysis Lab  ·  University Research Project
         </div>
-        <p style='color:#b0b0b0;line-height:1.9;max-width:820px;font-size:0.92rem;margin-top:1.2rem;'>
-            This research-grade project investigates <b style='color:#c9a428;'>cryptographic vulnerabilities</b> in legacy 
-            password hashing algorithms (MD5, SHA-1), conducts systematic <b style='color:#f97316;'>attack simulations</b> using 
-            dictionary and brute-force strategies, and proposes a robust <b style='color:#34d399;'>AI-augmented defence 
-            architecture</b> leveraging memory-hard hashing and machine learning classifiers.
+        <div style='color:#f5f5f5;font-size:2.4rem;font-weight:300;line-height:1.15;letter-spacing:-0.5px;
+             margin-bottom:1rem;'>
+            Weak Password Hashing<br>
+            <span style='color:#c9a428;font-weight:400;'>& AI-Based Defence</span>
+        </div>
+        <p style='color:#888888;line-height:1.85;max-width:700px;font-size:0.93rem;font-weight:400;margin:0;'>
+            Investigating cryptographic vulnerabilities in legacy hashing algorithms (MD5, SHA-1), 
+            simulating dictionary and brute-force attacks, and building a robust 
+            <span style='color:#d0d0d0;'>machine-learning defence system</span> with memory-hard hashing.
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -588,7 +586,7 @@ if "Overview" in page:
 # PAGE: HASH LAB
 # ══════════════════════════════════════════
 elif "Hash Lab" in page:
-    page_header("⚙️ HASH LAB", "Weak Hashing: MD5 & SHA-1 Vulnerability Demonstration")
+    page_header("Hash Lab", "Weak Hashing  ·  MD5 & SHA-1 Vulnerability Demonstration")
 
     tab1, tab2, tab3 = st.tabs(["HASH A PASSWORD", "GENERATE DATASET", "VULNERABILITY DEMO"])
 
@@ -705,7 +703,7 @@ elif "Hash Lab" in page:
 # PAGE: ATTACK SIMULATION
 # ══════════════════════════════════════════
 elif "Attack Simulation" in page:
-    page_header("⚔️ ATTACK SIMULATION", "Dictionary & Brute-Force Attack Simulation")
+    page_header("Attack Simulation", "Dictionary & Brute-Force  ·  Active Attack Demonstration")
 
     pwd_path  = DATA_DIR / "passwords.txt"
     dict_path = DATA_DIR / "dictionary.txt"
@@ -860,7 +858,7 @@ elif "Attack Simulation" in page:
 # PAGE: CRYPTANALYSIS
 # ══════════════════════════════════════════
 elif "Cryptanalysis" in page:
-    page_header("🔬 CRYPTANALYSIS", "Entropy Analysis · Statistical Patterns · ML Model · Hash Timing")
+    page_header("Cryptanalysis", "Entropy Analysis  ·  Statistical Patterns  ·  ML Classifier")
 
     pwd_path = DATA_DIR / "passwords.txt"
     if not pwd_path.exists():
@@ -1033,7 +1031,7 @@ elif "Cryptanalysis" in page:
 # PAGE: DEFENCE SYSTEM
 # ══════════════════════════════════════════
 elif "Defence" in page:
-    page_header("🛡️ DEFENCE SYSTEM", "Secure Hashing · Salting · Password Policy · AI Detection")
+    page_header("Defence System", "Secure Hashing  ·  Salting  ·  Password Policy  ·  AI Detection")
 
     tab1, tab2, tab3, tab4 = st.tabs(["SECURE HASHING", "SALTING DEMO", "PASSWORD POLICY", "AI WEAK DETECTOR"])
 
@@ -1191,7 +1189,7 @@ elif "Defence" in page:
 # PAGE: VALIDATION METRICS
 # ══════════════════════════════════════════
 elif "Validation" in page:
-    page_header("📊 VALIDATION METRICS", "Measuring Security Improvements — Weak vs Secure Systems")
+    page_header("Validation Metrics", "Security Improvements  ·  Weak vs Secure System Comparison")
 
     pwd_path = DATA_DIR / "passwords.txt"
     if not pwd_path.exists():
@@ -1322,7 +1320,7 @@ elif "Validation" in page:
 # PAGE: SECURITY INTELLIGENCE CENTER
 # ══════════════════════════════════════════
 elif "Security Intelligence" in page:
-    page_header("🔍 SECURITY INTELLIGENCE CENTER", "Live Password Threat Analysis · Full-Spectrum Audit in Real Time")
+    page_header("Security Intelligence", "Live Password Threat Analysis  ·  Full-Spectrum Audit")
 
     st.markdown("""
     <div style='background:linear-gradient(135deg,#1a1a1a,#0a1535);border:1px solid #2e2e2e;
@@ -1628,7 +1626,7 @@ elif "Security Intelligence" in page:
 # PAGE: ABOUT
 # ══════════════════════════════════════════
 elif "About" in page:
-    page_header("👥 ABOUT", "Research Team · Project Overview · Academic Context")
+    page_header("About", "Research Team  ·  Project Overview  ·  Academic Context")
 
     st.markdown("""
     <div style='background:linear-gradient(135deg,#1a1a1a,#161616);
