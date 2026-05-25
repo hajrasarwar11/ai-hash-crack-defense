@@ -48,46 +48,36 @@ st.set_page_config(
 # ─────────────────────────────────────────
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=JetBrains+Mono:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&display=swap');
 
 :root {
-    --bg:          #0a0a0b;
-    --bg2:         #111114;
-    --bg3:         #18181c;
-    --bg4:         #202026;
-    --border:      #1e1e24;
-    --border2:     #28282f;
-    --border3:     #38383f;
-    --gold:        #c9a96e;
-    --gold2:       #e8cfa0;
-    --gold-dim:    #6b5535;
-    --gold-glow:   rgba(201,169,110,0.06);
-    --gold-glow2:  rgba(201,169,110,0.12);
-    --text:        #f0ede8;
-    --text-mid:    #8a8680;
-    --text-dim:    #4a4844;
-    --red:         #c46060;
-    --green:       #5aaa80;
-    --purple:      #8878cc;
-    --orange:      #c4804a;
-    --cyan:        #5aaab0;
-    --font:        'DM Sans', sans-serif;
-    --mono:        'JetBrains Mono', monospace;
-    --display:     'DM Serif Display', serif;
-    --radius:      8px;
-    --radius-lg:   14px;
+    --bg:        #0d0d0d;
+    --bg2:       #141414;
+    --bg3:       #1a1a1a;
+    --border:    #1e1e1e;
+    --border2:   #262626;
+    --border3:   #2e2e2e;
+    --gold:      #c9a84c;
+    --gold-dim:  #8a7133;
+    --gold-glow: rgba(201,168,76,0.07);
+    --text:      #e8e8e8;
+    --text-mid:  #7a7a7a;
+    --text-dim:  #444444;
+    --red:       #c86060;
+    --green:     #4daa7a;
+    --purple:    #8878cc;
+    --orange:    #c47a44;
+    --font:      'DM Sans', sans-serif;
+    --mono:      'DM Mono', monospace;
+    --display:   'Fraunces', serif;
 }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; }
 
-/* ── BASE ── */
 html, body, [class*="css"] {
     font-family: var(--font) !important;
     -webkit-font-smoothing: antialiased !important;
     background-color: var(--bg) !important;
-    color: var(--text) !important;
-    font-size: 15px;
-    line-height: 1.6;
 }
 
 /* ── STREAMLIT CHROME ── */
@@ -95,13 +85,12 @@ header[data-testid="stHeader"],
 [data-testid="stToolbar"] {
     background: var(--bg) !important;
     border-bottom: 1px solid var(--border) !important;
-    height: 2.8rem !important;
-    backdrop-filter: blur(12px) !important;
+    height: 2.6rem !important;
 }
 [data-testid="stDecoration"] { display: none !important; }
 #MainMenu, footer { visibility: hidden !important; }
 
-/* ── APP BACKGROUNDS ── */
+/* ── BACKGROUNDS ── */
 .stApp,
 [data-testid="stAppViewContainer"],
 [data-testid="stAppViewBlockContainer"],
@@ -109,24 +98,50 @@ header[data-testid="stHeader"],
     background-color: var(--bg) !important;
 }
 [data-testid="stAppViewBlockContainer"] {
-    padding-top: 3rem !important;
-    padding-left: 3.5rem !important;
-    padding-right: 3.5rem !important;
-    max-width: 1180px !important;
+    padding-top: 2.5rem !important;
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+    max-width: 1160px !important;
 }
 
 /* ── SIDEBAR ── */
 section[data-testid="stSidebar"] {
     background: var(--bg2) !important;
     border-right: 1px solid var(--border) !important;
-    width: 240px !important;
 }
-section[data-testid="stSidebar"] > div {
-    background: var(--bg2) !important;
-    padding-top: 0 !important;
-}
+section[data-testid="stSidebar"] > div { background: var(--bg2) !important; }
+section[data-testid="stSidebar"] * { color: var(--text-mid) !important; }
 
-/* Hide all radio dots */
+[data-testid="stSidebar"] .stRadio > div {
+    gap: 2px !important;
+    padding: 0 10px !important;
+}
+[data-testid="stSidebar"] .stRadio label {
+    display: flex !important;
+    align-items: center !important;
+    padding: 0.55rem 0.9rem !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    font-size: 0.84rem !important;
+    font-weight: 400 !important;
+    color: var(--text-dim) !important;
+    letter-spacing: 0.01em !important;
+    border-left: 2px solid transparent !important;
+    transition: all 0.15s ease !important;
+    margin-bottom: 1px !important;
+}
+[data-testid="stSidebar"] .stRadio label:hover {
+    background: rgba(255,255,255,0.03) !important;
+    color: var(--text-mid) !important;
+}
+[data-testid="stSidebar"] .stRadio label[data-checked="true"],
+[data-testid="stSidebar"] .stRadio [aria-checked="true"] ~ label,
+[data-testid="stSidebar"] .stRadio input:checked + div {
+    background: rgba(201,168,76,0.07) !important;
+    color: var(--gold) !important;
+    border-left-color: var(--gold) !important;
+    font-weight: 500 !important;
+}
 [data-testid="stSidebar"] [data-baseweb="radio"],
 [data-testid="stSidebar"] [role="radio"],
 [data-testid="stSidebar"] .stRadio [data-testid="stWidgetLabel"],
@@ -134,96 +149,45 @@ section[data-testid="stSidebar"] > div {
 [data-testid="stSidebar"] .stRadio div[role="radiogroup"] > label > div:first-child,
 [data-testid="stSidebar"] input[type="radio"] { display: none !important; }
 
-[data-testid="stSidebar"] .stRadio > div {
-    gap: 2px !important;
-    padding: 0 12px !important;
-}
-
-[data-testid="stSidebar"] .stRadio label {
-    display: flex !important;
-    align-items: center !important;
-    padding: 0.6rem 1rem !important;
-    border-radius: var(--radius) !important;
-    cursor: pointer !important;
-    font-size: 0.82rem !important;
-    font-weight: 400 !important;
-    color: var(--text-dim) !important;
-    letter-spacing: 0.01em !important;
-    transition: all 0.15s ease !important;
-    border-left: 2px solid transparent !important;
-    margin-bottom: 2px !important;
-    font-family: var(--font) !important;
-}
-[data-testid="stSidebar"] .stRadio label:hover {
-    background: rgba(201,169,110,0.05) !important;
-    color: var(--text-mid) !important;
-    border-left-color: var(--gold-dim) !important;
-}
-[data-testid="stSidebar"] .stRadio label[data-checked="true"],
-[data-testid="stSidebar"] .stRadio [aria-checked="true"] ~ label,
-[data-testid="stSidebar"] .stRadio input:checked + div {
-    background: rgba(201,169,110,0.08) !important;
-    color: var(--gold) !important;
-    border-left-color: var(--gold) !important;
-    font-weight: 500 !important;
-}
-
-/* Sidebar text overrides */
-section[data-testid="stSidebar"] * {
-    color: var(--text-mid) !important;
-    font-family: var(--font) !important;
-}
-
 /* ── TYPOGRAPHY ── */
 h1, h2, h3, h4 {
     font-family: var(--display) !important;
     color: var(--text) !important;
-    font-weight: 400 !important;
+    font-weight: 300 !important;
     letter-spacing: -0.02em !important;
     line-height: 1.2 !important;
 }
-p, span, div, label, li {
+html, body, p, span, div, label, li, .stMarkdown, .stText {
     color: var(--text) !important;
     font-family: var(--font) !important;
 }
 .stMarkdown p {
-    font-size: 0.9rem !important;
-    line-height: 1.8 !important;
     color: var(--text-mid) !important;
+    font-size: 0.9rem !important;
+    line-height: 1.75 !important;
 }
 
 /* ── BUTTONS ── */
 .stButton > button {
     background: transparent !important;
     color: var(--gold) !important;
-    border: 1px solid var(--border3) !important;
-    border-radius: var(--radius) !important;
+    border: 1px solid var(--border2) !important;
+    border-radius: 7px !important;
     font-family: var(--font) !important;
-    font-size: 0.75rem !important;
+    font-size: 0.76rem !important;
     font-weight: 500 !important;
-    letter-spacing: 0.06em !important;
+    letter-spacing: 0.07em !important;
     text-transform: uppercase !important;
-    padding: 0.65rem 1.5rem !important;
+    padding: 0.58rem 1.3rem !important;
     width: 100% !important;
-    transition: all 0.18s ease !important;
-    position: relative !important;
-    overflow: hidden !important;
-}
-.stButton > button::before {
-    content: '' !important;
-    position: absolute !important;
-    inset: 0 !important;
-    background: var(--gold-glow) !important;
-    opacity: 0 !important;
-    transition: opacity 0.18s !important;
+    transition: all 0.16s ease !important;
 }
 .stButton > button:hover {
-    border-color: var(--gold) !important;
-    color: var(--gold2) !important;
-    box-shadow: 0 0 0 1px var(--gold-dim) inset !important;
+    border-color: var(--gold-dim) !important;
+    background: var(--gold-glow) !important;
+    color: var(--text) !important;
 }
-.stButton > button:hover::before { opacity: 1 !important; }
-.stButton > button:active { transform: scale(0.985) !important; }
+.stButton > button:active { transform: scale(0.98) !important; }
 
 /* ── INPUTS ── */
 .stTextInput > div > div > input,
@@ -231,24 +195,23 @@ p, span, div, label, li {
     background: var(--bg2) !important;
     color: var(--text) !important;
     border: 1px solid var(--border2) !important;
-    border-radius: var(--radius) !important;
+    border-radius: 7px !important;
     font-family: var(--font) !important;
-    font-size: 0.88rem !important;
-    padding: 0.7rem 1.1rem !important;
-    transition: all 0.18s !important;
+    font-size: 0.87rem !important;
+    padding: 0.62rem 0.95rem !important;
+    transition: border-color 0.15s !important;
     caret-color: var(--gold) !important;
 }
 .stTextInput > div > div > input::placeholder,
 .stTextArea > div > div > textarea::placeholder {
     color: var(--text-dim) !important;
-    font-size: 0.84rem !important;
 }
 .stTextInput > div > div > input:focus,
 .stTextArea > div > div > textarea:focus {
     border-color: var(--gold-dim) !important;
     background: var(--bg3) !important;
-    outline: none !important;
     box-shadow: 0 0 0 3px var(--gold-glow) !important;
+    outline: none !important;
 }
 
 /* ── SELECT ── */
@@ -256,67 +219,54 @@ p, span, div, label, li {
     background: var(--bg2) !important;
     color: var(--text) !important;
     border: 1px solid var(--border2) !important;
-    border-radius: var(--radius) !important;
+    border-radius: 7px !important;
     font-family: var(--font) !important;
-    font-size: 0.88rem !important;
 }
 .stSelectbox svg { fill: var(--gold) !important; }
-.stSelectbox > div > div:focus-within {
-    border-color: var(--gold-dim) !important;
-    box-shadow: 0 0 0 3px var(--gold-glow) !important;
-}
 
 /* ── METRICS ── */
 [data-testid="stMetric"] {
     background: var(--bg2) !important;
     border: 1px solid var(--border) !important;
-    border-radius: var(--radius-lg) !important;
-    padding: 1.4rem 1.6rem !important;
+    border-radius: 10px !important;
+    padding: 1.25rem 1.4rem !important;
     position: relative !important;
     overflow: hidden !important;
-    transition: all 0.2s ease !important;
+    transition: border-color 0.18s, box-shadow 0.18s !important;
 }
 [data-testid="stMetric"]::after {
     content: '' !important;
     position: absolute !important;
-    top: 0; left: 0; right: 0 !important;
+    top: 0; left: 15%; right: 15% !important;
     height: 1px !important;
-    background: linear-gradient(90deg,
-        transparent 0%,
-        var(--gold-dim) 20%,
-        var(--gold) 50%,
-        var(--gold-dim) 80%,
-        transparent 100%) !important;
+    background: linear-gradient(90deg, transparent, var(--gold-dim), transparent) !important;
 }
 [data-testid="stMetric"]:hover {
     border-color: var(--border3) !important;
-    background: var(--bg3) !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px var(--border2) !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
 }
+[data-testid="stMetric"] * { color: var(--text) !important; }
 [data-testid="stMetricLabel"] {
-    font-size: 0.6rem !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.18em !important;
+    font-size: 0.62rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.12em !important;
     text-transform: uppercase !important;
     color: var(--text-dim) !important;
     font-family: var(--font) !important;
 }
 [data-testid="stMetricValue"] {
-    font-size: 2.4rem !important;
-    font-weight: 400 !important;
+    font-size: 2rem !important;
+    font-weight: 300 !important;
     font-family: var(--display) !important;
     color: var(--text) !important;
-    letter-spacing: -0.03em !important;
-    line-height: 1.15 !important;
+    letter-spacing: -0.02em !important;
+    line-height: 1.2 !important;
 }
 [data-testid="stMetricDelta"] {
-    font-size: 0.7rem !important;
+    font-size: 0.68rem !important;
     color: var(--text-dim) !important;
     font-family: var(--font) !important;
-    letter-spacing: 0.02em !important;
 }
-[data-testid="stMetric"] * { color: var(--text) !important; }
 
 /* ── TABS ── */
 .stTabs [data-baseweb="tab-list"] {
@@ -328,19 +278,18 @@ p, span, div, label, li {
 .stTabs [data-baseweb="tab"] {
     background: transparent !important;
     color: var(--text-dim) !important;
-    font-size: 0.67rem !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.12em !important;
+    font-size: 0.69rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.1em !important;
     text-transform: uppercase !important;
-    padding: 0.85rem 1.5rem !important;
-    border-bottom: 1.5px solid transparent !important;
+    padding: 0.75rem 1.25rem !important;
+    border-bottom: 2px solid transparent !important;
     border-radius: 0 !important;
-    transition: all 0.15s !important;
+    transition: color 0.15s !important;
     font-family: var(--font) !important;
 }
 .stTabs [data-baseweb="tab"]:hover {
     color: var(--text-mid) !important;
-    background: rgba(201,169,110,0.03) !important;
 }
 .stTabs [aria-selected="true"] {
     color: var(--gold) !important;
@@ -348,14 +297,13 @@ p, span, div, label, li {
     background: transparent !important;
 }
 .stTabs [data-baseweb="tab-panel"] {
-    padding-top: 1.8rem !important;
+    padding-top: 1.5rem !important;
 }
 
 /* ── PROGRESS ── */
 .stProgress > div > div > div {
     background: linear-gradient(90deg, var(--gold-dim), var(--gold)) !important;
     border-radius: 99px !important;
-    transition: width 0.4s ease !important;
 }
 .stProgress > div > div {
     background: var(--border2) !important;
@@ -363,183 +311,102 @@ p, span, div, label, li {
     height: 3px !important;
 }
 
-/* ── CODE / MONO ── */
+/* ── CODE ── */
 code, .stCode, pre {
-    background: var(--bg3) !important;
-    color: var(--gold2) !important;
+    background: var(--bg2) !important;
+    color: var(--gold) !important;
     font-family: var(--mono) !important;
-    font-size: 0.8rem !important;
+    font-size: 0.81rem !important;
     border: 1px solid var(--border2) !important;
-    border-radius: var(--radius) !important;
-    letter-spacing: 0.01em !important;
+    border-radius: 7px !important;
 }
 
 /* ── DATAFRAMES ── */
 [data-testid="stDataFrame"] {
     background: var(--bg2) !important;
     border: 1px solid var(--border) !important;
-    border-radius: var(--radius-lg) !important;
+    border-radius: 10px !important;
     overflow: hidden !important;
-}
-[data-testid="stDataFrame"] table {
-    font-size: 0.82rem !important;
-    font-family: var(--font) !important;
-}
-[data-testid="stDataFrame"] th {
-    background: var(--bg3) !important;
-    color: var(--text-dim) !important;
-    font-size: 0.65rem !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.1em !important;
-    text-transform: uppercase !important;
-    border-bottom: 1px solid var(--border) !important;
-    padding: 0.75rem 1rem !important;
-}
-[data-testid="stDataFrame"] td {
-    color: var(--text-mid) !important;
-    border-bottom: 1px solid var(--border) !important;
-    padding: 0.65rem 1rem !important;
 }
 
 /* ── ALERTS ── */
 [data-testid="stAlert"] {
-    border-radius: var(--radius) !important;
+    border-radius: 8px !important;
     font-size: 0.85rem !important;
     font-family: var(--font) !important;
-    border: 1px solid var(--border2) !important;
-    backdrop-filter: blur(4px) !important;
+    border-width: 1px !important;
 }
 
 /* ── EXPANDERS ── */
 [data-testid="stExpander"] {
     background: var(--bg2) !important;
     border: 1px solid var(--border) !important;
-    border-radius: var(--radius-lg) !important;
+    border-radius: 10px !important;
     transition: border-color 0.15s !important;
 }
-[data-testid="stExpander"]:hover {
-    border-color: var(--border3) !important;
-}
+[data-testid="stExpander"]:hover { border-color: var(--border2) !important; }
 [data-testid="stExpander"] * { color: var(--text) !important; }
 [data-testid="stExpander"] summary {
-    font-size: 0.88rem !important;
-    font-weight: 500 !important;
-    color: var(--text-mid) !important;
-    padding: 0.9rem 1.2rem !important;
+    font-size: 0.87rem !important;
+    padding: 0.85rem 1.1rem !important;
 }
 [data-testid="stExpander"] summary:hover { color: var(--gold) !important; }
 
-/* ── SLIDER ── */
-.stSlider > div > div > div { background: var(--gold) !important; }
-[data-testid="stSlider"] > div > div > div > div { background: var(--border3) !important; }
-.stSlider [data-testid="stTickBarMin"],
-.stSlider [data-testid="stTickBarMax"] {
-    color: var(--text-dim) !important;
-    font-size: 0.72rem !important;
-    font-family: var(--mono) !important;
-}
-
-/* ── CHECKBOX ── */
-.stCheckbox > label {
-    color: var(--text-mid) !important;
-    font-family: var(--font) !important;
-    font-size: 0.84rem !important;
-}
-
-/* ── HR ── */
+/* ── MISC ── */
 hr {
     border: none !important;
     border-top: 1px solid var(--border) !important;
-    margin: 2.2rem 0 !important;
+    margin: 1.8rem 0 !important;
 }
+.stCheckbox > label {
+    color: var(--text-mid) !important;
+    font-size: 0.86rem !important;
+}
+.stSlider > div > div > div { background: var(--gold) !important; }
+[data-testid="stSlider"] > div > div > div > div { background: var(--border2) !important; }
 
-/* ── SCROLLBAR ── */
-::-webkit-scrollbar { width: 4px; height: 4px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--border3); border-radius: 99px; }
-::-webkit-scrollbar-thumb:hover { background: var(--gold-dim); }
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-@keyframes slideIn {
-    from { opacity: 0; transform: translateX(-8px); }
-    to   { opacity: 1; transform: translateX(0); }
-}
-
-.main .block-container {
-    animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both !important;
-}
-section[data-testid="stSidebar"] {
-    animation: fadeIn 0.4s ease both !important;
-}
-[data-testid="stMetric"] {
-    animation: fadeUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) both !important;
-}
-
-/* ── TEXT SELECTION ── */
-::selection {
-    background: rgba(201,169,110,0.2);
-    color: var(--text);
-}
-
-/* ── LABEL VISIBILITY ── */
+/* ── INPUT LABELS ── */
 .stTextInput label,
 .stTextArea label,
 .stSelectbox label,
 .stSlider label {
     font-size: 0.72rem !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.1em !important;
-    text-transform: uppercase !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.08em !important;
     color: var(--text-dim) !important;
-    margin-bottom: 0.4rem !important;
+    text-transform: uppercase !important;
 }
 
-/* ── INFO / WARNING / ERROR / SUCCESS ── */
-div[data-testid="stAlert"] > div {
-    font-size: 0.84rem !important;
-    line-height: 1.7 !important;
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold-dim); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.main .block-container {
+    animation: fadeUp 0.35s cubic-bezier(0.22,1,0.36,1) both !important;
+}
+section[data-testid="stSidebar"] {
+    animation: fadeIn 0.4s ease both !important;
+}
+[data-testid="stMetric"] {
+    animation: fadeUp 0.35s cubic-bezier(0.22,1,0.36,1) both !important;
 }
 
-/* ── COLUMNS GAP ── */
-[data-testid="column"] {
-    padding-left: 0.5rem !important;
-    padding-right: 0.5rem !important;
-}
-
-/* ── STINFO box override ── */
-.stInfo {
-    background: rgba(90, 170, 176, 0.06) !important;
-    border: 1px solid rgba(90, 170, 176, 0.18) !important;
-    border-radius: var(--radius) !important;
-}
-.stWarning {
-    background: rgba(196, 128, 74, 0.06) !important;
-    border: 1px solid rgba(196, 128, 74, 0.2) !important;
-}
-.stSuccess {
-    background: rgba(90, 170, 128, 0.06) !important;
-    border: 1px solid rgba(90, 170, 128, 0.2) !important;
-}
-.stError {
-    background: rgba(196, 96, 96, 0.06) !important;
-    border: 1px solid rgba(196, 96, 96, 0.2) !important;
-}
-
-/* ── SPINNER ── */
-.stSpinner > div {
-    border-color: var(--gold) transparent transparent transparent !important;
+/* ── TEXT SELECTION ── */
+::selection {
+    background: rgba(201,168,76,0.15);
+    color: var(--text);
 }
 </style>
 """, unsafe_allow_html=True)
-
 
 # ─────────────────────────────────────────
 # HELPER FUNCTIONS
