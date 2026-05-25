@@ -1491,7 +1491,7 @@ elif "About" in page:
     team = [
         ("👩‍💻", "Amina Noor",    "Full Stack Developer",    "Module I — Hash Lab & Attack Simulation",        "#f97316"),
         ("👩‍🎨", "Hamail Fatima", "UI/UX Designer",          "Module II — Cryptanalysis & AI Analysis",        "#a78bfa"),
-        ("👩‍🔬", "Hajra Sarwar",  "AI / ML / DL Developer",  "Module III — Defence Architecture & Validation", "#34d399"),
+        ("👩‍🔬", "Hajra Sarwar",  "Full Stack AI Developer", "Module III — Defence Architecture & Validation", "#34d399"),
     ]
 
     t1, t2, t3 = st.columns(3)
