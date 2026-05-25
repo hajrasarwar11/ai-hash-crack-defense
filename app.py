@@ -438,6 +438,26 @@ SIDEBAR_FOOTER = """
 
 
 
+
+
+    page = st.radio("Navigation", [
+        "🏠  Overview",
+        "⚙️  Hash Lab",
+        "⚔️  Attack Simulation",
+        "🔬  Cryptanalysis",
+        "🛡️  Defence System",
+        "📊  Validation Metrics",
+        "🔍  Security Intelligence",
+        "👥  About",
+    ], label_visibility="collapsed")
+
+    st.markdown("<div style='height:1px;background:#181818;margin:1rem 0;'></div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size:0.54rem;color:#242424;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;padding:0 0.3rem;font-family:Syne,sans-serif;'>Project</div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size:0.7rem;color:#303030;line-height:1.8;padding:0 0.3rem;font-family:Syne,sans-serif;'>Cryptanalysis of Weak Password Hashing Systems and AI-Based Defence Mechanism</div>", unsafe_allow_html=True)
+    st.markdown("<div style='height:1px;background:#181818;margin:1rem 0;'></div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size:0.6rem;color:#222;padding:0 0.3rem;font-family:JetBrains Mono,monospace;'>Python · hashlib · bcrypt · argon2</div>", unsafe_allow_html=True)
+
+
 # ══════════════════════════════════════════
 # PAGE: OVERVIEW
 # ══════════════════════════════════════════
