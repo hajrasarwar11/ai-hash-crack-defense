@@ -214,12 +214,13 @@ with st.sidebar:
 
     page = st.radio("Navigation", [
         "🏠  Overview",
-        "⚙️  Member 1 — Hash Lab",
-        "⚔️  Member 1 — Attack Lab",
-        "🔬  Member 2 — Cryptanalysis",
-        "🛡️  Member 3 — Defence System",
+        "⚙️  Hash Lab",
+        "⚔️  Attack Simulation",
+        "🔬  Cryptanalysis",
+        "🛡️  Defence System",
         "📊  Validation Metrics",
         "📄  Generate PDF Report",
+        "👥  About",
     ], label_visibility="collapsed")
 
     st.markdown("---")
@@ -233,105 +234,200 @@ with st.sidebar:
 # PAGE: OVERVIEW
 # ══════════════════════════════════════════
 if "Overview" in page:
-    page_header("🔐 CRYPTANALYSIS LAB", "Weak Password Hashing Systems & AI-Based Defence")
-
     st.markdown("""
-    <div style='background:#0f1e35;border:1px solid #1e4a7a;border-radius:8px;padding:1.5rem;margin-bottom:1rem;'>
-        <p style='color:#c9d4e0;line-height:1.8;'>
-        This project focuses on <b style='color:#4fc3f7;'>identifying vulnerabilities</b> in weak password hashing systems,
-        performing <b style='color:#4fc3f7;'>cryptanalysis</b> through dictionary and brute-force attacks, and designing
-        a secure <b style='color:#4fc3f7;'>AI-based defence mechanism</b> using modern hashing algorithms and machine learning.
+    <div style='background:linear-gradient(135deg,#060e1f,#0a1a35,#071020);
+         padding:3rem 2.5rem 2.5rem;margin-bottom:0;
+         border-bottom:2px solid #1e4a7a;'>
+        <div style='display:flex;align-items:center;gap:1rem;margin-bottom:0.8rem;'>
+            <div style='font-size:2.8rem;'>🔐</div>
+            <div>
+                <div style='color:#4fc3f7;font-size:2rem;font-weight:900;letter-spacing:4px;line-height:1.1;'>CRYPTANALYSIS LAB</div>
+                <div style='color:#6e9cc4;font-size:0.78rem;letter-spacing:3px;margin-top:0.3rem;text-transform:uppercase;'>
+                    Weak Password Hashing Systems · AI-Based Defence Mechanism
+                </div>
+            </div>
+        </div>
+        <p style='color:#8faecb;line-height:1.9;max-width:820px;font-size:0.92rem;margin-top:1.2rem;'>
+            This research-grade project investigates <b style='color:#4fc3f7;'>cryptographic vulnerabilities</b> in legacy 
+            password hashing algorithms (MD5, SHA-1), conducts systematic <b style='color:#f97316;'>attack simulations</b> using 
+            dictionary and brute-force strategies, and proposes a robust <b style='color:#34d399;'>AI-augmented defence 
+            architecture</b> leveraging memory-hard hashing and machine learning classifiers.
         </p>
     </div>
     """, unsafe_allow_html=True)
 
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    kpi1, kpi2, kpi3, kpi4, kpi5 = st.columns(5)
+    kpi1.metric("Hashing Algorithms", "4", "MD5 · SHA1 · bcrypt · Argon2")
+    kpi2.metric("Attack Vectors", "2", "Dictionary + Brute-Force")
+    kpi3.metric("ML Features", "21", "Random Forest Classifier")
+    kpi4.metric("Defence Layers", "3", "Hash · Salt · Policy · AI")
+    kpi5.metric("Report Pages", "10", "Full PDF Export")
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    section("RESEARCH MODULES")
     col1, col2, col3 = st.columns(3)
 
     with col1:
         st.markdown("""
-        <div style='background:#071428;border:1px solid #1e4a7a;border-radius:8px;padding:1.2rem;'>
-            <div style='color:#f97316;font-size:0.7rem;font-weight:700;letter-spacing:3px;'>MEMBER 1</div>
-            <div style='color:#e0eaff;font-size:0.95rem;font-weight:700;margin:0.4rem 0;'>Vulnerability Assessment<br>& Hash Cracking</div>
-            <hr style='border-color:#1e2a3a;'/>
-            <ul style='color:#6e9cc4;font-size:0.8rem;line-height:2;margin:0;padding-left:1.2rem;'>
-                <li>Implement MD5 / SHA-1 hashing</li>
-                <li>Generate password dataset</li>
-                <li>Dictionary attack</li>
-                <li>Brute-force attack</li>
-                <li>Measure cracking time & success rate</li>
-                <li>Identify vulnerabilities (no salt)</li>
+        <div style='background:linear-gradient(160deg,#0a1628,#0f1e35);border:1px solid #1e4a7a;
+             border-top:3px solid #f97316;border-radius:8px;padding:1.4rem;height:100%;'>
+            <div style='display:flex;align-items:center;gap:0.5rem;margin-bottom:0.7rem;'>
+                <div style='font-size:1.4rem;'>⚙️</div>
+                <div style='color:#f97316;font-size:0.65rem;font-weight:700;letter-spacing:3px;'>MODULE I</div>
+            </div>
+            <div style='color:#e0eaff;font-size:1rem;font-weight:800;margin-bottom:0.3rem;'>Vulnerability Assessment</div>
+            <div style='color:#6e9cc4;font-size:0.75rem;margin-bottom:1rem;'>Hash Lab · Attack Simulation</div>
+            <hr style='border-color:#1e2a3a;margin:0.7rem 0;'/>
+            <ul style='color:#8faecb;font-size:0.8rem;line-height:2.1;margin:0;padding-left:1.1rem;'>
+                <li>MD5 &amp; SHA-1 implementation &amp; analysis</li>
+                <li>Weak password dataset generation</li>
+                <li>Dictionary attack with success metrics</li>
+                <li>Brute-force attack simulation</li>
+                <li>Cracking time benchmarking</li>
+                <li>No-salt vulnerability demonstration</li>
             </ul>
         </div>
         """, unsafe_allow_html=True)
 
     with col2:
         st.markdown("""
-        <div style='background:#071428;border:1px solid #1e4a7a;border-radius:8px;padding:1.2rem;'>
-            <div style='color:#a78bfa;font-size:0.7rem;font-weight:700;letter-spacing:3px;'>MEMBER 2</div>
-            <div style='color:#e0eaff;font-size:0.95rem;font-weight:700;margin:0.4rem 0;'>Cryptanalysis<br>& AI Analysis</div>
-            <hr style='border-color:#1e2a3a;'/>
-            <ul style='color:#6e9cc4;font-size:0.8rem;line-height:2;margin:0;padding-left:1.2rem;'>
-                <li>Entropy analysis (Shannon)</li>
-                <li>Statistical pattern analysis</li>
-                <li>Build ML classifier</li>
-                <li>Simulate attack prediction</li>
-                <li>Compare hash computation times</li>
+        <div style='background:linear-gradient(160deg,#0a1628,#0f1e35);border:1px solid #1e4a7a;
+             border-top:3px solid #a78bfa;border-radius:8px;padding:1.4rem;height:100%;'>
+            <div style='display:flex;align-items:center;gap:0.5rem;margin-bottom:0.7rem;'>
+                <div style='font-size:1.4rem;'>🔬</div>
+                <div style='color:#a78bfa;font-size:0.65rem;font-weight:700;letter-spacing:3px;'>MODULE II</div>
+            </div>
+            <div style='color:#e0eaff;font-size:1rem;font-weight:800;margin-bottom:0.3rem;'>Cryptanalysis &amp; AI</div>
+            <div style='color:#6e9cc4;font-size:0.75rem;margin-bottom:1rem;'>Entropy · Patterns · ML Classifier</div>
+            <hr style='border-color:#1e2a3a;margin:0.7rem 0;'/>
+            <ul style='color:#8faecb;font-size:0.8rem;line-height:2.1;margin:0;padding-left:1.1rem;'>
+                <li>Shannon entropy analysis</li>
+                <li>Statistical pattern recognition</li>
+                <li>Random Forest ML classifier (21 features)</li>
+                <li>Attack priority prediction</li>
+                <li>Hash computation speed comparison</li>
             </ul>
         </div>
         """, unsafe_allow_html=True)
 
     with col3:
         st.markdown("""
-        <div style='background:#071428;border:1px solid #1e4a7a;border-radius:8px;padding:1.2rem;'>
-            <div style='color:#34d399;font-size:0.7rem;font-weight:700;letter-spacing:3px;'>MEMBER 3</div>
-            <div style='color:#e0eaff;font-size:0.95rem;font-weight:700;margin:0.4rem 0;'>Defence System<br>& Validation</div>
-            <hr style='border-color:#1e2a3a;'/>
-            <ul style='color:#6e9cc4;font-size:0.8rem;line-height:2;margin:0;padding-left:1.2rem;'>
-                <li>Secure hashing (bcrypt / argon2)</li>
-                <li>Salting & key stretching</li>
-                <li>Password policy enforcement</li>
-                <li>AI-based weak password detector</li>
-                <li>Validate improvements with metrics</li>
+        <div style='background:linear-gradient(160deg,#0a1628,#0f1e35);border:1px solid #1e4a7a;
+             border-top:3px solid #34d399;border-radius:8px;padding:1.4rem;height:100%;'>
+            <div style='display:flex;align-items:center;gap:0.5rem;margin-bottom:0.7rem;'>
+                <div style='font-size:1.4rem;'>🛡️</div>
+                <div style='color:#34d399;font-size:0.65rem;font-weight:700;letter-spacing:3px;'>MODULE III</div>
+            </div>
+            <div style='color:#e0eaff;font-size:1rem;font-weight:800;margin-bottom:0.3rem;'>Defence Architecture</div>
+            <div style='color:#6e9cc4;font-size:0.75rem;margin-bottom:1rem;'>bcrypt · Argon2 · Policy · AI Guard</div>
+            <hr style='border-color:#1e2a3a;margin:0.7rem 0;'/>
+            <ul style='color:#8faecb;font-size:0.8rem;line-height:2.1;margin:0;padding-left:1.1rem;'>
+                <li>bcrypt &amp; Argon2 secure hashing</li>
+                <li>Automatic salting &amp; key stretching</li>
+                <li>Multi-rule password policy engine</li>
+                <li>AI-based weak password detection</li>
+                <li>Quantified security improvement metrics</li>
             </ul>
         </div>
         """, unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
-    section("Tools & Technologies")
+    section("ATTACK PIPELINE — HOW IT WORKS")
 
+    st.markdown("""
+    <div style='display:flex;align-items:stretch;gap:0;margin:0.5rem 0 1.5rem;overflow:hidden;border-radius:8px;border:1px solid #1e2a3a;'>
+        <div style='flex:1;background:#0a1220;padding:1.2rem;text-align:center;border-right:1px solid #1e2a3a;'>
+            <div style='font-size:1.6rem;margin-bottom:0.4rem;'>🗂️</div>
+            <div style='color:#f97316;font-size:0.65rem;font-weight:700;letter-spacing:2px;'>STEP 1</div>
+            <div style='color:#e0eaff;font-size:0.85rem;font-weight:700;margin-top:0.3rem;'>Dataset Generation</div>
+            <div style='color:#6e9cc4;font-size:0.72rem;margin-top:0.3rem;'>Weak passwords + MD5/SHA-1 hashes</div>
+        </div>
+        <div style='flex:1;background:#0a1220;padding:1.2rem;text-align:center;border-right:1px solid #1e2a3a;'>
+            <div style='font-size:1.6rem;margin-bottom:0.4rem;'>⚔️</div>
+            <div style='color:#ef4444;font-size:0.65rem;font-weight:700;letter-spacing:2px;'>STEP 2</div>
+            <div style='color:#e0eaff;font-size:0.85rem;font-weight:700;margin-top:0.3rem;'>Attack Simulation</div>
+            <div style='color:#6e9cc4;font-size:0.72rem;margin-top:0.3rem;'>Dictionary &amp; brute-force cracking</div>
+        </div>
+        <div style='flex:1;background:#0a1220;padding:1.2rem;text-align:center;border-right:1px solid #1e2a3a;'>
+            <div style='font-size:1.6rem;margin-bottom:0.4rem;'>📊</div>
+            <div style='color:#a78bfa;font-size:0.65rem;font-weight:700;letter-spacing:2px;'>STEP 3</div>
+            <div style='color:#e0eaff;font-size:0.85rem;font-weight:700;margin-top:0.3rem;'>Cryptanalysis</div>
+            <div style='color:#6e9cc4;font-size:0.72rem;margin-top:0.3rem;'>Entropy · ML prediction · Timing</div>
+        </div>
+        <div style='flex:1;background:#0a1220;padding:1.2rem;text-align:center;border-right:1px solid #1e2a3a;'>
+            <div style='font-size:1.6rem;margin-bottom:0.4rem;'>🛡️</div>
+            <div style='color:#34d399;font-size:0.65rem;font-weight:700;letter-spacing:2px;'>STEP 4</div>
+            <div style='color:#e0eaff;font-size:0.85rem;font-weight:700;margin-top:0.3rem;'>Secure Defence</div>
+            <div style='color:#6e9cc4;font-size:0.72rem;margin-top:0.3rem;'>bcrypt · Argon2 · AI guard</div>
+        </div>
+        <div style='flex:1;background:#0a1220;padding:1.2rem;text-align:center;'>
+            <div style='font-size:1.6rem;margin-bottom:0.4rem;'>✅</div>
+            <div style='color:#4fc3f7;font-size:0.65rem;font-weight:700;letter-spacing:2px;'>STEP 5</div>
+            <div style='color:#e0eaff;font-size:0.85rem;font-weight:700;margin-top:0.3rem;'>Validation</div>
+            <div style='color:#6e9cc4;font-size:0.72rem;margin-top:0.3rem;'>Quantify security improvement</div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    section("TECHNOLOGY STACK")
     tools = [
-        ("Python", "Core language"),
-        ("hashlib", "MD5 / SHA-1 hashing"),
-        ("bcrypt", "Secure salted hashing"),
-        ("argon2-cffi", "Memory-hard hashing"),
-        ("scikit-learn", "ML password classifier"),
-        ("NumPy / Pandas", "Data analysis"),
-        ("Matplotlib", "Attack visualisation"),
+        ("🐍  Python 3.12", "Core implementation language"),
+        ("🔑  hashlib", "MD5 / SHA-1 hashing primitives"),
+        ("🔒  bcrypt", "Adaptive salted password hashing"),
+        ("🛡️  argon2-cffi", "Memory-hard hashing (PHC winner)"),
+        ("🤖  scikit-learn", "Random Forest ML classifier"),
+        ("📊  NumPy / Pandas", "Numerical analysis & data handling"),
+        ("📈  Matplotlib", "Attack visualisation & charts"),
+        ("📄  ReportLab", "10-page academic PDF export"),
     ]
     cols = st.columns(4)
     for i, (tool, desc) in enumerate(tools):
         with cols[i % 4]:
             st.markdown(f"""
             <div style='background:#0f1e35;border:1px solid #1e2a3a;border-radius:6px;
-                 padding:0.7rem;margin-bottom:0.5rem;text-align:center;'>
-                <div style='color:#4fc3f7;font-weight:700;font-size:0.85rem;'>{tool}</div>
+                 padding:0.8rem;margin-bottom:0.6rem;'>
+                <div style='color:#4fc3f7;font-weight:700;font-size:0.82rem;margin-bottom:0.2rem;'>{tool}</div>
                 <div style='color:#6e9cc4;font-size:0.7rem;'>{desc}</div>
             </div>""", unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
-    section("Validation Metrics Tracked")
-    m1, m2, m3, m4 = st.columns(4)
-    m1.metric("Attack Success Rate", "Measured", "dictionary + brute-force")
-    m2.metric("Crack Time", "Measured", "perf_counter")
-    m3.metric("Entropy Improvement", "Calculated", "Shannon bits")
-    m4.metric("Hash Speed Ratio", "Compared", "MD5 vs bcrypt")
+    section("KEY RESEARCH FINDINGS — QUICK REFERENCE")
+
+    fc1, fc2, fc3, fc4 = st.columns(4)
+    with fc1:
+        st.markdown("""
+        <div style='background:#0f1e35;border:1px solid #ef4444;border-radius:8px;padding:1rem;text-align:center;'>
+            <div style='color:#ef4444;font-size:1.8rem;font-weight:900;'>10⁸</div>
+            <div style='color:#c9d4e0;font-size:0.78rem;margin-top:0.3rem;'>MD5 hashes/second<br><span style='color:#6e9cc4;'>attacker can compute</span></div>
+        </div>""", unsafe_allow_html=True)
+    with fc2:
+        st.markdown("""
+        <div style='background:#0f1e35;border:1px solid #f97316;border-radius:8px;padding:1rem;text-align:center;'>
+            <div style='color:#f97316;font-size:1.8rem;font-weight:900;'>~100%</div>
+            <div style='color:#c9d4e0;font-size:0.78rem;margin-top:0.3rem;'>Dictionary attack<br><span style='color:#6e9cc4;'>success on weak passwords</span></div>
+        </div>""", unsafe_allow_html=True)
+    with fc3:
+        st.markdown("""
+        <div style='background:#0f1e35;border:1px solid #34d399;border-radius:8px;padding:1rem;text-align:center;'>
+            <div style='color:#34d399;font-size:1.8rem;font-weight:900;'>10,000×</div>
+            <div style='color:#c9d4e0;font-size:0.78rem;margin-top:0.3rem;'>bcrypt slower than MD5<br><span style='color:#6e9cc4;'>→ dramatically safer</span></div>
+        </div>""", unsafe_allow_html=True)
+    with fc4:
+        st.markdown("""
+        <div style='background:#0f1e35;border:1px solid #4fc3f7;border-radius:8px;padding:1rem;text-align:center;'>
+            <div style='color:#4fc3f7;font-size:1.8rem;font-weight:900;'>21</div>
+            <div style='color:#c9d4e0;font-size:0.78rem;margin-top:0.3rem;'>ML model features<br><span style='color:#6e9cc4;'>Random Forest classifier</span></div>
+        </div>""", unsafe_allow_html=True)
 
 
 # ══════════════════════════════════════════
-# PAGE: MEMBER 1 — HASH LAB
+# PAGE: HASH LAB
 # ══════════════════════════════════════════
 elif "Hash Lab" in page:
-    page_header("⚙️ MEMBER 1 — HASH LAB", "Weak Hashing: MD5 & SHA-1 Vulnerability Demonstration")
+    page_header("⚙️ HASH LAB", "Weak Hashing: MD5 & SHA-1 Vulnerability Demonstration")
 
     tab1, tab2, tab3 = st.tabs(["HASH A PASSWORD", "GENERATE DATASET", "VULNERABILITY DEMO"])
 
@@ -445,16 +541,16 @@ elif "Hash Lab" in page:
 
 
 # ══════════════════════════════════════════
-# PAGE: MEMBER 1 — ATTACK LAB
+# PAGE: ATTACK SIMULATION
 # ══════════════════════════════════════════
-elif "Attack Lab" in page:
-    page_header("⚔️ MEMBER 1 — ATTACK LAB", "Dictionary & Brute-Force Attack Simulation")
+elif "Attack Simulation" in page:
+    page_header("⚔️ ATTACK SIMULATION", "Dictionary & Brute-Force Attack Simulation")
 
     pwd_path  = DATA_DIR / "passwords.txt"
     dict_path = DATA_DIR / "dictionary.txt"
 
     if not pwd_path.exists():
-        st.warning("⚠  Dataset not found. Go to **Member 1 — Hash Lab → Generate Dataset** first.")
+        st.warning("⚠  Dataset not found. Go to **Hash Lab → Generate Dataset** first.")
     else:
         passwords = [l.strip() for l in pwd_path.read_text().splitlines() if l.strip()]
 
@@ -600,10 +696,10 @@ elif "Attack Lab" in page:
 
 
 # ══════════════════════════════════════════
-# PAGE: MEMBER 2 — CRYPTANALYSIS
+# PAGE: CRYPTANALYSIS
 # ══════════════════════════════════════════
 elif "Cryptanalysis" in page:
-    page_header("🔬 MEMBER 2 — CRYPTANALYSIS", "Entropy Analysis · Statistical Patterns · ML Model · Hash Timing")
+    page_header("🔬 CRYPTANALYSIS", "Entropy Analysis · Statistical Patterns · ML Model · Hash Timing")
 
     pwd_path = DATA_DIR / "passwords.txt"
     if not pwd_path.exists():
@@ -773,10 +869,10 @@ elif "Cryptanalysis" in page:
 
 
 # ══════════════════════════════════════════
-# PAGE: MEMBER 3 — DEFENCE SYSTEM
+# PAGE: DEFENCE SYSTEM
 # ══════════════════════════════════════════
 elif "Defence" in page:
-    page_header("🛡️ MEMBER 3 — DEFENCE SYSTEM", "Secure Hashing · Salting · Password Policy · AI Detection")
+    page_header("🛡️ DEFENCE SYSTEM", "Secure Hashing · Salting · Password Policy · AI Detection")
 
     tab1, tab2, tab3, tab4 = st.tabs(["SECURE HASHING", "SALTING DEMO", "PASSWORD POLICY", "AI WEAK DETECTOR"])
 
@@ -1073,12 +1169,12 @@ elif "PDF Report" in page:
         <div style='display:grid;grid-template-columns:1fr 1fr;gap:0.4rem;'>
             <div style='color:#c9d4e0;font-size:0.85rem;'>✓  Title page with project info</div>
             <div style='color:#c9d4e0;font-size:0.85rem;'>✓  Introduction & objectives</div>
-            <div style='color:#c9d4e0;font-size:0.85rem;'>✓  Member 1 — Hash Lab (MD5/SHA-1)</div>
-            <div style='color:#c9d4e0;font-size:0.85rem;'>✓  Member 1 — Attack simulation results</div>
-            <div style='color:#c9d4e0;font-size:0.85rem;'>✓  Member 2 — Entropy analysis charts</div>
-            <div style='color:#c9d4e0;font-size:0.85rem;'>✓  Member 2 — ML classifier results</div>
-            <div style='color:#c9d4e0;font-size:0.85rem;'>✓  Member 3 — bcrypt/Argon2 demo</div>
-            <div style='color:#c9d4e0;font-size:0.85rem;'>✓  Member 3 — Password policy audit</div>
+            <div style='color:#c9d4e0;font-size:0.85rem;'>✓  Module I — Hash Lab (MD5/SHA-1)</div>
+            <div style='color:#c9d4e0;font-size:0.85rem;'>✓  Module I — Attack simulation results</div>
+            <div style='color:#c9d4e0;font-size:0.85rem;'>✓  Module II — Entropy analysis charts</div>
+            <div style='color:#c9d4e0;font-size:0.85rem;'>✓  Module II — ML classifier results</div>
+            <div style='color:#c9d4e0;font-size:0.85rem;'>✓  Module III — bcrypt/Argon2 demo</div>
+            <div style='color:#c9d4e0;font-size:0.85rem;'>✓  Module III — Password policy audit</div>
             <div style='color:#c9d4e0;font-size:0.85rem;'>✓  Validation metrics & comparison</div>
             <div style='color:#c9d4e0;font-size:0.85rem;'>✓  5 charts embedded in PDF</div>
             <div style='color:#c9d4e0;font-size:0.85rem;'>✓  9 data tables with real results</div>
@@ -1130,15 +1226,15 @@ elif "PDF Report" in page:
     st.markdown("---")
     section("Report Structure Preview")
     preview_sections = [
-        ("Page 1", "Title Page", "Project name, member list, tools, date"),
+        ("Page 1", "Title Page", "Project name, research team, tools, date"),
         ("Page 2", "Introduction", "Objectives, tools & technologies table"),
-        ("Page 3", "Member 1 — Hash Lab", "MD5/SHA-1 hashing, no-salt vulnerability, dataset table"),
-        ("Page 4", "Member 1 — Attacks", "Dictionary + brute-force results, Figure 1 (bar charts), Table 3"),
-        ("Page 5", "Member 2 — Entropy", "Shannon entropy analysis, Figure 2 (3 charts), statistics"),
-        ("Page 6", "Member 2 — Patterns & ML", "Pattern analysis, Figure 3, ML attack prediction table"),
-        ("Page 7", "Member 2 — Hash Timing", "MD5 vs SHA-1 speed, Figure 4"),
-        ("Page 8", "Member 3 — Defence", "bcrypt/Argon2 hashes, salting demo, password policy table"),
-        ("Page 9", "Member 3 — AI Detector", "AI detection results table"),
+        ("Page 3", "Module I — Hash Lab", "MD5/SHA-1 hashing, no-salt vulnerability, dataset table"),
+        ("Page 4", "Module I — Attacks", "Dictionary + brute-force results, Figure 1 (bar charts), Table 3"),
+        ("Page 5", "Module II — Entropy", "Shannon entropy analysis, Figure 2 (3 charts), statistics"),
+        ("Page 6", "Module II — Patterns & ML", "Pattern analysis, Figure 3, ML attack prediction table"),
+        ("Page 7", "Module II — Hash Timing", "MD5 vs SHA-1 speed, Figure 4"),
+        ("Page 8", "Module III — Defence", "bcrypt/Argon2 hashes, salting demo, password policy table"),
+        ("Page 9", "Module III — AI Detector", "AI detection results table"),
         ("Page 10","Validation & Conclusion", "Figure 5 (comparison charts), Table 8, key findings, recommendation"),
     ]
     for pg, title, content in preview_sections:
@@ -1152,6 +1248,119 @@ elif "PDF Report" in page:
             </div>
         </div>
         """, unsafe_allow_html=True)
+
+
+# ══════════════════════════════════════════
+# PAGE: ABOUT
+# ══════════════════════════════════════════
+elif "About" in page:
+    page_header("👥 ABOUT", "Research Team · Project Overview · Academic Context")
+
+    st.markdown("""
+    <div style='background:linear-gradient(135deg,#060e1f,#0a1a35);
+         border:1px solid #1e4a7a;border-radius:12px;padding:2.5rem;margin-bottom:1.5rem;text-align:center;'>
+        <div style='font-size:2.2rem;margin-bottom:0.6rem;'>🔐</div>
+        <div style='color:#4fc3f7;font-size:1.4rem;font-weight:900;letter-spacing:3px;'>CRYPTANALYSIS LAB</div>
+        <div style='color:#6e9cc4;font-size:0.78rem;letter-spacing:2px;margin-top:0.5rem;'>
+            Cryptanalysis of Weak Password Hashing Systems and AI-Based Defence Mechanism
+        </div>
+        <hr style='border-color:#1e4a7a;margin:1.5rem auto;max-width:400px;'/>
+        <div style='color:#8faecb;font-size:0.88rem;line-height:1.9;max-width:650px;margin:0 auto;'>
+            A university-level research project investigating cryptographic vulnerabilities in legacy 
+            password hashing algorithms, performing systematic attack simulations, and designing 
+            an AI-augmented defence architecture using modern memory-hard hashing and machine learning.
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    section("DEVELOPED BY")
+
+    team = [
+        ("👩‍💻", "Hajra Sarwar",   "Module I — Vulnerability Assessment & Hash Cracking",  "#f97316"),
+        ("👩‍💻", "Amina Noor",    "Module II — Cryptanalysis & AI-Based Analysis",          "#a78bfa"),
+        ("👩‍💻", "Hamail Fatima", "Module III — Defence Architecture & Validation",          "#34d399"),
+    ]
+
+    t1, t2, t3 = st.columns(3)
+    for col, (icon, name, role, color) in zip([t1, t2, t3], team):
+        with col:
+            st.markdown(f"""
+            <div style='background:linear-gradient(160deg,#0a1628,#0f1e35);
+                 border:1px solid #1e4a7a;border-top:3px solid {color};
+                 border-radius:10px;padding:1.8rem 1.4rem;text-align:center;'>
+                <div style='font-size:2.5rem;margin-bottom:0.8rem;'>{icon}</div>
+                <div style='color:#e0eaff;font-size:1.05rem;font-weight:800;letter-spacing:1px;'>{name}</div>
+                <div style='color:{color};font-size:0.65rem;font-weight:700;letter-spacing:2px;
+                     margin:0.5rem 0;text-transform:uppercase;'>Research Team</div>
+                <hr style='border-color:#1e2a3a;margin:0.8rem 0;'/>
+                <div style='color:#6e9cc4;font-size:0.75rem;line-height:1.6;'>{role}</div>
+            </div>
+            """, unsafe_allow_html=True)
+
+    st.markdown("<br>", unsafe_allow_html=True)
+    section("PROJECT DETAILS")
+
+    d1, d2 = st.columns(2)
+    with d1:
+        st.markdown("""
+        <div style='background:#0f1e35;border:1px solid #1e4a7a;border-radius:8px;padding:1.4rem;'>
+            <div style='color:#4fc3f7;font-size:0.68rem;font-weight:700;letter-spacing:3px;margin-bottom:1rem;'>SCOPE & OBJECTIVES</div>
+            <ul style='color:#8faecb;font-size:0.82rem;line-height:2.2;margin:0;padding-left:1.2rem;'>
+                <li>Analyse MD5 &amp; SHA-1 cryptographic weaknesses</li>
+                <li>Simulate real-world dictionary and brute-force attacks</li>
+                <li>Measure attack success rates and cracking time</li>
+                <li>Implement Shannon entropy &amp; statistical cryptanalysis</li>
+                <li>Train Random Forest ML classifier (21 features)</li>
+                <li>Design bcrypt/Argon2-based defence system</li>
+                <li>Validate security improvements with measurable metrics</li>
+                <li>Generate full 10-page academic PDF report</li>
+            </ul>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with d2:
+        st.markdown("""
+        <div style='background:#0f1e35;border:1px solid #1e4a7a;border-radius:8px;padding:1.4rem;'>
+            <div style='color:#4fc3f7;font-size:0.68rem;font-weight:700;letter-spacing:3px;margin-bottom:1rem;'>TECHNOLOGY STACK</div>
+            <table style='width:100%;border-collapse:collapse;font-size:0.8rem;'>
+                <tr style='border-bottom:1px solid #1e2a3a;'>
+                    <td style='color:#4fc3f7;padding:0.4rem 0;font-weight:700;'>Python 3.12</td>
+                    <td style='color:#8faecb;padding:0.4rem 0;'>Core implementation language</td>
+                </tr>
+                <tr style='border-bottom:1px solid #1e2a3a;'>
+                    <td style='color:#4fc3f7;padding:0.4rem 0;font-weight:700;'>hashlib</td>
+                    <td style='color:#8faecb;padding:0.4rem 0;'>MD5 / SHA-1 primitives</td>
+                </tr>
+                <tr style='border-bottom:1px solid #1e2a3a;'>
+                    <td style='color:#4fc3f7;padding:0.4rem 0;font-weight:700;'>bcrypt / Argon2</td>
+                    <td style='color:#8faecb;padding:0.4rem 0;'>Memory-hard secure hashing</td>
+                </tr>
+                <tr style='border-bottom:1px solid #1e2a3a;'>
+                    <td style='color:#4fc3f7;padding:0.4rem 0;font-weight:700;'>scikit-learn</td>
+                    <td style='color:#8faecb;padding:0.4rem 0;'>Random Forest ML model</td>
+                </tr>
+                <tr style='border-bottom:1px solid #1e2a3a;'>
+                    <td style='color:#4fc3f7;padding:0.4rem 0;font-weight:700;'>Streamlit</td>
+                    <td style='color:#8faecb;padding:0.4rem 0;'>Interactive web interface</td>
+                </tr>
+                <tr>
+                    <td style='color:#4fc3f7;padding:0.4rem 0;font-weight:700;'>ReportLab</td>
+                    <td style='color:#8faecb;padding:0.4rem 0;'>PDF academic report export</td>
+                </tr>
+            </table>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown("""
+    <div style='background:#071428;border:1px solid #1e2a3a;border-radius:8px;
+         padding:1.2rem 1.5rem;text-align:center;'>
+        <span style='color:#3a6a9a;font-size:0.72rem;letter-spacing:2px;'>
+        CRYPTANALYSIS OF WEAK PASSWORD HASHING SYSTEMS AND AI-BASED DEFENCE MECHANISM
+        &nbsp;·&nbsp; UNIVERSITY PROJECT &nbsp;·&nbsp; 2024–2025
+        </span>
+    </div>
+    """, unsafe_allow_html=True)
 
 
 # ─────────────────────────────────────────
