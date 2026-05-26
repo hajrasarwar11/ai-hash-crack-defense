@@ -44,121 +44,121 @@ st.set_page_config(
 )
 
 # ─────────────────────────────────────────
-# CSS  ── Luxury Dark · Syne + Instrument Serif
+# CSS  ── Premium Dark · Inter + Playfair
 # ─────────────────────────────────────────
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,400;9..144,1,300;9..144,1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-    --bg:        #0c0c0c;
-    --bg2:       #131313;
-    --bg3:       #191919;
-    --border:    #1f1f1f;
-    --border2:   #252525;
-    --border3:   #303030;
+    --bg:        #080808;
+    --bg2:       #0f0f0f;
+    --bg3:       #161616;
+    --bg4:       #1c1c1c;
+    --border:    #1a1a1a;
+    --border2:   #222222;
+    --border3:   #2e2e2e;
     --gold:      #c9a84c;
-    --gold2:     #dfc07a;
+    --gold2:     #e0c880;
     --gold-dim:  #7a6030;
-    --gold-glow: rgba(201,168,76,0.07);
-    --text:      #eaeaea;
-    --text-mid:  #888888;
-    --text-dim:  #484848;
-    --red:       #cc5f5f;
-    --green:     #4daa7a;
-    --purple:    #8470cc;
+    --gold-glow: rgba(201,168,76,0.06);
+    --text:      #e8e8e8;
+    --text-mid:  #909090;
+    --text-dim:  #505050;
+    --text-faint:#2a2a2a;
+    --red:       #c05555;
+    --green:     #4aaa7a;
+    --purple:    #8066cc;
     --orange:    #c47a44;
-    --font:      'DM Sans', sans-serif;
-    --mono:      'DM Mono', monospace;
-    --display:   'Fraunces', serif;
+    --font:      Inter, system-ui, sans-serif;
+    --mono:      JetBrains Mono, monospace;
+    --display:   Playfair Display, Georgia, serif;
 }
 
-*, *::before, *::after { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; }
 
-html, body, [class*="css"] {
+html, body, [class*='css'] {
     font-family: var(--font) !important;
     -webkit-font-smoothing: antialiased !important;
     background-color: var(--bg) !important;
+    color: var(--text) !important;
 }
 
 /* STREAMLIT CHROME */
-header[data-testid="stHeader"],
-[data-testid="stToolbar"] {
+header[data-testid='stHeader'],
+[data-testid='stToolbar'] {
     background: var(--bg) !important;
     border-bottom: 1px solid var(--border) !important;
     height: 2.6rem !important;
 }
-[data-testid="stDecoration"] { display: none !important; }
+[data-testid='stDecoration'] { display: none !important; }
 #MainMenu, footer { visibility: hidden !important; }
 
 /* BACKGROUNDS */
 .stApp,
-[data-testid="stAppViewContainer"],
-[data-testid="stAppViewBlockContainer"],
+[data-testid='stAppViewContainer'],
+[data-testid='stAppViewBlockContainer'],
 .main, .block-container {
     background-color: var(--bg) !important;
 }
-[data-testid="stAppViewBlockContainer"] {
+[data-testid='stAppViewBlockContainer'] {
     padding-top: 2.5rem !important;
-    padding-left: 3rem !important;
-    padding-right: 3rem !important;
+    padding-left: 2.8rem !important;
+    padding-right: 2.8rem !important;
     max-width: 1180px !important;
 }
 
 /* ── SIDEBAR ─────────────────────────────────────── */
-section[data-testid="stSidebar"] {
+section[data-testid='stSidebar'] {
     background: var(--bg2) !important;
-    border-right: 1px solid var(--border) !important;
-    width: 230px !important;
-    min-width: 230px !important;
+    border-right: 1px solid var(--border2) !important;
+    width: 226px !important;
+    min-width: 226px !important;
 }
-section[data-testid="stSidebar"] > div {
+section[data-testid='stSidebar'] > div {
     background: var(--bg2) !important;
-}
-section[data-testid="stSidebar"] * {
-    color: var(--text-mid) !important;
 }
 
 /* hide radio dots */
-[data-testid="stSidebar"] [data-baseweb="radio"],
-[data-testid="stSidebar"] [role="radio"],
-[data-testid="stSidebar"] .stRadio [data-testid="stWidgetLabel"],
-[data-testid="stSidebar"] .stRadio span[data-baseweb="radio"],
-[data-testid="stSidebar"] .stRadio div[role="radiogroup"] > label > div:first-child,
-[data-testid="stSidebar"] input[type="radio"] { display: none !important; }
+[data-testid='stSidebar'] [data-baseweb='radio'],
+[data-testid='stSidebar'] [role='radio'],
+[data-testid='stSidebar'] .stRadio [data-testid='stWidgetLabel'],
+[data-testid='stSidebar'] .stRadio span[data-baseweb='radio'],
+[data-testid='stSidebar'] .stRadio div[role='radiogroup'] > label > div:first-child,
+[data-testid='stSidebar'] input[type='radio'] { display: none !important; }
 
-[data-testid="stSidebar"] .stRadio > div {
-    gap: 1px !important;
-    padding: 0 8px !important;
+[data-testid='stSidebar'] .stRadio > div {
+    gap: 0 !important;
+    padding: 0 10px !important;
 }
-[data-testid="stSidebar"] .stRadio label {
+[data-testid='stSidebar'] .stRadio label {
     display: flex !important;
     align-items: center !important;
-    padding: 0.48rem 0.8rem !important;
-    border-radius: 6px !important;
+    padding: 0.5rem 0.9rem !important;
+    border-radius: 7px !important;
     cursor: pointer !important;
-    /* KEY FIX: normal case, no wrap, compact */
-    font-size: 0.82rem !important;
+    font-size: 0.83rem !important;
     font-weight: 400 !important;
     text-transform: none !important;
-    letter-spacing: 0.01em !important;
+    letter-spacing: 0.005em !important;
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
     color: var(--text-dim) !important;
     border-left: 2px solid transparent !important;
-    transition: all 0.14s ease !important;
-    margin-bottom: 1px !important;
+    transition: all 0.12s ease !important;
+    margin-bottom: 2px !important;
     line-height: 1.4 !important;
 }
-[data-testid="stSidebar"] .stRadio label:hover {
-    background: rgba(255,255,255,0.03) !important;
+[data-testid='stSidebar'] .stRadio label:hover {
+    background: rgba(255,255,255,0.035) !important;
     color: var(--text-mid) !important;
+    border-left-color: var(--border3) !important;
 }
-[data-testid="stSidebar"] .stRadio label[data-checked="true"],
-[data-testid="stSidebar"] .stRadio [aria-checked="true"] ~ label,
-[data-testid="stSidebar"] .stRadio input:checked + div {
-    background: rgba(201,168,76,0.08) !important;
+[data-testid='stSidebar'] .stRadio label[data-checked='true'],
+[data-testid='stSidebar'] .stRadio [aria-checked='true'] ~ label,
+[data-testid='stSidebar'] .stRadio input:checked + div {
+    background: rgba(201,168,76,0.07) !important;
     color: var(--gold) !important;
     border-left-color: var(--gold) !important;
     font-weight: 500 !important;
@@ -168,19 +168,19 @@ section[data-testid="stSidebar"] * {
 h1, h2, h3, h4 {
     font-family: var(--display) !important;
     color: var(--text) !important;
-    font-weight: 300 !important;
-    letter-spacing: -0.025em !important;
+    font-weight: 400 !important;
+    letter-spacing: -0.02em !important;
     line-height: 1.15 !important;
 }
-html, body, p, span, div, label, li, .stMarkdown, .stText {
+p, span, div, label, li, .stMarkdown, .stText {
     color: var(--text) !important;
     font-family: var(--font) !important;
 }
 .stMarkdown p {
     color: var(--text-mid) !important;
     font-size: 0.9rem !important;
-    line-height: 1.8 !important;
-    font-weight: 300 !important;
+    line-height: 1.85 !important;
+    font-weight: 400 !important;
 }
 
 /* BUTTONS */
@@ -188,15 +188,15 @@ html, body, p, span, div, label, li, .stMarkdown, .stText {
     background: transparent !important;
     color: var(--gold) !important;
     border: 1px solid var(--border3) !important;
-    border-radius: 6px !important;
+    border-radius: 7px !important;
     font-family: var(--font) !important;
     font-size: 0.74rem !important;
     font-weight: 500 !important;
-    letter-spacing: 0.07em !important;
+    letter-spacing: 0.06em !important;
     text-transform: uppercase !important;
-    padding: 0.58rem 1.2rem !important;
+    padding: 0.6rem 1.3rem !important;
     width: 100% !important;
-    transition: all 0.15s ease !important;
+    transition: all 0.14s ease !important;
 }
 .stButton > button:hover {
     border-color: var(--gold) !important;
@@ -208,115 +208,115 @@ html, body, p, span, div, label, li, .stMarkdown, .stText {
 /* INPUTS */
 .stTextInput > div > div > input,
 .stTextArea > div > div > textarea {
-    background: var(--bg2) !important;
+    background: var(--bg3) !important;
     color: var(--text) !important;
     border: 1px solid var(--border2) !important;
-    border-radius: 6px !important;
+    border-radius: 7px !important;
     font-family: var(--font) !important;
-    font-size: 0.87rem !important;
-    font-weight: 300 !important;
-    padding: 0.62rem 0.95rem !important;
+    font-size: 0.88rem !important;
+    font-weight: 400 !important;
+    padding: 0.65rem 1rem !important;
     transition: border-color 0.14s !important;
     caret-color: var(--gold) !important;
 }
 .stTextInput > div > div > input::placeholder,
 .stTextArea > div > div > textarea::placeholder {
     color: var(--text-dim) !important;
-    font-weight: 300 !important;
 }
 .stTextInput > div > div > input:focus,
 .stTextArea > div > div > textarea:focus {
     border-color: var(--gold-dim) !important;
-    background: var(--bg3) !important;
+    background: var(--bg4) !important;
     outline: none !important;
-    box-shadow: 0 0 0 3px rgba(201,168,76,0.06) !important;
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.05) !important;
 }
 
 /* SELECT */
 .stSelectbox > div > div {
-    background: var(--bg2) !important;
+    background: var(--bg3) !important;
     color: var(--text) !important;
     border: 1px solid var(--border2) !important;
-    border-radius: 6px !important;
+    border-radius: 7px !important;
     font-family: var(--font) !important;
-    font-size: 0.87rem !important;
+    font-size: 0.88rem !important;
 }
 .stSelectbox svg { fill: var(--gold) !important; }
 
 /* METRICS */
-[data-testid="stMetric"] {
+[data-testid='stMetric'] {
     background: var(--bg2) !important;
     border: 1px solid var(--border2) !important;
     border-radius: 12px !important;
-    padding: 1.2rem 1.3rem 1rem !important;
+    padding: 1.3rem 1.4rem 1.1rem !important;
     position: relative !important;
     overflow: hidden !important;
-    transition: border-color 0.16s !important;
+    transition: border-color 0.15s, transform 0.15s !important;
 }
-[data-testid="stMetric"]::before {
+[data-testid='stMetric']::before {
     content: '' !important;
     position: absolute !important;
-    top: 0; left: 20%; right: 20% !important;
+    top: 0; left: 15%; right: 15% !important;
     height: 1px !important;
-    background: linear-gradient(90deg,
-        transparent, var(--gold-dim) 40%,
-        var(--gold) 50%, var(--gold-dim) 60%, transparent) !important;
+    background: linear-gradient(90deg, transparent, var(--gold-dim) 35%, var(--gold) 50%, var(--gold-dim) 65%, transparent) !important;
 }
-[data-testid="stMetric"]:hover { border-color: var(--border3) !important; }
-[data-testid="stMetric"] * { color: var(--text) !important; }
-[data-testid="stMetricLabel"] {
-    font-size: 0.57rem !important;
+[data-testid='stMetric']:hover {
+    border-color: var(--border3) !important;
+    transform: translateY(-1px) !important;
+}
+[data-testid='stMetric'] * { color: var(--text) !important; }
+[data-testid='stMetricLabel'] {
+    font-size: 0.58rem !important;
     font-weight: 600 !important;
-    letter-spacing: 0.16em !important;
+    letter-spacing: 0.14em !important;
     text-transform: uppercase !important;
     color: var(--text-dim) !important;
     font-family: var(--font) !important;
     line-height: 1.5 !important;
 }
-[data-testid="stMetricValue"] {
-    font-size: 2.1rem !important;
-    font-weight: 300 !important;
+[data-testid='stMetricValue'] {
+    font-size: 2rem !important;
+    font-weight: 400 !important;
     font-family: var(--display) !important;
     color: var(--text) !important;
-    letter-spacing: -0.03em !important;
+    letter-spacing: -0.02em !important;
     line-height: 1.2 !important;
-    margin: 0.15rem 0 !important;
+    margin: 0.2rem 0 !important;
 }
-[data-testid="stMetricDelta"] {
-    font-size: 0.66rem !important;
+[data-testid='stMetricDelta'] {
+    font-size: 0.67rem !important;
     color: var(--text-dim) !important;
     font-family: var(--font) !important;
     font-weight: 400 !important;
 }
 
 /* TABS */
-.stTabs [data-baseweb="tab-list"] {
+.stTabs [data-baseweb='tab-list'] {
     background: transparent !important;
     border-bottom: 1px solid var(--border) !important;
     gap: 0 !important;
     padding: 0 !important;
 }
-.stTabs [data-baseweb="tab"] {
+.stTabs [data-baseweb='tab'] {
     background: transparent !important;
     color: var(--text-dim) !important;
-    font-size: 0.66rem !important;
+    font-size: 0.67rem !important;
     font-weight: 500 !important;
-    letter-spacing: 0.1em !important;
+    letter-spacing: 0.09em !important;
     text-transform: uppercase !important;
-    padding: 0.75rem 1.2rem !important;
+    padding: 0.78rem 1.2rem !important;
     border-bottom: 2px solid transparent !important;
     border-radius: 0 !important;
-    transition: color 0.13s !important;
+    transition: color 0.12s !important;
     font-family: var(--font) !important;
     white-space: nowrap !important;
 }
-.stTabs [data-baseweb="tab"]:hover { color: var(--text-mid) !important; }
-.stTabs [aria-selected="true"] {
+.stTabs [data-baseweb='tab']:hover { color: var(--text-mid) !important; }
+.stTabs [aria-selected='true'] {
     color: var(--gold) !important;
     border-bottom-color: var(--gold) !important;
     background: transparent !important;
 }
-.stTabs [data-baseweb="tab-panel"] { padding-top: 1.5rem !important; }
+.stTabs [data-baseweb='tab-panel'] { padding-top: 1.6rem !important; }
 
 /* PROGRESS */
 .stProgress > div > div > div {
@@ -331,8 +331,8 @@ html, body, p, span, div, label, li, .stMarkdown, .stText {
 
 /* CODE */
 code, .stCode, pre {
-    background: var(--bg2) !important;
-    color: var(--gold) !important;
+    background: var(--bg3) !important;
+    color: var(--gold2) !important;
     font-family: var(--mono) !important;
     font-size: 0.8rem !important;
     border: 1px solid var(--border2) !important;
@@ -340,47 +340,47 @@ code, .stCode, pre {
 }
 
 /* DATAFRAMES */
-[data-testid="stDataFrame"] {
+[data-testid='stDataFrame'] {
     background: var(--bg2) !important;
     border: 1px solid var(--border) !important;
     border-radius: 10px !important;
     overflow: hidden !important;
-    font-size: 0.82rem !important;
+    font-size: 0.83rem !important;
 }
 
 /* ALERTS */
-[data-testid="stAlert"] {
+[data-testid='stAlert'] {
     border-radius: 8px !important;
-    font-size: 0.84rem !important;
+    font-size: 0.85rem !important;
     font-family: var(--font) !important;
     font-weight: 400 !important;
     border-width: 1px !important;
 }
 
 /* EXPANDERS */
-[data-testid="stExpander"] {
+[data-testid='stExpander'] {
     background: var(--bg2) !important;
     border: 1px solid var(--border) !important;
     border-radius: 10px !important;
     transition: border-color 0.14s !important;
 }
-[data-testid="stExpander"]:hover { border-color: var(--border2) !important; }
-[data-testid="stExpander"] * { color: var(--text) !important; }
-[data-testid="stExpander"] summary {
-    font-size: 0.87rem !important;
+[data-testid='stExpander']:hover { border-color: var(--border2) !important; }
+[data-testid='stExpander'] * { color: var(--text) !important; }
+[data-testid='stExpander'] summary {
+    font-size: 0.88rem !important;
     font-weight: 400 !important;
-    padding: 0.82rem 1.1rem !important;
+    padding: 0.85rem 1.1rem !important;
 }
-[data-testid="stExpander"] summary:hover { color: var(--gold) !important; }
+[data-testid='stExpander'] summary:hover { color: var(--gold) !important; }
 
 /* SLIDER */
 .stSlider > div > div > div { background: var(--gold) !important; }
-[data-testid="stSlider"] > div > div > div > div { background: var(--border2) !important; }
+[data-testid='stSlider'] > div > div > div > div { background: var(--border2) !important; }
 
 /* CHECKBOX */
 .stCheckbox > label {
     color: var(--text-mid) !important;
-    font-size: 0.85rem !important;
+    font-size: 0.86rem !important;
     font-weight: 400 !important;
 }
 
@@ -392,33 +392,23 @@ hr {
 }
 
 /* SCROLLBAR */
-::-webkit-scrollbar { width: 3px; height: 3px; }
+::-webkit-scrollbar { width: 4px; height: 4px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 99px; }
+::-webkit-scrollbar-thumb { background: var(--border3); border-radius: 99px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--gold-dim); }
 
 /* ANIMATIONS */
 @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(10px); }
+    from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-.main .block-container {
-    animation: fadeUp 0.35s cubic-bezier(0.22, 1, 0.36, 1) both !important;
-}
-section[data-testid="stSidebar"] {
-    animation: fadeIn 0.3s ease both !important;
-}
-[data-testid="stMetric"] {
-    animation: fadeUp 0.3s cubic-bezier(0.22, 1, 0.36, 1) both !important;
-}
+.main .block-container { animation: fadeUp 0.3s cubic-bezier(0.22,1,0.36,1) both !important; }
+section[data-testid='stSidebar'] { animation: fadeIn 0.25s ease both !important; }
 
 /* TEXT SELECTION */
-::selection {
-    background: rgba(201,168,76,0.15);
-    color: var(--text);
-}
+::selection { background: rgba(201,168,76,0.18); color: var(--text); }
 </style>
 """, unsafe_allow_html=True)
 
@@ -428,52 +418,53 @@ section[data-testid="stSidebar"] {
 # ─────────────────────────────────────────
 
 def page_header(title, subtitle=""):
-    # Split title at '&' so second part renders in gold italic (like image 2)
     parts = title.split("&", 1)
     main  = parts[0].strip()
     rest  = ("& " + parts[1].strip()) if len(parts) > 1 else ""
 
-    tag_html = ""
+    sub_html = ""
     if subtitle:
-        tag_html = f"""
-        <div style="font-size:0.6rem;font-weight:600;color:#7a6030;
-                    letter-spacing:0.22em;text-transform:uppercase;
-                    margin-bottom:1.1rem;font-family:'DM Sans',sans-serif;">
-            {subtitle}
-        </div>"""
+        sub_html = (
+            f"<div style='font-size:0.6rem;font-weight:600;color:#7a6030;"
+            f"letter-spacing:0.2em;text-transform:uppercase;"
+            f"margin-bottom:1rem;font-family:Inter,sans-serif;'>"
+            f"{subtitle}</div>"
+        )
 
-    gold_line = ""
+    gold_html = ""
     if rest:
-        gold_line = f"""
-        <div style="font-size:3rem;font-weight:300;line-height:1.1;
-                    letter-spacing:-0.03em;
-                    color:#c9a84c;font-style:italic;
-                    font-family:'Fraunces',serif;">
-            {rest}
-        </div>"""
+        gold_html = (
+            f"<div style='font-size:2.8rem;font-weight:400;line-height:1.1;"
+            f"letter-spacing:-0.02em;color:#c9a84c;font-style:italic;"
+            f"font-family:Playfair Display,Georgia,serif;'>"
+            f"{rest}</div>"
+        )
 
-    st.markdown(f"""
-    <div style="padding:3rem 0 2.2rem;border-bottom:1px solid #1f1f1f;margin-bottom:1.8rem;">
-        {tag_html}
-        <div style="font-size:3rem;font-weight:300;line-height:1.1;
-                    letter-spacing:-0.03em;color:#eaeaea;
-                    font-family:'Fraunces',serif;">
-            {main}
-        </div>
-        {gold_line}
-    </div>
-    """, unsafe_allow_html=True)
+    main_html = (
+        f"<div style='font-size:2.8rem;font-weight:400;line-height:1.1;"
+        f"letter-spacing:-0.02em;color:#e8e8e8;"
+        f"font-family:Playfair Display,Georgia,serif;'>"
+        f"{main}</div>"
+    )
+
+    st.markdown(
+        f"<div style='padding:2.8rem 0 2rem;border-bottom:1px solid #1a1a1a;"
+        f"margin-bottom:1.8rem;'>"
+        f"{sub_html}{main_html}{gold_html}"
+        f"</div>",
+        unsafe_allow_html=True
+    )
 
 
 def section(text):
-    st.markdown(f"""
-    <div style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;
-                text-transform:uppercase;color:#484848;
-                padding-bottom:0.55rem;margin:2rem 0 1.1rem;
-                border-bottom:1px solid #1f1f1f;
-                font-family:'DM Sans',sans-serif;">
-        {text}
-    </div>""", unsafe_allow_html=True)
+    st.markdown(
+        f"<div style='font-size:0.58rem;font-weight:600;letter-spacing:0.18em;"
+        f"text-transform:uppercase;color:#505050;"
+        f"padding-bottom:0.5rem;margin:2rem 0 1.1rem;"
+        f"border-bottom:1px solid #1a1a1a;font-family:Inter,sans-serif;'>"
+        f"{text}</div>",
+        unsafe_allow_html=True
+    )
 
 
 def make_chart(fig):
@@ -504,15 +495,22 @@ def style_axes(ax, title=""):
 # SIDEBAR
 # ─────────────────────────────────────────
 with st.sidebar:
-    st.markdown("""
-    <div style='padding:1.8rem 0.5rem 1.2rem 1rem;'>
-        <div style='display:flex;align-items:center;gap:0.55rem;margin-bottom:0.4rem;'>
-            <span style='font-size:1rem;'>🔐</span>
-            <span style='font-size:0.9rem;font-weight:800;color:#c8a84b;letter-spacing:0.16em;font-family:Syne,sans-serif;'>CRYPTLAB</span>
-        </div>
-        <div style='font-size:0.54rem;color:#2e2e2e;letter-spacing:0.18em;text-transform:uppercase;font-family:Syne,sans-serif;'>Vulnerability Assessment</div>
-    </div>""", unsafe_allow_html=True)
-    st.markdown("<div style='height:1px;background:#181818;margin:0 0 0.7rem;'></div>", unsafe_allow_html=True)
+    st.markdown(
+        "<div style='padding:1.8rem 0.6rem 1.3rem 1rem;'>"
+        "<div style='display:flex;align-items:center;gap:0.6rem;margin-bottom:0.45rem;'>"
+        "<span style='font-size:1.1rem;'>🔐</span>"
+        "<span style='font-size:0.88rem;font-weight:700;color:#c9a84c;"
+        "letter-spacing:0.14em;font-family:Inter,sans-serif;'>CRYPTLAB</span>"
+        "</div>"
+        "<div style='font-size:0.52rem;color:#383838;letter-spacing:0.16em;"
+        "text-transform:uppercase;font-family:Inter,sans-serif;'>Vulnerability Assessment</div>"
+        "</div>",
+        unsafe_allow_html=True
+    )
+    st.markdown(
+        "<div style='height:1px;background:#1a1a1a;margin:0 0 0.6rem;'></div>",
+        unsafe_allow_html=True
+    )
 
     page = st.radio("Navigation", [
         "🏠  Overview",
@@ -525,35 +523,52 @@ with st.sidebar:
         "👥  About",
     ], label_visibility="collapsed")
 
-    st.markdown("<div style='height:1px;background:#181818;margin:1rem 0;'></div>", unsafe_allow_html=True)
-    st.markdown("<div style='font-size:0.54rem;color:#242424;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;padding:0 0.3rem;font-family:Syne,sans-serif;'>Project</div>", unsafe_allow_html=True)
-    st.markdown("<div style='font-size:0.7rem;color:#303030;line-height:1.8;padding:0 0.3rem;font-family:Syne,sans-serif;'>Cryptanalysis of Weak Password Hashing Systems and AI-Based Defence Mechanism</div>", unsafe_allow_html=True)
-    st.markdown("<div style='height:1px;background:#181818;margin:1rem 0;'></div>", unsafe_allow_html=True)
-    st.markdown("<div style='font-size:0.6rem;color:#222;padding:0 0.3rem;font-family:JetBrains Mono,monospace;'>Python · hashlib · bcrypt · argon2</div>", unsafe_allow_html=True)
+    st.markdown(
+        "<div style='height:1px;background:#1a1a1a;margin:1.2rem 0 0.8rem;'></div>"
+        "<div style='font-size:0.52rem;color:#303030;letter-spacing:0.12em;"
+        "text-transform:uppercase;margin-bottom:0.45rem;padding:0 0.4rem;"
+        "font-family:Inter,sans-serif;'>Project</div>"
+        "<div style='font-size:0.71rem;color:#383838;line-height:1.75;"
+        "padding:0 0.4rem;font-family:Inter,sans-serif;'>"
+        "Cryptanalysis of Weak Password Hashing Systems and AI-Based Defence Mechanism"
+        "</div>"
+        "<div style='height:1px;background:#1a1a1a;margin:0.9rem 0 0.6rem;'></div>"
+        "<div style='font-size:0.6rem;color:#2a2a2a;padding:0 0.4rem;"
+        "font-family:JetBrains Mono,monospace;'>Python · hashlib · bcrypt · argon2</div>",
+        unsafe_allow_html=True
+    )
 
 
 # ══════════════════════════════════════════
 # PAGE: OVERVIEW
 # ══════════════════════════════════════════
 if "Overview" in page:
-    st.markdown("""
-    <div style='padding:3rem 0 2.2rem;border-bottom:1px solid #181818;'>
-        <div style='font-size:0.6rem;font-weight:700;color:#7a6530;letter-spacing:0.22em;
-             text-transform:uppercase;margin-bottom:1rem;font-family:Syne,sans-serif;'>
-             Cryptanalysis Lab  ·  University Research Project
-        </div>
-        <div style='color:#efefef;font-size:3rem;font-weight:400;line-height:1.05;letter-spacing:-0.03em;
-             margin-bottom:1.1rem;font-family:Instrument Serif,serif;'>
-            Weak Password Hashing<br>
-            <span style='color:#c8a84b;font-style:italic;'>& AI-Based Defence</span>
-        </div>
-        <p style='color:#444;line-height:2;max-width:620px;font-size:0.86rem;font-weight:400;margin:0;font-family:Syne,sans-serif;'>
-            Investigating cryptographic vulnerabilities in legacy hashing algorithms (MD5, SHA-1),
-            simulating dictionary and brute-force attacks, and building a robust
-            <span style='color:#666;'>machine-learning defence system</span> with memory-hard hashing.
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown(
+        "<div style='padding:2.8rem 0 2rem;border-bottom:1px solid #1a1a1a;margin-bottom:1.8rem;'>"
+        "<div style='font-size:0.6rem;font-weight:600;color:#7a6030;letter-spacing:0.2em;"
+        "text-transform:uppercase;margin-bottom:1rem;font-family:Inter,sans-serif;'>"
+        "Cryptanalysis Lab  &middot;  University Research Project"
+        "</div>"
+        "<div style='color:#e8e8e8;font-size:2.8rem;font-weight:400;line-height:1.1;"
+        "letter-spacing:-0.02em;margin-bottom:0.05rem;"
+        "font-family:Playfair Display,Georgia,serif;'>"
+        "Weak Password Hashing"
+        "</div>"
+        "<div style='color:#c9a84c;font-size:2.8rem;font-weight:400;line-height:1.1;"
+        "letter-spacing:-0.02em;margin-bottom:1rem;font-style:italic;"
+        "font-family:Playfair Display,Georgia,serif;'>"
+        "&amp; AI-Based Defence"
+        "</div>"
+        "<p style='color:#686868;line-height:1.9;max-width:640px;font-size:0.87rem;"
+        "font-weight:400;margin:0;font-family:Inter,sans-serif;'>"
+        "Investigating cryptographic vulnerabilities in legacy hashing algorithms (MD5, SHA-1), "
+        "simulating dictionary and brute-force attacks, and building a robust "
+        "<span style='color:#909090;font-weight:500;'>machine-learning defence system</span>"
+        " with memory-hard hashing."
+        "</p>"
+        "</div>",
+        unsafe_allow_html=True
+    )
 
     st.markdown("<br>", unsafe_allow_html=True)
 
@@ -572,11 +587,11 @@ if "Overview" in page:
         st.markdown("""
         <div style='background:#0e0e0e;border:1px solid #1a1a1a;border-top:2px solid #c47a44;
              border-radius:9px;padding:1.5rem;height:100%;'>
-            <div style='color:#c47a44;font-size:0.57rem;font-weight:700;letter-spacing:0.18em;margin-bottom:0.9rem;font-family:Syne,sans-serif;'>MODULE I</div>
-            <div style='color:#efefef;font-size:1rem;font-family:Instrument Serif,serif;margin-bottom:0.2rem;'>Vulnerability Assessment</div>
-            <div style='color:#383838;font-size:0.7rem;margin-bottom:1rem;font-family:Syne,sans-serif;'>Hash Lab · Attack Simulation</div>
+            <div style='color:#c47a44;font-size:0.57rem;font-weight:700;letter-spacing:0.18em;margin-bottom:0.9rem;font-family:Inter,sans-serif;'>MODULE I</div>
+            <div style='color:#efefef;font-size:1rem;font-family:Playfair Display,Georgia,serif;margin-bottom:0.2rem;'>Vulnerability Assessment</div>
+            <div style='color:#383838;font-size:0.7rem;margin-bottom:1rem;font-family:Inter,sans-serif;'>Hash Lab · Attack Simulation</div>
             <div style='height:1px;background:#181818;margin:0.7rem 0;'></div>
-            <ul style='color:#484848;font-size:0.74rem;line-height:2.1;margin:0;padding-left:1rem;font-family:Syne,sans-serif;'>
+            <ul style='color:#484848;font-size:0.74rem;line-height:2.1;margin:0;padding-left:1rem;font-family:Inter,sans-serif;'>
                 <li>MD5 &amp; SHA-1 analysis</li>
                 <li>Weak password dataset generation</li>
                 <li>Dictionary attack simulation</li>
@@ -591,11 +606,11 @@ if "Overview" in page:
         st.markdown("""
         <div style='background:#0e0e0e;border:1px solid #1a1a1a;border-top:2px solid #8066cc;
              border-radius:9px;padding:1.5rem;height:100%;'>
-            <div style='color:#8066cc;font-size:0.57rem;font-weight:700;letter-spacing:0.18em;margin-bottom:0.9rem;font-family:Syne,sans-serif;'>MODULE II</div>
-            <div style='color:#efefef;font-size:1rem;font-family:Instrument Serif,serif;margin-bottom:0.2rem;'>Cryptanalysis &amp; AI</div>
-            <div style='color:#383838;font-size:0.7rem;margin-bottom:1rem;font-family:Syne,sans-serif;'>Entropy · Patterns · ML Classifier</div>
+            <div style='color:#8066cc;font-size:0.57rem;font-weight:700;letter-spacing:0.18em;margin-bottom:0.9rem;font-family:Inter,sans-serif;'>MODULE II</div>
+            <div style='color:#efefef;font-size:1rem;font-family:Playfair Display,Georgia,serif;margin-bottom:0.2rem;'>Cryptanalysis &amp; AI</div>
+            <div style='color:#383838;font-size:0.7rem;margin-bottom:1rem;font-family:Inter,sans-serif;'>Entropy · Patterns · ML Classifier</div>
             <div style='height:1px;background:#181818;margin:0.7rem 0;'></div>
-            <ul style='color:#484848;font-size:0.74rem;line-height:2.1;margin:0;padding-left:1rem;font-family:Syne,sans-serif;'>
+            <ul style='color:#484848;font-size:0.74rem;line-height:2.1;margin:0;padding-left:1rem;font-family:Inter,sans-serif;'>
                 <li>Shannon entropy analysis</li>
                 <li>Statistical pattern recognition</li>
                 <li>Random Forest ML classifier</li>
@@ -609,11 +624,11 @@ if "Overview" in page:
         st.markdown("""
         <div style='background:#0e0e0e;border:1px solid #1a1a1a;border-top:2px solid #4aaa7a;
              border-radius:9px;padding:1.5rem;height:100%;'>
-            <div style='color:#4aaa7a;font-size:0.57rem;font-weight:700;letter-spacing:0.18em;margin-bottom:0.9rem;font-family:Syne,sans-serif;'>MODULE III</div>
-            <div style='color:#efefef;font-size:1rem;font-family:Instrument Serif,serif;margin-bottom:0.2rem;'>Defence Architecture</div>
-            <div style='color:#383838;font-size:0.7rem;margin-bottom:1rem;font-family:Syne,sans-serif;'>bcrypt · Argon2 · Policy · AI Guard</div>
+            <div style='color:#4aaa7a;font-size:0.57rem;font-weight:700;letter-spacing:0.18em;margin-bottom:0.9rem;font-family:Inter,sans-serif;'>MODULE III</div>
+            <div style='color:#efefef;font-size:1rem;font-family:Playfair Display,Georgia,serif;margin-bottom:0.2rem;'>Defence Architecture</div>
+            <div style='color:#383838;font-size:0.7rem;margin-bottom:1rem;font-family:Inter,sans-serif;'>bcrypt · Argon2 · Policy · AI Guard</div>
             <div style='height:1px;background:#181818;margin:0.7rem 0;'></div>
-            <ul style='color:#484848;font-size:0.74rem;line-height:2.1;margin:0;padding-left:1rem;font-family:Syne,sans-serif;'>
+            <ul style='color:#484848;font-size:0.74rem;line-height:2.1;margin:0;padding-left:1rem;font-family:Inter,sans-serif;'>
                 <li>bcrypt &amp; Argon2 secure hashing</li>
                 <li>Automatic salting &amp; key stretching</li>
                 <li>Multi-rule password policy engine</li>
@@ -630,33 +645,33 @@ if "Overview" in page:
     <div style='display:flex;align-items:stretch;border:1px solid #181818;border-radius:9px;overflow:hidden;margin:0.5rem 0 1.5rem;'>
         <div style='flex:1;background:#0e0e0e;padding:1.4rem 1rem;text-align:center;border-right:1px solid #181818;'>
             <div style='font-size:1.3rem;margin-bottom:0.6rem;'>🗂️</div>
-            <div style='color:#c47a44;font-size:0.55rem;font-weight:700;letter-spacing:0.18em;font-family:Syne,sans-serif;'>STEP 1</div>
-            <div style='color:#efefef;font-size:0.8rem;font-weight:600;margin-top:0.4rem;font-family:Syne,sans-serif;'>Dataset</div>
-            <div style='color:#383838;font-size:0.66rem;margin-top:0.2rem;font-family:Syne,sans-serif;'>Weak passwords + hashes</div>
+            <div style='color:#c47a44;font-size:0.55rem;font-weight:700;letter-spacing:0.18em;font-family:Inter,sans-serif;'>STEP 1</div>
+            <div style='color:#efefef;font-size:0.8rem;font-weight:600;margin-top:0.4rem;font-family:Inter,sans-serif;'>Dataset</div>
+            <div style='color:#383838;font-size:0.66rem;margin-top:0.2rem;font-family:Inter,sans-serif;'>Weak passwords + hashes</div>
         </div>
         <div style='flex:1;background:#0e0e0e;padding:1.4rem 1rem;text-align:center;border-right:1px solid #181818;'>
             <div style='font-size:1.3rem;margin-bottom:0.6rem;'>⚔️</div>
-            <div style='color:#c45c5c;font-size:0.55rem;font-weight:700;letter-spacing:0.18em;font-family:Syne,sans-serif;'>STEP 2</div>
-            <div style='color:#efefef;font-size:0.8rem;font-weight:600;margin-top:0.4rem;font-family:Syne,sans-serif;'>Attack</div>
-            <div style='color:#383838;font-size:0.66rem;margin-top:0.2rem;font-family:Syne,sans-serif;'>Dictionary &amp; brute-force</div>
+            <div style='color:#c45c5c;font-size:0.55rem;font-weight:700;letter-spacing:0.18em;font-family:Inter,sans-serif;'>STEP 2</div>
+            <div style='color:#efefef;font-size:0.8rem;font-weight:600;margin-top:0.4rem;font-family:Inter,sans-serif;'>Attack</div>
+            <div style='color:#383838;font-size:0.66rem;margin-top:0.2rem;font-family:Inter,sans-serif;'>Dictionary &amp; brute-force</div>
         </div>
         <div style='flex:1;background:#0e0e0e;padding:1.4rem 1rem;text-align:center;border-right:1px solid #181818;'>
             <div style='font-size:1.3rem;margin-bottom:0.6rem;'>📊</div>
-            <div style='color:#8066cc;font-size:0.55rem;font-weight:700;letter-spacing:0.18em;font-family:Syne,sans-serif;'>STEP 3</div>
-            <div style='color:#efefef;font-size:0.8rem;font-weight:600;margin-top:0.4rem;font-family:Syne,sans-serif;'>Cryptanalysis</div>
-            <div style='color:#383838;font-size:0.66rem;margin-top:0.2rem;font-family:Syne,sans-serif;'>Entropy · ML · Timing</div>
+            <div style='color:#8066cc;font-size:0.55rem;font-weight:700;letter-spacing:0.18em;font-family:Inter,sans-serif;'>STEP 3</div>
+            <div style='color:#efefef;font-size:0.8rem;font-weight:600;margin-top:0.4rem;font-family:Inter,sans-serif;'>Cryptanalysis</div>
+            <div style='color:#383838;font-size:0.66rem;margin-top:0.2rem;font-family:Inter,sans-serif;'>Entropy · ML · Timing</div>
         </div>
         <div style='flex:1;background:#0e0e0e;padding:1.4rem 1rem;text-align:center;border-right:1px solid #181818;'>
             <div style='font-size:1.3rem;margin-bottom:0.6rem;'>🛡️</div>
-            <div style='color:#4aaa7a;font-size:0.55rem;font-weight:700;letter-spacing:0.18em;font-family:Syne,sans-serif;'>STEP 4</div>
-            <div style='color:#efefef;font-size:0.8rem;font-weight:600;margin-top:0.4rem;font-family:Syne,sans-serif;'>Defence</div>
-            <div style='color:#383838;font-size:0.66rem;margin-top:0.2rem;font-family:Syne,sans-serif;'>bcrypt · Argon2 · AI</div>
+            <div style='color:#4aaa7a;font-size:0.55rem;font-weight:700;letter-spacing:0.18em;font-family:Inter,sans-serif;'>STEP 4</div>
+            <div style='color:#efefef;font-size:0.8rem;font-weight:600;margin-top:0.4rem;font-family:Inter,sans-serif;'>Defence</div>
+            <div style='color:#383838;font-size:0.66rem;margin-top:0.2rem;font-family:Inter,sans-serif;'>bcrypt · Argon2 · AI</div>
         </div>
         <div style='flex:1;background:#0e0e0e;padding:1.4rem 1rem;text-align:center;'>
             <div style='font-size:1.3rem;margin-bottom:0.6rem;'>✅</div>
-            <div style='color:#c8a84b;font-size:0.55rem;font-weight:700;letter-spacing:0.18em;font-family:Syne,sans-serif;'>STEP 5</div>
-            <div style='color:#efefef;font-size:0.8rem;font-weight:600;margin-top:0.4rem;font-family:Syne,sans-serif;'>Validation</div>
-            <div style='color:#383838;font-size:0.66rem;margin-top:0.2rem;font-family:Syne,sans-serif;'>Quantify improvement</div>
+            <div style='color:#c8a84b;font-size:0.55rem;font-weight:700;letter-spacing:0.18em;font-family:Inter,sans-serif;'>STEP 5</div>
+            <div style='color:#efefef;font-size:0.8rem;font-weight:600;margin-top:0.4rem;font-family:Inter,sans-serif;'>Validation</div>
+            <div style='color:#383838;font-size:0.66rem;margin-top:0.2rem;font-family:Inter,sans-serif;'>Quantify improvement</div>
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -679,7 +694,7 @@ if "Overview" in page:
             <div style='background:#0e0e0e;border:1px solid #181818;border-radius:7px;
                  padding:0.9rem;margin-bottom:0.6rem;'>
                 <div style='color:#c8a84b;font-weight:600;font-size:0.79rem;margin-bottom:0.3rem;font-family:JetBrains Mono,monospace;'>{tool}</div>
-                <div style='color:#383838;font-size:0.68rem;font-family:Syne,sans-serif;'>{desc}</div>
+                <div style='color:#383838;font-size:0.68rem;font-family:Inter,sans-serif;'>{desc}</div>
             </div>""", unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
@@ -689,30 +704,30 @@ if "Overview" in page:
     with fc1:
         st.markdown("""
         <div style='background:#0e0e0e;border:1px solid #1e1212;border-radius:9px;padding:1.2rem;text-align:center;'>
-            <div style='color:#c45c5c;font-size:2rem;font-weight:400;font-family:Instrument Serif,serif;'>10⁸</div>
-            <div style='color:#555;font-size:0.72rem;margin-top:0.3rem;font-family:Syne,sans-serif;'>MD5 hashes/second</div>
-            <div style='color:#383838;font-size:0.65rem;font-family:Syne,sans-serif;'>attacker can compute</div>
+            <div style='color:#c45c5c;font-size:2rem;font-weight:400;font-family:Playfair Display,Georgia,serif;'>10⁸</div>
+            <div style='color:#555;font-size:0.72rem;margin-top:0.3rem;font-family:Inter,sans-serif;'>MD5 hashes/second</div>
+            <div style='color:#383838;font-size:0.65rem;font-family:Inter,sans-serif;'>attacker can compute</div>
         </div>""", unsafe_allow_html=True)
     with fc2:
         st.markdown("""
         <div style='background:#0e0e0e;border:1px solid #1e1512;border-radius:9px;padding:1.2rem;text-align:center;'>
-            <div style='color:#c47a44;font-size:2rem;font-weight:400;font-family:Instrument Serif,serif;'>~100%</div>
-            <div style='color:#555;font-size:0.72rem;margin-top:0.3rem;font-family:Syne,sans-serif;'>Dictionary attack success</div>
-            <div style='color:#383838;font-size:0.65rem;font-family:Syne,sans-serif;'>on weak passwords</div>
+            <div style='color:#c47a44;font-size:2rem;font-weight:400;font-family:Playfair Display,Georgia,serif;'>~100%</div>
+            <div style='color:#555;font-size:0.72rem;margin-top:0.3rem;font-family:Inter,sans-serif;'>Dictionary attack success</div>
+            <div style='color:#383838;font-size:0.65rem;font-family:Inter,sans-serif;'>on weak passwords</div>
         </div>""", unsafe_allow_html=True)
     with fc3:
         st.markdown("""
         <div style='background:#0e0e0e;border:1px solid #121e15;border-radius:9px;padding:1.2rem;text-align:center;'>
-            <div style='color:#4aaa7a;font-size:2rem;font-weight:400;font-family:Instrument Serif,serif;'>10,000×</div>
-            <div style='color:#555;font-size:0.72rem;margin-top:0.3rem;font-family:Syne,sans-serif;'>bcrypt slower than MD5</div>
-            <div style='color:#383838;font-size:0.65rem;font-family:Syne,sans-serif;'>dramatically safer</div>
+            <div style='color:#4aaa7a;font-size:2rem;font-weight:400;font-family:Playfair Display,Georgia,serif;'>10,000×</div>
+            <div style='color:#555;font-size:0.72rem;margin-top:0.3rem;font-family:Inter,sans-serif;'>bcrypt slower than MD5</div>
+            <div style='color:#383838;font-size:0.65rem;font-family:Inter,sans-serif;'>dramatically safer</div>
         </div>""", unsafe_allow_html=True)
     with fc4:
         st.markdown("""
         <div style='background:#0e0e0e;border:1px solid #1e1a12;border-radius:9px;padding:1.2rem;text-align:center;'>
-            <div style='color:#c8a84b;font-size:2rem;font-weight:400;font-family:Instrument Serif,serif;'>21</div>
-            <div style='color:#555;font-size:0.72rem;margin-top:0.3rem;font-family:Syne,sans-serif;'>ML model features</div>
-            <div style='color:#383838;font-size:0.65rem;font-family:Syne,sans-serif;'>Random Forest classifier</div>
+            <div style='color:#c8a84b;font-size:2rem;font-weight:400;font-family:Playfair Display,Georgia,serif;'>21</div>
+            <div style='color:#555;font-size:0.72rem;margin-top:0.3rem;font-family:Inter,sans-serif;'>ML model features</div>
+            <div style='color:#383838;font-size:0.65rem;font-family:Inter,sans-serif;'>Random Forest classifier</div>
         </div>""", unsafe_allow_html=True)
 
 
@@ -788,7 +803,7 @@ elif "Hash Lab" in page:
                 [(p, hash_md5(p), hash_sha1(p)) for p in passwords[:15]],
                 columns=["Password", "MD5 Hash", "SHA-1 Hash"]
             )
-            st.dataframe(sample_df, use_container_width=True)
+            st.dataframe(sample_df, width='stretch')
 
     with tab3:
         section("Vulnerability: No Salt Demonstration")
@@ -803,7 +818,7 @@ elif "Hash Lab" in page:
                 "MD5 (User B)": hash_md5(p),
                 "Identical?": "🚨 YES — VULNERABLE"
             })
-        st.dataframe(pd.DataFrame(rows), use_container_width=True)
+        st.dataframe(pd.DataFrame(rows), width='stretch')
 
         st.markdown("<br>", unsafe_allow_html=True)
         section("Hash Speed — Why MD5/SHA1 Are Dangerous")
@@ -865,7 +880,7 @@ elif "Attack Simulation" in page:
                         [(h[:20]+"...", p) for h, p in result["cracked"].items()],
                         columns=["Hash (truncated)", "Cracked Password"]
                     )
-                    st.dataframe(cracked_df, use_container_width=True)
+                    st.dataframe(cracked_df, width='stretch')
                     st.success(f"✓  Dictionary attack cracked {len(result['cracked'])} out of {result['total_targets']} hashes!")
 
         with tab2:
@@ -905,7 +920,7 @@ elif "Attack Simulation" in page:
                         [(h[:20]+"...", p) for h, p in result["cracked"].items()],
                         columns=["Hash (truncated)", "Cracked Password"]
                     )
-                    st.dataframe(cracked_df, use_container_width=True)
+                    st.dataframe(cracked_df, width='stretch')
 
         with tab3:
             section("Attack Comparison Charts")
@@ -940,7 +955,7 @@ elif "Attack Simulation" in page:
                 style_axes(axes[2], "Hash Attempts (log)")
 
                 plt.tight_layout()
-                st.image(make_chart(fig), use_container_width=True)
+                st.image(make_chart(fig), width='stretch')
 
 
 # ══════════════════════════════════════════
@@ -989,7 +1004,7 @@ elif "Cryptanalysis" in page:
         axes[1].set_ylabel("Entropy (bits/char)")
         style_axes(axes[1], "Length vs Entropy")
         plt.tight_layout()
-        st.image(make_chart(fig), use_container_width=True)
+        st.image(make_chart(fig), width='stretch')
 
     with tab2:
         section("Statistical Pattern Analysis")
@@ -1022,9 +1037,9 @@ elif "Cryptanalysis" in page:
         style_axes(axes[2], "Char Type Breakdown")
 
         plt.tight_layout()
-        st.image(make_chart(fig), use_container_width=True)
+        st.image(make_chart(fig), width='stretch')
         section("Password Feature Table (Sample)")
-        st.dataframe(df_feats2.head(15), use_container_width=True)
+        st.dataframe(df_feats2.head(15), width='stretch')
 
     with tab3:
         section("ML Password Strength Classifier")
@@ -1052,7 +1067,7 @@ elif "Cryptanalysis" in page:
             df_ranked = pd.DataFrame(ranked[:20], columns=["Password", "Weak Probability"])
             df_ranked["Weak Probability"] = df_ranked["Weak Probability"].apply(lambda x: f"{x:.1%}")
             df_ranked["Attack Priority"] = [f"#{i+1}" for i in range(len(df_ranked))]
-            st.dataframe(df_ranked, use_container_width=True)
+            st.dataframe(df_ranked, width='stretch')
 
     with tab4:
         section("Hash Computation Time Comparison")
@@ -1076,7 +1091,7 @@ elif "Cryptanalysis" in page:
             ax.set_ylabel("Avg Time per Hash (µs)")
             style_axes(ax, "MD5 vs SHA-1 — Average Hash Time")
             plt.tight_layout()
-            st.image(make_chart(ax.figure), use_container_width=True)
+            st.image(make_chart(ax.figure), width='stretch')
             st.error("🚨  At millions of hashes/sec, weak passwords fall in seconds. Use bcrypt/argon2 instead!")
 
 
@@ -1130,7 +1145,7 @@ elif "Defence" in page:
             for s in salts:
                 salted = salt_pwd + s
                 rows.append({"Salt (hex)": s, "Salted Input": salted[:20]+"...", "MD5(password+salt)": hash_md5(salted)})
-            st.dataframe(pd.DataFrame(rows), use_container_width=True)
+            st.dataframe(pd.DataFrame(rows), width='stretch')
             st.success("✓  Same password produces 4 completely different hashes — rainbow table attacks defeated!")
 
         st.markdown("---")
@@ -1173,7 +1188,7 @@ elif "Defence" in page:
                 fb = password_policy_feedback(p)
                 rows.append({"Password (masked)": "*" * len(p), "Compliant": "✓" if not fb else "✗", "Issues": "; ".join(fb) if fb else "None"})
             df = pd.DataFrame(rows)
-            st.dataframe(df, use_container_width=True)
+            st.dataframe(df, width='stretch')
             st.metric("Policy Compliance Rate", f"{(df['Compliant']=='✓').sum()/len(df)*100:.1f}%")
 
     with tab4:
@@ -1248,12 +1263,12 @@ elif "Validation" in page:
         style_axes(axes[2], "Time per Attempt (log)")
 
         plt.tight_layout()
-        st.image(make_chart(fig), use_container_width=True)
+        st.image(make_chart(fig), width='stretch')
 
         section("Summary Table")
         st.markdown(f"""
         <div style='background:#0e0e0e;border:1px solid #181818;border-radius:9px;padding:1.5rem;'>
-        <table style='width:100%;border-collapse:collapse;font-size:0.8rem;font-family:Syne,sans-serif;'>
+        <table style='width:100%;border-collapse:collapse;font-size:0.8rem;font-family:Inter,sans-serif;'>
         <tr style='border-bottom:1px solid #181818;'>
             <th style='color:#7a6530;padding:0.5rem;text-align:left;letter-spacing:0.08em;'>Metric</th>
             <th style='color:#c45c5c;padding:0.5rem;'>MD5</th>
@@ -1289,7 +1304,7 @@ elif "Validation" in page:
         section("Conclusion")
         st.markdown("""
         <div style='background:#0e0e0e;border-left:2px solid #4aaa7a;padding:1.3rem 1.6rem;border-radius:0 7px 7px 0;'>
-            <p style='color:#666;line-height:2;margin:0;font-size:0.84rem;font-family:Syne,sans-serif;'>
+            <p style='color:#666;line-height:2;margin:0;font-size:0.84rem;font-family:Inter,sans-serif;'>
             This project demonstrates that <b style='color:#c45c5c;'>MD5 and SHA-1</b> are fundamentally broken for password storage.
             The defence system using <b style='color:#4aaa7a;'>bcrypt/Argon2</b> with built-in salting,
             combined with an <b style='color:#c8a84b;'>AI-based weak password detector</b> and
@@ -1308,7 +1323,7 @@ elif "Security Intelligence" in page:
     st.markdown("""
     <div style='background:#0e0e0e;border:1px solid #1e1e12;border-left:2px solid #7a6530;
          border-radius:0 7px 7px 0;padding:1.1rem 1.4rem;margin-bottom:1.5rem;'>
-        <span style='color:#555;font-size:0.84rem;line-height:1.9;font-family:Syne,sans-serif;'>
+        <span style='color:#555;font-size:0.84rem;line-height:1.9;font-family:Inter,sans-serif;'>
         Enter any password for a <b style='color:#c8a84b;'>full intelligence report</b> — 
         entropy, AI threat classification, estimated crack time, live hashes, policy compliance, and character composition.
         </span>
@@ -1361,13 +1376,13 @@ elif "Security Intelligence" in page:
         <div style='background:#0e0e0e;border:1px solid {threat_color}22;border-radius:10px;padding:2rem;margin:1.2rem 0;'>
             <div style='display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;'>
                 <div>
-                    <div style='color:#2e2e2e;font-size:0.57rem;font-weight:700;letter-spacing:0.2em;font-family:Syne,sans-serif;'>OVERALL THREAT LEVEL</div>
-                    <div style='color:{threat_color};font-size:3rem;font-weight:400;letter-spacing:0.04em;margin-top:0.3rem;line-height:1;font-family:Instrument Serif,serif;'>{threat_level}</div>
-                    <div style='color:#444;font-size:0.76rem;margin-top:0.5rem;font-family:Syne,sans-serif;'>Classified as <b style='color:{threat_color};'>{threat_label}</b></div>
+                    <div style='color:#2e2e2e;font-size:0.57rem;font-weight:700;letter-spacing:0.2em;font-family:Inter,sans-serif;'>OVERALL THREAT LEVEL</div>
+                    <div style='color:{threat_color};font-size:3rem;font-weight:400;letter-spacing:0.04em;margin-top:0.3rem;line-height:1;font-family:Playfair Display,Georgia,serif;'>{threat_level}</div>
+                    <div style='color:#444;font-size:0.76rem;margin-top:0.5rem;font-family:Inter,sans-serif;'>Classified as <b style='color:{threat_color};'>{threat_label}</b></div>
                 </div>
                 <div style='text-align:right;'>
-                    <div style='color:#2e2e2e;font-size:0.57rem;font-weight:700;letter-spacing:0.2em;font-family:Syne,sans-serif;'>SECURITY SCORE</div>
-                    <div style='color:{threat_color};font-size:3.8rem;font-weight:400;line-height:1;font-family:Instrument Serif,serif;'>{score}<span style='font-size:1rem;color:#2e2e2e;'>/100</span></div>
+                    <div style='color:#2e2e2e;font-size:0.57rem;font-weight:700;letter-spacing:0.2em;font-family:Inter,sans-serif;'>SECURITY SCORE</div>
+                    <div style='color:{threat_color};font-size:3.8rem;font-weight:400;line-height:1;font-family:Playfair Display,Georgia,serif;'>{score}<span style='font-size:1rem;color:#2e2e2e;'>/100</span></div>
                 </div>
             </div>
             <div style='margin-top:1.3rem;background:#181818;border-radius:4px;height:2px;overflow:hidden;'>
@@ -1388,21 +1403,21 @@ elif "Security Intelligence" in page:
         c1, c2, c3 = st.columns(3)
         with c1:
             st.markdown(f"""<div style='background:#0e0e0e;border:1px solid #1e1212;border-radius:9px;padding:1.3rem;text-align:center;'>
-                <div style='color:#c45c5c;font-size:0.57rem;font-weight:700;letter-spacing:0.15em;font-family:Syne,sans-serif;'>DICTIONARY ATTACK</div>
-                <div style='color:#efefef;font-size:1.5rem;font-weight:400;margin:0.5rem 0;font-family:Instrument Serif,serif;'>{crack_dict}</div>
-                <div style='color:#383838;font-size:0.68rem;font-family:Syne,sans-serif;'>at {DICT_RATE:,} attempts/sec</div>
+                <div style='color:#c45c5c;font-size:0.57rem;font-weight:700;letter-spacing:0.15em;font-family:Inter,sans-serif;'>DICTIONARY ATTACK</div>
+                <div style='color:#efefef;font-size:1.5rem;font-weight:400;margin:0.5rem 0;font-family:Playfair Display,Georgia,serif;'>{crack_dict}</div>
+                <div style='color:#383838;font-size:0.68rem;font-family:Inter,sans-serif;'>at {DICT_RATE:,} attempts/sec</div>
             </div>""", unsafe_allow_html=True)
         with c2:
             st.markdown(f"""<div style='background:#0e0e0e;border:1px solid #1e1512;border-radius:9px;padding:1.3rem;text-align:center;'>
-                <div style='color:#c47a44;font-size:0.57rem;font-weight:700;letter-spacing:0.15em;font-family:Syne,sans-serif;'>BRUTE-FORCE (GPU)</div>
-                <div style='color:#efefef;font-size:1.5rem;font-weight:400;margin:0.5rem 0;font-family:Instrument Serif,serif;'>{crack_brute}</div>
-                <div style='color:#383838;font-size:0.68rem;font-family:Syne,sans-serif;'>at {BRUTE_RATE/1e9:.0f}B attempts/sec</div>
+                <div style='color:#c47a44;font-size:0.57rem;font-weight:700;letter-spacing:0.15em;font-family:Inter,sans-serif;'>BRUTE-FORCE (GPU)</div>
+                <div style='color:#efefef;font-size:1.5rem;font-weight:400;margin:0.5rem 0;font-family:Playfair Display,Georgia,serif;'>{crack_brute}</div>
+                <div style='color:#383838;font-size:0.68rem;font-family:Inter,sans-serif;'>at {BRUTE_RATE/1e9:.0f}B attempts/sec</div>
             </div>""", unsafe_allow_html=True)
         with c3:
             st.markdown(f"""<div style='background:#0e0e0e;border:1px solid #121e15;border-radius:9px;padding:1.3rem;text-align:center;'>
-                <div style='color:#4aaa7a;font-size:0.57rem;font-weight:700;letter-spacing:0.15em;font-family:Syne,sans-serif;'>WITH BCRYPT DEFENCE</div>
-                <div style='color:#efefef;font-size:1.5rem;font-weight:400;margin:0.5rem 0;font-family:Instrument Serif,serif;'>{crack_bcrypt}</div>
-                <div style='color:#383838;font-size:0.68rem;font-family:Syne,sans-serif;'>at only {BCRYPT_RATE} attempts/sec</div>
+                <div style='color:#4aaa7a;font-size:0.57rem;font-weight:700;letter-spacing:0.15em;font-family:Inter,sans-serif;'>WITH BCRYPT DEFENCE</div>
+                <div style='color:#efefef;font-size:1.5rem;font-weight:400;margin:0.5rem 0;font-family:Playfair Display,Georgia,serif;'>{crack_bcrypt}</div>
+                <div style='color:#383838;font-size:0.68rem;font-family:Inter,sans-serif;'>at only {BCRYPT_RATE} attempts/sec</div>
             </div>""", unsafe_allow_html=True)
 
         st.markdown("<br>", unsafe_allow_html=True)
@@ -1416,11 +1431,11 @@ elif "Security Intelligence" in page:
                 st.markdown("""<div style='background:#0e0e0e;border:1px solid #1e1212;border-radius:7px;padding:1rem;margin-bottom:0.8rem;'>
                     <div style='color:#c45c5c;font-size:0.6rem;font-weight:700;letter-spacing:0.12em;margin-bottom:0.5rem;font-family:JetBrains Mono,monospace;'>⚠ MD5 — BROKEN</div>""", unsafe_allow_html=True)
                 st.code(h_md5, language=None)
-                st.markdown("<div style='color:#2e2e2e;font-size:0.68rem;font-family:Syne,sans-serif;'>No salt · 128-bit · Crackable in milliseconds</div></div>", unsafe_allow_html=True)
+                st.markdown("<div style='color:#2e2e2e;font-size:0.68rem;font-family:Inter,sans-serif;'>No salt · 128-bit · Crackable in milliseconds</div></div>", unsafe_allow_html=True)
                 st.markdown("""<div style='background:#0e0e0e;border:1px solid #1e1512;border-radius:7px;padding:1rem;'>
                     <div style='color:#c47a44;font-size:0.6rem;font-weight:700;letter-spacing:0.12em;margin-bottom:0.5rem;font-family:JetBrains Mono,monospace;'>⚠ SHA-1 — DEPRECATED</div>""", unsafe_allow_html=True)
                 st.code(h_sha1, language=None)
-                st.markdown("<div style='color:#2e2e2e;font-size:0.68rem;font-family:Syne,sans-serif;'>No salt · 160-bit · Collision attacks known</div></div>", unsafe_allow_html=True)
+                st.markdown("<div style='color:#2e2e2e;font-size:0.68rem;font-family:Inter,sans-serif;'>No salt · 160-bit · Collision attacks known</div></div>", unsafe_allow_html=True)
             with col_b:
                 if st.button("🔒 Generate bcrypt & Argon2 Hashes"):
                     with st.spinner("Computing secure hashes..."):
@@ -1433,13 +1448,13 @@ elif "Security Intelligence" in page:
                     st.markdown(f"""<div style='background:#0e0e0e;border:1px solid #121e15;border-radius:7px;padding:1rem;margin-bottom:0.8rem;'>
                         <div style='color:#4aaa7a;font-size:0.6rem;font-weight:700;letter-spacing:0.12em;margin-bottom:0.5rem;font-family:JetBrains Mono,monospace;'>✓ BCRYPT ({ms_b:.0f} ms)</div>""", unsafe_allow_html=True)
                     st.code(h_b, language=None)
-                    st.markdown("<div style='color:#2e2e2e;font-size:0.68rem;font-family:Syne,sans-serif;'>Built-in salt · Adaptive cost · Attacker-hostile</div></div>", unsafe_allow_html=True)
+                    st.markdown("<div style='color:#2e2e2e;font-size:0.68rem;font-family:Inter,sans-serif;'>Built-in salt · Adaptive cost · Attacker-hostile</div></div>", unsafe_allow_html=True)
                 if "si_argon2" in st.session_state:
                     h_a,ms_a=st.session_state["si_argon2"]
                     st.markdown(f"""<div style='background:#0e0e0e;border:1px solid #1e1a12;border-radius:7px;padding:1rem;'>
                         <div style='color:#c8a84b;font-size:0.6rem;font-weight:700;letter-spacing:0.12em;margin-bottom:0.5rem;font-family:JetBrains Mono,monospace;'>✓ ARGON2 ({ms_a:.0f} ms)</div>""", unsafe_allow_html=True)
                     st.code(h_a, language=None)
-                    st.markdown("<div style='color:#2e2e2e;font-size:0.68rem;font-family:Syne,sans-serif;'>Memory-hard · PHC winner · GPU-resistant</div></div>", unsafe_allow_html=True)
+                    st.markdown("<div style='color:#2e2e2e;font-size:0.68rem;font-family:Inter,sans-serif;'>Memory-hard · PHC winner · GPU-resistant</div></div>", unsafe_allow_html=True)
 
         with t_ai:
             section("AI MODEL — DEEP FEATURE ANALYSIS")
@@ -1472,8 +1487,8 @@ elif "Security Intelligence" in page:
             comp_color = "#4aaa7a" if compliance_pct>=75 else "#c47a44" if compliance_pct>=50 else "#c45c5c"
             st.markdown(f"""
             <div style='background:#0e0e0e;border:1px solid #181818;border-radius:7px;padding:1rem;margin-bottom:1rem;display:flex;justify-content:space-between;align-items:center;'>
-                <span style='color:#555;font-size:0.82rem;font-family:Syne,sans-serif;'>Compliance Score</span>
-                <span style='color:{comp_color};font-size:1.2rem;font-weight:400;font-family:Instrument Serif,serif;'>{passed_count}/{len(rules)} <span style='font-size:0.78rem;color:#383838;'>({compliance_pct:.0f}%)</span></span>
+                <span style='color:#555;font-size:0.82rem;font-family:Inter,sans-serif;'>Compliance Score</span>
+                <span style='color:{comp_color};font-size:1.2rem;font-weight:400;font-family:Playfair Display,Georgia,serif;'>{passed_count}/{len(rules)} <span style='font-size:0.78rem;color:#383838;'>({compliance_pct:.0f}%)</span></span>
             </div>""", unsafe_allow_html=True)
             for rule, passed, detail in rules:
                 col_r = "#4aaa7a" if passed else "#c45c5c"
@@ -1483,7 +1498,7 @@ elif "Security Intelligence" in page:
                 <div style='display:flex;align-items:center;justify-content:space-between;
                      padding:0.52rem 1rem;border-radius:6px;margin-bottom:0.3rem;
                      background:{bg_r};border:1px solid {bd_r};'>
-                    <span style='color:{col_r};font-size:0.78rem;font-family:Syne,sans-serif;'>{"✓" if passed else "✗"}&nbsp; {rule}</span>
+                    <span style='color:{col_r};font-size:0.78rem;font-family:Inter,sans-serif;'>{"✓" if passed else "✗"}&nbsp; {rule}</span>
                     <span style='color:#2e2e2e;font-size:0.7rem;font-family:JetBrains Mono,monospace;'>{detail}</span>
                 </div>""", unsafe_allow_html=True)
 
@@ -1513,7 +1528,7 @@ elif "Security Intelligence" in page:
                 for t in texts: t.set_color("#555"); t.set_fontsize(8)
             ax2.set_facecolor("#070707"); style_axes(ax2,"Composition Distribution")
             plt.tight_layout()
-            st.image(make_chart(fig), use_container_width=True)
+            st.image(make_chart(fig), width='stretch')
 
             sc1,sc2,sc3,sc4=st.columns(4)
             sc1.metric("Lowercase",f"{lowers} ({lowers/total*100:.0f}%)")
@@ -1525,8 +1540,8 @@ elif "Security Intelligence" in page:
         <div style='background:#0e0e0e;border:1px dashed #181818;border-radius:10px;
              padding:3.5rem;text-align:center;margin-top:1rem;'>
             <div style='font-size:2rem;margin-bottom:1rem;'>🔍</div>
-            <div style='color:#7a6530;font-size:0.95rem;font-weight:400;font-family:Instrument Serif,serif;font-style:italic;'>Awaiting Input</div>
-            <div style='color:#2e2e2e;font-size:0.76rem;margin-top:0.5rem;font-family:Syne,sans-serif;'>
+            <div style='color:#7a6530;font-size:0.95rem;font-weight:400;font-family:Playfair Display,Georgia,serif;font-style:italic;'>Awaiting Input</div>
+            <div style='color:#2e2e2e;font-size:0.76rem;margin-top:0.5rem;font-family:Inter,sans-serif;'>
                 Enter a password above to generate a full security intelligence report.
             </div>
         </div>
@@ -1543,12 +1558,12 @@ elif "About" in page:
     <div style='background:#0e0e0e;border:1px solid #181818;border-radius:10px;
          padding:2.8rem;margin-bottom:1.5rem;text-align:center;'>
         <div style='font-size:1.8rem;margin-bottom:0.7rem;'>🔐</div>
-        <div style='color:#c8a84b;font-size:1.4rem;font-weight:400;font-style:italic;font-family:Instrument Serif,serif;'>CryptLab</div>
-        <div style='color:#2a2a2a;font-size:0.58rem;letter-spacing:0.18em;margin-top:0.5rem;text-transform:uppercase;font-family:Syne,sans-serif;'>
+        <div style='color:#c8a84b;font-size:1.4rem;font-weight:400;font-style:italic;font-family:Playfair Display,Georgia,serif;'>CryptLab</div>
+        <div style='color:#2a2a2a;font-size:0.58rem;letter-spacing:0.18em;margin-top:0.5rem;text-transform:uppercase;font-family:Inter,sans-serif;'>
             Cryptanalysis of Weak Password Hashing Systems and AI-Based Defence Mechanism
         </div>
         <div style='height:1px;background:#181818;margin:1.5rem auto;max-width:280px;'></div>
-        <div style='color:#444;font-size:0.84rem;line-height:2;max-width:600px;margin:0 auto;font-family:Syne,sans-serif;'>
+        <div style='color:#444;font-size:0.84rem;line-height:2;max-width:600px;margin:0 auto;font-family:Inter,sans-serif;'>
             A university-level research project investigating cryptographic vulnerabilities in legacy
             password hashing algorithms, performing systematic attack simulations, and designing
             an AI-augmented defence architecture using modern memory-hard hashing and machine learning.
@@ -1569,11 +1584,11 @@ elif "About" in page:
             <div style='background:#0e0e0e;border:1px solid #181818;border-top:2px solid {color};
                  border-radius:9px;padding:1.8rem 1.5rem;text-align:center;'>
                 <div style='font-size:1.8rem;margin-bottom:0.8rem;'>{icon}</div>
-                <div style='color:#efefef;font-size:1rem;font-weight:400;font-family:Instrument Serif,serif;font-style:italic;'>{name}</div>
+                <div style='color:#efefef;font-size:1rem;font-weight:400;font-family:Playfair Display,Georgia,serif;font-style:italic;'>{name}</div>
                 <div style='color:{color};font-size:0.58rem;font-weight:700;letter-spacing:0.14em;
-                     margin:0.5rem 0;text-transform:uppercase;font-family:Syne,sans-serif;'>{title}</div>
+                     margin:0.5rem 0;text-transform:uppercase;font-family:Inter,sans-serif;'>{title}</div>
                 <div style='height:1px;background:#181818;margin:0.8rem 0;'></div>
-                <div style='color:#383838;font-size:0.72rem;line-height:1.8;font-family:Syne,sans-serif;'>{module}</div>
+                <div style='color:#383838;font-size:0.72rem;line-height:1.8;font-family:Inter,sans-serif;'>{module}</div>
             </div>
             """, unsafe_allow_html=True)
 
@@ -1583,8 +1598,8 @@ elif "About" in page:
     with d1:
         st.markdown("""
         <div style='background:#0e0e0e;border:1px solid #181818;border-radius:9px;padding:1.5rem;'>
-            <div style='color:#7a6530;font-size:0.58rem;font-weight:700;letter-spacing:0.18em;margin-bottom:1rem;text-transform:uppercase;font-family:Syne,sans-serif;'>SCOPE & OBJECTIVES</div>
-            <ul style='color:#484848;font-size:0.78rem;line-height:2.2;margin:0;padding-left:1.1rem;font-family:Syne,sans-serif;'>
+            <div style='color:#7a6530;font-size:0.58rem;font-weight:700;letter-spacing:0.18em;margin-bottom:1rem;text-transform:uppercase;font-family:Inter,sans-serif;'>SCOPE & OBJECTIVES</div>
+            <ul style='color:#484848;font-size:0.78rem;line-height:2.2;margin:0;padding-left:1.1rem;font-family:Inter,sans-serif;'>
                 <li>Analyse MD5 &amp; SHA-1 cryptographic weaknesses</li>
                 <li>Simulate real-world dictionary and brute-force attacks</li>
                 <li>Measure attack success rates and cracking time</li>
@@ -1599,8 +1614,8 @@ elif "About" in page:
     with d2:
         st.markdown("""
         <div style='background:#0e0e0e;border:1px solid #181818;border-radius:9px;padding:1.5rem;'>
-            <div style='color:#7a6530;font-size:0.58rem;font-weight:700;letter-spacing:0.18em;margin-bottom:1rem;text-transform:uppercase;font-family:Syne,sans-serif;'>TECHNOLOGY STACK</div>
-            <table style='width:100%;border-collapse:collapse;font-size:0.77rem;font-family:Syne,sans-serif;'>
+            <div style='color:#7a6530;font-size:0.58rem;font-weight:700;letter-spacing:0.18em;margin-bottom:1rem;text-transform:uppercase;font-family:Inter,sans-serif;'>TECHNOLOGY STACK</div>
+            <table style='width:100%;border-collapse:collapse;font-size:0.77rem;font-family:Inter,sans-serif;'>
                 <tr style='border-bottom:1px solid #151515;'><td style='color:#c8a84b;padding:0.45rem 0;font-family:JetBrains Mono,monospace;'>Python 3.12</td><td style='color:#484848;padding:0.45rem 0;'>Core language</td></tr>
                 <tr style='border-bottom:1px solid #151515;'><td style='color:#c8a84b;padding:0.45rem 0;font-family:JetBrains Mono,monospace;'>hashlib</td><td style='color:#484848;padding:0.45rem 0;'>MD5 / SHA-1 primitives</td></tr>
                 <tr style='border-bottom:1px solid #151515;'><td style='color:#c8a84b;padding:0.45rem 0;font-family:JetBrains Mono,monospace;'>bcrypt / Argon2</td><td style='color:#484848;padding:0.45rem 0;'>Memory-hard secure hashing</td></tr>
