@@ -81,8 +81,29 @@ html, body, [class*='css'] {
     font-family: var(--font) !important;
     -webkit-font-smoothing: antialiased !important;
     background-color: var(--bg) !important;
-    color: var(--text) !important;
+    color: var(--text);
 }
+
+/* ── PRESERVE INLINE GOLD COLORS ─────────────────── */
+[style*="color:#c9a84c"],
+[style*="color: #c9a84c"],
+[style*="color:#e2c97a"],
+[style*="color:#c9a84c;"] { color: #c9a84c !important; }
+
+[style*="color:#efefef"],
+[style*="color: #efefef"] { color: #efefef !important; }
+
+[style*="color:#4aaa7a"],
+[style*="color: #4aaa7a"] { color: #4aaa7a !important; }
+
+[style*="color:#c05555"],
+[style*="color: #c05555"] { color: #c05555 !important; }
+
+[style*="color:#8066cc"],
+[style*="color: #8066cc"] { color: #8066cc !important; }
+
+[style*="color:#c47a44"],
+[style*="color: #c47a44"] { color: #c47a44 !important; }
 
 /* STREAMLIT CHROME */
 header[data-testid='stHeader'],
@@ -544,26 +565,33 @@ with st.sidebar:
 # ══════════════════════════════════════════
 if "Overview" in page:
     st.markdown(
+        "<style>"
+        ".ov-label { color: #c9a84c !important; }"
+        ".ov-title { color: #efefef !important; }"
+        ".ov-gold  { color: #c9a84c !important; }"
+        ".ov-desc  { color: #666666 !important; }"
+        ".ov-desc .ov-gold { color: #c9a84c !important; font-weight:500 !important; }"
+        "</style>"
         "<div style='padding:2.8rem 0 2rem;border-bottom:1px solid #1f1f1f;margin-bottom:1.8rem;'>"
-        "<div style='font-size:0.6rem;font-weight:600;color:#c9a84c;letter-spacing:0.2em;"
+        "<div class='ov-label' style='font-size:0.6rem;font-weight:600;letter-spacing:0.2em;"
         "text-transform:uppercase;margin-bottom:1rem;font-family:Inter,sans-serif;'>"
         "Cryptanalysis Lab  &middot;  University Research Project"
         "</div>"
-        "<div style='color:#efefef;font-size:2.8rem;font-weight:400;line-height:1.1;"
+        "<div class='ov-title' style='font-size:2.8rem;font-weight:400;line-height:1.1;"
         "letter-spacing:-0.02em;margin-bottom:0.05rem;"
         "font-family:Playfair Display,Georgia,serif;'>"
         "Weak Password Hashing"
         "</div>"
-        "<div style='color:#c9a84c;font-size:2.8rem;font-weight:400;line-height:1.1;"
+        "<div class='ov-gold' style='font-size:2.8rem;font-weight:400;line-height:1.1;"
         "letter-spacing:-0.02em;margin-bottom:1rem;font-style:italic;"
         "font-family:Playfair Display,Georgia,serif;'>"
         "&amp; AI-Based Defence"
         "</div>"
-        "<p style='color:#666666;line-height:1.9;max-width:640px;font-size:0.87rem;"
+        "<p class='ov-desc' style='line-height:1.9;max-width:640px;font-size:0.87rem;"
         "font-weight:400;margin:0;font-family:Inter,sans-serif;'>"
         "Investigating cryptographic vulnerabilities in legacy hashing algorithms (MD5, SHA-1), "
         "simulating dictionary and brute-force attacks, and building a robust "
-        "<span style='color:#c9a84c;font-weight:500;'>machine-learning defence system</span>"
+        "<span class='ov-gold'>machine-learning defence system</span>"
         " with memory-hard hashing."
         "</p>"
         "</div>",
