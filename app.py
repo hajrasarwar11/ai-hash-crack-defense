@@ -117,9 +117,74 @@ html, body, [class*='css'] {
 }
 
 /* ── HIDE STREAMLIT ARTIFACTS ───────────────────────────── */
+/* ── SIDEBAR TOGGLE BUTTONS — << / >> ──────────────────── */
+/* Collapse button inside sidebar (click to hide sidebar) */
+section[data-testid='stSidebar'] button[data-testid='baseButton-header'],
+section[data-testid='stSidebar'] [data-testid='stSidebarCollapseButton'] button {
+    background: transparent !important;
+    border: 1px solid #2E2C50 !important;
+    border-radius: 6px !important;
+    width: 28px !important; height: 28px !important;
+    min-width: 28px !important;
+    display: flex !important; align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+    padding: 0 !important;
+}
+section[data-testid='stSidebar'] button[data-testid='baseButton-header']:hover,
+section[data-testid='stSidebar'] [data-testid='stSidebarCollapseButton'] button:hover {
+    border-color: #D4AF37 !important;
+    background: rgba(212,175,55,0.07) !important;
+}
+section[data-testid='stSidebar'] button[data-testid='baseButton-header'] span,
+section[data-testid='stSidebar'] [data-testid='stSidebarCollapseButton'] button span,
+section[data-testid='stSidebar'] button[data-testid='baseButton-header'] svg,
+section[data-testid='stSidebar'] [data-testid='stSidebarCollapseButton'] svg {
+    display: none !important;
+}
+section[data-testid='stSidebar'] button[data-testid='baseButton-header']::after,
+section[data-testid='stSidebar'] [data-testid='stSidebarCollapseButton'] button::after {
+    content: '«' !important;
+    font-size: 0.85rem !important; font-weight: 700 !important;
+    color: #4A4540 !important; font-family: Inter, sans-serif !important;
+    line-height: 1 !important;
+}
+section[data-testid='stSidebar'] button[data-testid='baseButton-header']:hover::after,
+section[data-testid='stSidebar'] [data-testid='stSidebarCollapseButton'] button:hover::after {
+    color: #D4AF37 !important;
+}
+
+/* Expand button in main area when sidebar is collapsed */
 [data-testid="collapsedControl"],
-button[data-testid="collapsedControl"],
-[data-testid="stSidebarCollapsedControl"] { display: none !important; }
+button[data-testid="collapsedControl"] {
+    display: flex !important; align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    border: 1px solid #2E2C50 !important;
+    border-radius: 6px !important;
+    width: 28px !important; height: 28px !important;
+    min-width: 28px !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+    padding: 0 !important;
+}
+[data-testid="collapsedControl"]:hover,
+button[data-testid="collapsedControl"]:hover {
+    border-color: #D4AF37 !important;
+    background: rgba(212,175,55,0.07) !important;
+}
+[data-testid="collapsedControl"] *,
+button[data-testid="collapsedControl"] * { display: none !important; }
+[data-testid="collapsedControl"]::after,
+button[data-testid="collapsedControl"]::after {
+    content: '»' !important;
+    font-size: 0.85rem !important; font-weight: 700 !important;
+    color: #4A4540 !important; font-family: Inter, sans-serif !important;
+    line-height: 1 !important; display: block !important;
+}
+[data-testid="collapsedControl"]:hover::after,
+button[data-testid="collapsedControl"]:hover::after { color: #D4AF37 !important; }
 [data-testid='stDecoration'] { display: none !important; }
 #MainMenu, footer { visibility: hidden !important; }
 

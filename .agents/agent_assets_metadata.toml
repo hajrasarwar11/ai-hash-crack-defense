@@ -6,3 +6,9 @@ id = "nWJpvMnIAZ0Pr3qT1qppv"
 uri = "file://DEVELOPER_GUIDE.md"
 type = "text"
 title = "Developer Guide — Edit Karne ke Instructions"
+
+[[outputs]]
+id = "VQrYKbdSnEwhvRemeedqm"
+uri = "file://CryptLab_Project_Report.docx"
+type = "word_document"
+title = "CryptLab — University Project Report (.docx)"
