@@ -49,6 +49,7 @@ st.set_page_config(
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 /* ── DESIGN TOKENS ────────────────────────────────────────── */
 :root {
@@ -117,74 +118,69 @@ html, body, [class*='css'] {
 }
 
 /* ── HIDE STREAMLIT ARTIFACTS ───────────────────────────── */
-/* ── SIDEBAR TOGGLE BUTTONS — << / >> ──────────────────── */
-/* Collapse button inside sidebar (click to hide sidebar) */
-section[data-testid='stSidebar'] button[data-testid='baseButton-header'],
-section[data-testid='stSidebar'] [data-testid='stSidebarCollapseButton'] button {
-    background: transparent !important;
-    border: 1px solid #2E2C50 !important;
-    border-radius: 6px !important;
-    width: 28px !important; height: 28px !important;
-    min-width: 28px !important;
-    display: flex !important; align-items: center !important;
-    justify-content: center !important;
-    cursor: pointer !important;
-    transition: all 0.15s ease !important;
-    padding: 0 !important;
-}
-section[data-testid='stSidebar'] button[data-testid='baseButton-header']:hover,
-section[data-testid='stSidebar'] [data-testid='stSidebarCollapseButton'] button:hover {
-    border-color: #D4AF37 !important;
-    background: rgba(212,175,55,0.07) !important;
-}
-section[data-testid='stSidebar'] button[data-testid='baseButton-header'] span,
-section[data-testid='stSidebar'] [data-testid='stSidebarCollapseButton'] button span,
-section[data-testid='stSidebar'] button[data-testid='baseButton-header'] svg,
-section[data-testid='stSidebar'] [data-testid='stSidebarCollapseButton'] svg {
-    display: none !important;
-}
-section[data-testid='stSidebar'] button[data-testid='baseButton-header']::after,
-section[data-testid='stSidebar'] [data-testid='stSidebarCollapseButton'] button::after {
-    content: '«' !important;
-    font-size: 0.85rem !important; font-weight: 700 !important;
-    color: #4A4540 !important; font-family: Inter, sans-serif !important;
-    line-height: 1 !important;
-}
-section[data-testid='stSidebar'] button[data-testid='baseButton-header']:hover::after,
-section[data-testid='stSidebar'] [data-testid='stSidebarCollapseButton'] button:hover::after {
-    color: #D4AF37 !important;
+/* ── SIDEBAR TOGGLE BUTTONS ─────────────────────────────── */
+/* Make Material Icons ligatures render correctly everywhere  */
+.material-icons {
+    font-family: 'Material Icons' !important;
+    font-feature-settings: 'liga' 1 !important;
+    -webkit-font-feature-settings: 'liga' 1 !important;
 }
 
-/* Expand button in main area when sidebar is collapsed */
+/* Shared style for both collapse « and expand » buttons */
+section[data-testid='stSidebar'] button[data-testid='baseButton-header'],
+section[data-testid='stSidebar'] [data-testid='stSidebarCollapseButton'] button,
 [data-testid="collapsedControl"],
 button[data-testid="collapsedControl"] {
-    display: flex !important; align-items: center !important;
-    justify-content: center !important;
     background: transparent !important;
     border: 1px solid #2E2C50 !important;
     border-radius: 6px !important;
     width: 28px !important; height: 28px !important;
     min-width: 28px !important;
+    display: flex !important; align-items: center !important;
+    justify-content: center !important;
     cursor: pointer !important;
-    transition: all 0.15s ease !important;
-    padding: 0 !important;
+    transition: border-color 0.15s ease, background 0.15s ease !important;
+    padding: 0 !important; overflow: hidden !important;
 }
+section[data-testid='stSidebar'] button[data-testid='baseButton-header']:hover,
+section[data-testid='stSidebar'] [data-testid='stSidebarCollapseButton'] button:hover,
 [data-testid="collapsedControl"]:hover,
 button[data-testid="collapsedControl"]:hover {
     border-color: #D4AF37 !important;
-    background: rgba(212,175,55,0.07) !important;
+    background: rgba(212,175,55,0.08) !important;
 }
-[data-testid="collapsedControl"] *,
-button[data-testid="collapsedControl"] * { display: none !important; }
-[data-testid="collapsedControl"]::after,
-button[data-testid="collapsedControl"]::after {
-    content: '»' !important;
-    font-size: 0.85rem !important; font-weight: 700 !important;
-    color: #4A4540 !important; font-family: Inter, sans-serif !important;
-    line-height: 1 !important; display: block !important;
+
+/* Icon spans inside both buttons — render with Material Icons, tint gold */
+section[data-testid='stSidebar'] button[data-testid='baseButton-header'] span,
+section[data-testid='stSidebar'] [data-testid='stSidebarCollapseButton'] button span,
+[data-testid="collapsedControl"] span,
+button[data-testid="collapsedControl"] span {
+    font-family: 'Material Icons' !important;
+    font-feature-settings: 'liga' 1 !important;
+    -webkit-font-feature-settings: 'liga' 1 !important;
+    font-size: 1rem !important;
+    color: #4A4540 !important;
+    line-height: 1 !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    word-wrap: normal !important;
+    direction: ltr !important;
+    -webkit-font-smoothing: antialiased !important;
 }
-[data-testid="collapsedControl"]:hover::after,
-button[data-testid="collapsedControl"]:hover::after { color: #D4AF37 !important; }
+section[data-testid='stSidebar'] button[data-testid='baseButton-header']:hover span,
+section[data-testid='stSidebar'] [data-testid='stSidebarCollapseButton'] button:hover span,
+[data-testid="collapsedControl"]:hover span,
+button[data-testid="collapsedControl"]:hover span { color: #D4AF37 !important; }
+
+/* SVGs inside buttons — hide them (Material Icons text rendering is used instead) */
+section[data-testid='stSidebar'] button[data-testid='baseButton-header'] svg,
+section[data-testid='stSidebar'] [data-testid='stSidebarCollapseButton'] svg,
+[data-testid="collapsedControl"] svg,
+button[data-testid="collapsedControl"] svg { display: none !important; }
 [data-testid='stDecoration'] { display: none !important; }
 #MainMenu, footer { visibility: hidden !important; }
 
@@ -229,7 +225,8 @@ section[data-testid='stSidebar'] {
     background: var(--bg2) !important;
     border-right: 1px solid var(--border2) !important;
     width: 290px !important;
-    min-width: 290px !important;
+    /* NO min-width override — lets Streamlit collapse it to 0 */
+    transition: width 0.25s ease, transform 0.25s ease !important;
 }
 section[data-testid='stSidebar'] > div {
     background: var(--bg2) !important;
