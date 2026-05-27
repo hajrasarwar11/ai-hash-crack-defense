@@ -84,6 +84,11 @@ html, body, [class*='css'] {
     color: var(--text);
 }
 
+/* ── HIDE SIDEBAR COLLAPSE BUTTON ────────────────── */
+[data-testid="collapsedControl"] { display: none !important; }
+button[data-testid="collapsedControl"] { display: none !important; }
+[data-testid="stSidebarCollapsedControl"] { display: none !important; }
+
 /* ── PRESERVE INLINE GOLD COLORS ─────────────────── */
 [style*="color:#c9a84c"],
 [style*="color: #c9a84c"],
@@ -133,8 +138,8 @@ header[data-testid='stHeader'],
 section[data-testid='stSidebar'] {
     background: var(--bg2) !important;
     border-right: 1px solid var(--border2) !important;
-    width: 226px !important;
-    min-width: 226px !important;
+    width: 290px !important;
+    min-width: 290px !important;
 }
 section[data-testid='stSidebar'] > div {
     background: var(--bg2) !important;
@@ -155,21 +160,21 @@ section[data-testid='stSidebar'] > div {
 [data-testid='stSidebar'] .stRadio label {
     display: flex !important;
     align-items: center !important;
-    padding: 0.5rem 0.9rem !important;
+    padding: 0.5rem 0.75rem !important;
     border-radius: 7px !important;
     cursor: pointer !important;
-    font-size: 0.83rem !important;
+    font-size: 0.79rem !important;
     font-weight: 400 !important;
     text-transform: none !important;
     letter-spacing: 0.005em !important;
     white-space: nowrap !important;
     overflow: hidden !important;
-    text-overflow: ellipsis !important;
+    text-overflow: clip !important;
     color: var(--text-dim) !important;
     border-left: 2px solid transparent !important;
     transition: all 0.12s ease !important;
     margin-bottom: 2px !important;
-    line-height: 1.4 !important;
+    line-height: 1.45 !important;
 }
 [data-testid='stSidebar'] .stRadio label:hover {
     background: rgba(255,255,255,0.035) !important;
@@ -179,7 +184,7 @@ section[data-testid='stSidebar'] > div {
 [data-testid='stSidebar'] .stRadio label[data-checked='true'],
 [data-testid='stSidebar'] .stRadio [aria-checked='true'] ~ label,
 [data-testid='stSidebar'] .stRadio input:checked + div {
-    background: rgba(201,168,76,0.07) !important;
+    background: rgba(201,168,76,0.08) !important;
     color: var(--gold) !important;
     border-left-color: var(--gold) !important;
     font-weight: 500 !important;
@@ -223,6 +228,7 @@ p, span, div, label, li, .stMarkdown, .stText {
     border-color: var(--gold) !important;
     background: var(--gold-glow) !important;
     color: var(--gold2) !important;
+    box-shadow: 0 0 18px rgba(201,168,76,0.15) !important;
 }
 .stButton > button:active { transform: scale(0.98) !important; }
 
@@ -249,7 +255,7 @@ p, span, div, label, li, .stMarkdown, .stText {
     border-color: var(--gold-dim) !important;
     background: var(--bg4) !important;
     outline: none !important;
-    box-shadow: 0 0 0 3px rgba(201,168,76,0.05) !important;
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.07) !important;
 }
 
 /* SELECT */
@@ -263,7 +269,7 @@ p, span, div, label, li, .stMarkdown, .stText {
 }
 .stSelectbox svg { fill: var(--gold) !important; }
 
-/* METRICS */
+/* ── METRICS — equal height + gold glow ──────────── */
 [data-testid='stMetric'] {
     background: var(--bg2) !important;
     border: 1px solid var(--border2) !important;
@@ -271,18 +277,21 @@ p, span, div, label, li, .stMarkdown, .stText {
     padding: 1.3rem 1.4rem 1.1rem !important;
     position: relative !important;
     overflow: hidden !important;
-    transition: border-color 0.15s, transform 0.15s !important;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s !important;
+    box-shadow: 0 0 22px rgba(201,168,76,0.07), 0 2px 10px rgba(0,0,0,0.45) !important;
+    height: 100% !important;
 }
 [data-testid='stMetric']::before {
     content: '' !important;
     position: absolute !important;
-    top: 0; left: 15%; right: 15% !important;
+    top: 0; left: 10%; right: 10% !important;
     height: 1px !important;
-    background: linear-gradient(90deg, transparent, var(--gold-dim) 35%, var(--gold) 50%, var(--gold-dim) 65%, transparent) !important;
+    background: linear-gradient(90deg, transparent, var(--gold-dim) 30%, var(--gold) 50%, var(--gold-dim) 70%, transparent) !important;
 }
 [data-testid='stMetric']:hover {
-    border-color: var(--border3) !important;
-    transform: translateY(-1px) !important;
+    border-color: var(--gold-dim) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 0 36px rgba(201,168,76,0.15), 0 6px 20px rgba(0,0,0,0.55) !important;
 }
 [data-testid='stMetric'] * { color: var(--text) !important; }
 [data-testid='stMetricLabel'] {
@@ -298,7 +307,7 @@ p, span, div, label, li, .stMarkdown, .stText {
     font-size: 2rem !important;
     font-weight: 400 !important;
     font-family: var(--display) !important;
-    color: var(--text) !important;
+    color: var(--gold2) !important;
     letter-spacing: -0.02em !important;
     line-height: 1.2 !important;
     margin: 0.2rem 0 !important;
@@ -308,6 +317,35 @@ p, span, div, label, li, .stMarkdown, .stText {
     color: var(--text-dim) !important;
     font-family: var(--font) !important;
     font-weight: 400 !important;
+}
+
+/* ── CUSTOM HTML CARDS — universal glow ──────────── */
+[data-testid='stMarkdown'] div[style*="background:#0e0e0e"][style*="border-radius"] {
+    box-shadow: 0 0 22px rgba(201,168,76,0.06), 0 2px 12px rgba(0,0,0,0.5) !important;
+    transition: box-shadow 0.22s ease, transform 0.22s ease !important;
+}
+[data-testid='stMarkdown'] div[style*="background:#0e0e0e"][style*="border-radius"]:hover {
+    box-shadow: 0 0 38px rgba(201,168,76,0.14), 0 6px 22px rgba(0,0,0,0.6) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* equal-height columns for card grids */
+[data-testid='stHorizontalBlock'] > div {
+    display: flex !important;
+    flex-direction: column !important;
+}
+[data-testid='stHorizontalBlock'] > div [data-testid='stVerticalBlock'] {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+[data-testid='stHorizontalBlock'] > div [data-testid='stMarkdown'] {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+[data-testid='stHorizontalBlock'] > div [data-testid='stMarkdown'] > div {
+    flex: 1 !important;
 }
 
 /* TABS */
@@ -424,6 +462,10 @@ hr {
     to   { opacity: 1; transform: translateY(0); }
 }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes goldPulse {
+    0%, 100% { box-shadow: 0 0 22px rgba(201,168,76,0.07), 0 2px 10px rgba(0,0,0,0.45); }
+    50%       { box-shadow: 0 0 32px rgba(201,168,76,0.13), 0 2px 10px rgba(0,0,0,0.45); }
+}
 
 .main .block-container { animation: fadeUp 0.3s cubic-bezier(0.22,1,0.36,1) both !important; }
 section[data-testid='stSidebar'] { animation: fadeIn 0.25s ease both !important; }
@@ -534,14 +576,14 @@ with st.sidebar:
     )
 
     page = st.radio("Navigation", [
-        "🏠  Overview",
-        "⚙️  Hash Lab",
-        "⚔️  Attack Simulation",
-        "🔬  Cryptanalysis",
-        "🛡️  Defence System",
-        "📊  Validation Metrics",
-        "🔍  Security Intelligence",
-        "👥  About",
+        "🏠 Overview",
+        "⚙️ Hash Lab",
+        "⚔️ Attack Simulation",
+        "🔬 Cryptanalysis",
+        "🛡️ Defence System",
+        "📊 Validation Metrics",
+        "🔍 Security Intelligence",
+        "👥 About",
     ], label_visibility="collapsed")
 
     st.markdown(
