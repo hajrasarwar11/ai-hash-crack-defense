@@ -1,0 +1,279 @@
+You are a senior staff-level full-stack engineer, cybersecurity UI/UX architect, and design systems expert. You must work like a principal engineer and completely refactor my application UI/UX, architecture consistency, styling system, responsiveness, and usability in ONE GO.
+
+PROJECT CONTEXT:
+This is a cybersecurity / information security academic project called:
+
+“Cryptanalysis of Weak Password Hashing Systems and AI-Based Defence Mechanism”
+
+The app contains pages like:
+- Overview
+- Hash Lab
+- Attack Simulation
+- Cryptanalysis
+- Defence System
+- Validation Metrics
+- Security Intelligence
+- About
+
+CURRENT PROBLEM:
+The app looks inconsistent, unfinished, generic, and not premium. Theme is broken between pages. Components look mismatched. Some styling applies only partially. The interface does not feel like a senior-level cybersecurity product.
+
+I want a COMPLETE production-grade UI/UX overhaul with ZERO shortcuts.
+
+CRITICAL INSTRUCTIONS:
+DO NOT patch things randomly.
+DO NOT partially fix UI.
+DO NOT stop midway.
+DO NOT only edit CSS.
+DO NOT break existing functionality.
+DO NOT remove any working backend logic.
+DO NOT change project purpose.
+
+You must first inspect the ENTIRE codebase and then systematically redesign everything.
+
+GOAL:
+The app must look:
+- Fantastic
+- Premium
+- Unique
+- Research-grade
+- Impressive to university faculty
+- Better than typical student projects
+- Like a real cybersecurity intelligence platform
+
+THEME REQUIREMENTS (VERY IMPORTANT):
+DO NOT USE:
+- Blue theme
+- Light blue
+- Dark blue
+- Generic hacker green
+- Pure black hacker UI
+- Common neon-green matrix style
+- Overused modern SaaS style
+
+I want a UNIQUE CYBERSECURITY AESTHETIC.
+
+DESIGN DIRECTION:
+Create a premium “Cyber Intelligence + Digital Forensics + Luxury Tech” aesthetic.
+
+Theme palette suggestion:
+Primary:
+- Deep obsidian charcoal (#0F0E17)
+- Dark graphite (#17161F)
+
+Accent colors:
+- Burnished gold (#D4AF37)
+- Metallic copper (#B87333)
+- Deep crimson glow (#7A1E2B)
+- Soft amber highlights (#FFB347)
+
+Secondary luxury glow:
+- Deep plum shadows (#261A2C)
+
+NO childish neon.
+NO over-glow.
+NO cheap gaming UI.
+
+Visual vibe:
+“Elite cyber intelligence lab”
+“Military-grade digital forensics”
+“Premium threat intelligence system”
+
+GLOBAL CONSISTENCY (MANDATORY):
+The ENTIRE APP must follow ONE DESIGN SYSTEM.
+
+Every page must look unified:
+- same spacing
+- same border radius
+- same shadows
+- same typography
+- same animation system
+- same cards
+- same button style
+- same hover behavior
+- same layout rhythm
+
+NO page should feel different.
+
+BUILD A PROPER DESIGN SYSTEM:
+Create reusable style classes/components.
+
+Examples:
+- App shell
+- Sidebar system
+- Card system
+- Section containers
+- Buttons
+- Inputs
+- Tabs
+- Metrics cards
+- Alerts
+- Tables
+- Charts
+- Status badges
+
+All components must inherit one global theme.
+
+SIDEBAR FIXES:
+Current sidebar feels outdated.
+
+Redesign sidebar professionally:
+- premium branding section
+- elegant logo treatment
+- smooth hover effects
+- active page highlight
+- better spacing
+- visually balanced icons
+- modern but professional
+- remove ugly Streamlit artifacts
+- permanently hide keyboard_double_arrow sidebar button
+
+Add subtle premium animations.
+
+TYPOGRAPHY:
+Use elegant, modern typography.
+
+Hierarchy:
+- strong headings
+- clean readable body
+- premium spacing
+- cybersecurity dashboard feel
+
+Avoid generic fonts.
+
+UI/UX REQUIREMENTS:
+1. Equal spacing everywhere
+2. Perfect alignment
+3. Proper margins/padding
+4. Responsive on laptop screens
+5. Smooth hover transitions
+6. Clean loading states
+7. Better empty states
+8. Better visual hierarchy
+9. Improve readability
+10. Premium dashboard feel
+
+CARD SYSTEM:
+All cards must:
+- same height
+- same border radius
+- subtle luxury glow
+- premium hover lift
+- soft gradients
+- elegant shadows
+- smooth transitions
+
+NO random card sizes.
+
+BUTTONS:
+Create premium buttons:
+- hover glow
+- micro interactions
+- consistent sizes
+- proper padding
+- active states
+- disabled states
+
+INPUTS:
+Password fields, dropdowns, search bars etc must feel premium:
+- elegant borders
+- focus animations
+- better spacing
+- modern cyber-luxury look
+
+HASH LAB PAGE:
+Current page looks plain.
+
+Make it visually impressive:
+- stronger hero section
+- better tab design
+- premium hash generation area
+- vulnerability explanation cards
+- modern input layout
+- beautiful result display
+
+ATTACK SIMULATION PAGE:
+Must feel cinematic and advanced.
+Like a real cyber lab dashboard.
+
+Add:
+- professional visual hierarchy
+- simulation feel
+- premium metrics display
+
+CRYPTOANALYSIS PAGE:
+Should look research-grade.
+Make graphs/charts beautiful and readable.
+
+DEFENCE SYSTEM PAGE:
+Should feel “AI security engine”.
+Premium intelligence system visuals.
+
+VALIDATION METRICS:
+Must feel analytical and publication-quality.
+
+SECURITY INTELLIGENCE:
+Should look like a threat intelligence dashboard.
+
+ABOUT PAGE:
+Make premium and elegant.
+Not boring text blocks.
+
+ANIMATIONS:
+Use subtle animations only:
+- hover elevation
+- smooth transitions
+- fade reveal
+- elegant motion
+
+NO distracting animations.
+
+RESPONSIVENESS:
+Must work perfectly on:
+- laptop
+- desktop
+- medium screens
+
+CODE QUALITY:
+- remove duplicated CSS
+- remove conflicting styles
+- centralize theme
+- create reusable styling system
+- clean architecture
+- production-grade code organization
+
+DEBUGGING:
+Find and fix ALL hidden UI issues, including issues I didn’t mention:
+- overflow problems
+- spacing issues
+- broken responsiveness
+- inconsistent fonts
+- bad alignment
+- contrast issues
+- sidebar bugs
+- component mismatch
+- inconsistent styling
+- ugly default Streamlit elements
+- poor hierarchy
+- random margins
+- hover inconsistencies
+
+IMPORTANT:
+Before changing code:
+1. Analyze entire project
+2. List issues found
+3. Create redesign strategy
+4. Implement carefully
+5. Verify every page
+6. Test responsiveness
+7. Ensure consistency
+
+DO NOT STOP MIDWAY.
+DO NOT GIVE HALF RESULTS.
+FINISH EVERYTHING COMPLETELY.
+
+At the end provide:
+1. What changed
+2. Files modified
+3. Remaining recommendations
+4. UI consistency report
