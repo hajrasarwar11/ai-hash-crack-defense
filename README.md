@@ -1,4 +1,5 @@
 # Hash Vulnerability Assessment & Cracking Lab
+Streamlit: https://ai-hash-crack-defense-z6pcs5zxivvtjwum7e95zb.streamlit.app/ 
 
 Educational Python project demonstrating **weak passwords**, **MD5/SHA1 hashing**, **dictionary attacks**, **brute-force attacks**, timing metrics, success rates, and **matplotlib** charts.
 
